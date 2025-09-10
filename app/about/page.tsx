@@ -246,7 +246,7 @@ export default function AboutPage() {
             Intéressé par mon profil ?
           </h2>
           <p className="text-gray-600 mb-6">
-            N'hésitez pas à me contacter, télécharger mon CV ou utiliser le chat IA pour en savoir plus !
+            N'hésitez pas à me contacter ou télécharger mon CV pour en savoir plus !
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <CVDownload variant="default" size="md" />
@@ -255,12 +255,6 @@ export default function AboutPage() {
               className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Envoyer un email
-            </a>
-            <a
-              href="/chat"
-              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 shadow-lg hover:shadow-orange-500/25"
-            >
-              Chat IA
             </a>
           </div>
         </section>

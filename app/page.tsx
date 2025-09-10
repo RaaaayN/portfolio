@@ -4,7 +4,7 @@ import { Badge } from "@/components/Badge";
 import { CVDownload, CVBadge } from "@/components/CVDownload";
 import { PhotoDisplay } from "@/components/PhotoDisplay";
 import Link from "next/link";
-import { ArrowRight, MessageCircle, Code, Briefcase, GraduationCap, Sparkles } from "lucide-react";
+import { ArrowRight, MessageCircle, Briefcase, GraduationCap, Sparkles } from "lucide-react";
 
 export default function Home() {
   const profile = readProfile();
@@ -61,11 +61,11 @@ export default function Home() {
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
-                  href="/chat"
-                  className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-purple-400 rounded-lg hover:bg-purple-400 hover:text-slate-900 transition-all duration-200 hover:scale-105"
+                  href="/contact"
+                  className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all duration-200 hover:scale-105"
                 >
                   <MessageCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                  Me poser des questions
+                  Me contacter
                 </Link>
                 <CVDownload 
                   variant="outline" 
@@ -99,23 +99,10 @@ export default function Home() {
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">Explorez mon univers</h2>
-            <p className="text-gray-300">Découvrez mes projets, mon parcours et posez-moi des questions</p>
+            <p className="text-gray-300">Découvrez mes projets et mon parcours, ou contactez-moi</p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link
-              href="/about"
-              className="group p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
-            >
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/30 transition-colors">
-                  <Code className="w-6 h-6 text-blue-400" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">À propos</h3>
-                <p className="text-gray-400 text-sm">Mon parcours et mes compétences</p>
-              </div>
-            </Link>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Link
               href="/projects"
               className="group p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
@@ -152,19 +139,6 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Contact</h3>
                 <p className="text-gray-400 text-sm">Envoyez-moi un message</p>
-              </div>
-            </Link>
-
-            <Link
-              href="/chat"
-              className="group p-6 bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-xl border border-orange-400/30 hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
-            >
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:from-orange-400 group-hover:to-red-400 transition-all duration-300 shadow-md">
-                  <MessageCircle className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Chat IA</h3>
-                <p className="text-orange-200 text-sm">Posez-moi des questions</p>
               </div>
             </Link>
           </div>
@@ -241,15 +215,15 @@ export default function Home() {
               Prêt à collaborer ?
             </h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Découvrez mes projets, explorez mon parcours, ou posez-moi directement des questions via le chat IA.
+              Découvrez mes projets, explorez mon parcours ou contactez-moi directement.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/chat"
-                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-red-500 rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+                href="/contact"
+                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all duration-200 hover:scale-105"
               >
                 <MessageCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                Commencer une conversation
+                Me contacter
               </Link>
               <Link
                 href="/about"

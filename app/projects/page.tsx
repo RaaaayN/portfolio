@@ -195,10 +195,10 @@ export default function ProjectsPage() {
               Voir sur GitHub
             </a>
             <a
-              href="/chat"
-              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 shadow-lg hover:shadow-orange-500/25"
+              href="/contact"
+              className="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
             >
-              Discuter des projets
+              Me contacter
             </a>
           </div>
         </section>
