@@ -1,6 +1,7 @@
 import { readProfile } from "@/lib/readProfile";
 import { Container } from "@/components/Container";
 import { Badge } from "@/components/Badge";
+import { CVDownload, CVBadge } from "@/components/CVDownload";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, Code, Briefcase, GraduationCap, Sparkles } from "lucide-react";
 
@@ -17,10 +18,13 @@ export default function Home() {
           <div className="relative pt-20 pb-16 text-center">
             <div className="mx-auto max-w-4xl">
               <div className="mb-8">
-                <Badge variant="secondary" className="mb-4">
-                  <Sparkles className="w-4 h-4 mr-2" />
-                  Portfolio Interactif
-                </Badge>
+                <div className="flex flex-wrap justify-center gap-4 mb-4">
+                  <Badge variant="secondary">
+                    <Sparkles className="w-4 h-4 mr-2" />
+                    Portfolio Interactif
+                  </Badge>
+                  <CVBadge />
+                </div>
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
                   Salut, je suis{" "}
                   <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -50,6 +54,11 @@ export default function Home() {
                   <MessageCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
                   Me poser des questions
                 </Link>
+                <CVDownload 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-white text-white hover:bg-white hover:text-slate-900"
+                />
               </div>
 
               {/* Quick Stats */}
@@ -108,15 +117,28 @@ export default function Home() {
             </Link>
 
             <Link
-              href="/experience"
+              href="/about"
               className="group p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
               <div className="text-center">
                 <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500/30 transition-colors">
                   <GraduationCap className="w-6 h-6 text-green-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Expérience</h3>
-                <p className="text-gray-400 text-sm">Mon parcours professionnel</p>
+                <h3 className="text-lg font-semibold text-white mb-2">À propos</h3>
+                <p className="text-gray-400 text-sm">Mon parcours complet</p>
+              </div>
+            </Link>
+
+            <Link
+              href="/contact"
+              className="group p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+            >
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500/30 transition-colors">
+                  <MessageCircle className="w-6 h-6 text-green-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Contact</h3>
+                <p className="text-gray-400 text-sm">Envoyez-moi un message</p>
               </div>
             </Link>
 
@@ -188,10 +210,10 @@ export default function Home() {
                 Commencer une conversation
               </Link>
               <Link
-                href="/projects"
+                href="/about"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-lg hover:bg-white/10 transition-all duration-200 hover:scale-105"
               >
-                Voir mes projets
+                Découvrir mon parcours
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </div>

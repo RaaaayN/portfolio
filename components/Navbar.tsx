@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
+import { CVDownload } from "./CVDownload";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,7 @@ export function Navbar() {
     { name: "Accueil", href: "/" },
     { name: "À propos", href: "/about" },
     { name: "Projets", href: "/projects" },
-    { name: "Expérience", href: "/experience" },
+    { name: "Contact", href: "/contact" },
     { name: "Chat IA", href: "/chat" },
   ];
 
@@ -24,7 +25,7 @@ export function Navbar() {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <a
                 key={item.name}
@@ -34,6 +35,7 @@ export function Navbar() {
                 {item.name}
               </a>
             ))}
+            <CVDownload variant="ghost" size="sm" showIcon={false} />
           </div>
 
           {/* Mobile menu button */}
@@ -61,6 +63,9 @@ export function Navbar() {
                   {item.name}
                 </a>
               ))}
+              <div className="pt-2">
+                <CVDownload variant="outline" size="sm" className="w-full" />
+              </div>
             </div>
           </div>
         )}
