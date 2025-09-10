@@ -225,7 +225,18 @@ INSTRUCTIONS :
 - Si tu ne trouves pas d'information pertinente, dis-le poliment
 - Garde tes réponses concises (max 200 mots)
 - Utilise un ton professionnel mais accessible
-- Si on te demande des informations de contact, dirige vers la page contact du portfolio
+
+REDIRECTION :
+À la fin de ta réponse, si tu penses qu'il serait utile de rediriger vers une page spécifique, ajoute une ligne avec :
+[REDIRECT:nom_de_la_page]
+
+Pages disponibles :
+- contact (pour les questions de contact)
+- projects (pour les projets)
+- about (pour le parcours/expérience)
+- home (pour l'accueil)
+
+Exemple : [REDIRECT:contact]
 
 RÉPONSE :`;
 
@@ -286,25 +297,25 @@ RÉPONSE :`;
       }
     }
 
-    // Réponses par mots-clés
+    // Réponses par mots-clés avec redirections
     if (lowerQuery.includes('parcours') || lowerQuery.includes('formation') || lowerQuery.includes('études')) {
-      return "Rayan est étudiant en 4e année d'ingénieur informatique à l'UTC, spécialisé en Intelligence Artificielle et Data Science. Il a suivi des classes préparatoires au Lycée Louis-le-Grand avant d'intégrer l'UTC.";
+      return "Rayan est étudiant en 4e année d'ingénieur informatique à l'UTC, spécialisé en Intelligence Artificielle et Data Science. Il a suivi des classes préparatoires au Lycée Louis-le-Grand avant d'intégrer l'UTC.\n\n[REDIRECT:about]";
     }
     
     if (lowerQuery.includes('compétences') || lowerQuery.includes('technologies') || lowerQuery.includes('langages')) {
-      return "Rayan maîtrise Python, C++, JavaScript, TypeScript, R, l'Intelligence Artificielle (Machine Learning, Deep Learning, NLP, RAG), le développement web (React, Next.js, Node.js), et les outils de data science (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch).";
+      return "Rayan maîtrise Python, C++, JavaScript, TypeScript, R, l'Intelligence Artificielle (Machine Learning, Deep Learning, NLP, RAG), le développement web (React, Next.js, Node.js), et les outils de data science (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch).\n\n[REDIRECT:projects]";
     }
     
     if (lowerQuery.includes('projets') || lowerQuery.includes('réalisations')) {
-      return "Parmi ses projets : un système de recommandation IA, une application web de data science avec des tableaux de bord interactifs, et un projet RAG (Retrieval-Augmented Generation). Il a également dirigé la Junior-Entreprise UTC.";
+      return "Parmi ses projets : un système de recommandation IA, une application web de data science avec des tableaux de bord interactifs, et un projet RAG (Retrieval-Augmented Generation). Il a également dirigé la Junior-Entreprise UTC.\n\n[REDIRECT:projects]";
     }
     
     if (lowerQuery.includes('expérience') || lowerQuery.includes('professionnel') || lowerQuery.includes('travail')) {
-      return "Rayan a été Président de la Junior-Entreprise UTC (2023-2024), où il dirigeait 15 personnes. Il a également été Responsable Recrutement et a effectué des stages en développement.";
+      return "Rayan a été Président de la Junior-Entreprise UTC (2023-2024), où il dirigeait 15 personnes. Il a également été Responsable Recrutement et a effectué des stages en développement.\n\n[REDIRECT:about]";
     }
     
     if (lowerQuery.includes('contact') || lowerQuery.includes('email') || lowerQuery.includes('téléphone')) {
-      return "Vous pouvez contacter Rayan par email à rayan.barre@icloud.com ou par téléphone au +33 7 82 59 80 57. Il est également présent sur LinkedIn et GitHub.";
+      return "Vous pouvez contacter Rayan par email à rayan.barre@icloud.com ou par téléphone au +33 7 82 59 80 57. Il est également présent sur LinkedIn et GitHub.\n\n[REDIRECT:contact]";
     }
     
     if (lowerQuery.includes('ia') || lowerQuery.includes('intelligence artificielle') || lowerQuery.includes('machine learning')) {

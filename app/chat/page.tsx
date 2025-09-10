@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
+import { SmartButtons } from "@/components/SmartButtons";
+import { generateSmartButtons, cleanText } from "@/lib/smartButtons";
 import { Send, Bot, User, Loader2, Sparkles } from "lucide-react";
 
 interface Message {
@@ -24,15 +26,15 @@ export default function ChatPage() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // Défilement automatique supprimé
+  // const scrollToBottom = () => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  // };
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, [messages]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -151,9 +153,18 @@ export default function ChatPage() {
                           : "bg-gray-100 text-gray-900"
                       }`}
                     >
-                      <p className="whitespace-pre-line">{message.content}</p>
+                      <p className="whitespace-pre-line">{cleanText(message.content)}</p>
+                      
+                      {/* Boutons de redirection pour les messages du bot */}
+                      {message.sender === "bot" && (
+                        <SmartButtons 
+                          buttons={generateSmartButtons(message.content)} 
+                          className="mt-3"
+                        />
+                      )}
+                      
                       <p
-                        className={`text-xs mt-1 ${
+                        className={`text-xs mt-2 ${
                           message.sender === "user" ? "text-blue-100" : "text-gray-500"
                         }`}
                       >
@@ -179,8 +190,6 @@ export default function ChatPage() {
                   </div>
                 </div>
               )}
-              
-              <div ref={messagesEndRef} />
             </div>
 
             {/* Suggested Questions */}

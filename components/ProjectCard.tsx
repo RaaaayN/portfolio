@@ -1,12 +1,14 @@
 import { ExternalLink, Github, MapPin, Calendar } from "lucide-react";
 import { Card } from "./Card";
 import { Badge } from "./Badge";
+import { PhotoDisplay } from "./PhotoDisplay";
 
 interface Project {
   title: string;
   description: string;
   technologies: string[];
   image?: string;
+  photo_path?: string;
   github?: string;
   live?: string;
   featured?: boolean;
@@ -22,12 +24,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Card hover className="h-full">
       <div className="flex flex-col h-full">
-        {project.image && (
+        {(project.image || project.photo_path) && (
           <div className="mb-4 rounded-lg overflow-hidden">
-            <img
-              src={project.image}
+            <PhotoDisplay
+              src={project.photo_path || project.image || ""}
               alt={project.title}
-              className="w-full h-48 object-cover"
+              size="lg"
+              rounded={false}
+              className="w-full h-48"
             />
           </div>
         )}

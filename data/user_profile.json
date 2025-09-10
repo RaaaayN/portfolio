@@ -3,6 +3,7 @@
   "title": "Étudiant en 4e année à l'UTC, spécialité Intelligence Artificielle & Data",
   "bio": "Étudiant en dernière année à l'UTC, passionné par l'IA, la data science et l'innovation technologique. Expérience en gestion de projets, développement de solutions intelligentes et leadership d'équipe.",
   "about": "Je combine une solide formation en ingénierie informatique à l'UTC avec une forte implication dans des projets techniques et associatifs. Mes expériences couvrent la gestion de projets, le développement d'applications IA/data, la recherche, et l'encadrement d'équipes. Je me distingue par ma capacité à mener des projets de bout en bout, mon adaptabilité et mon esprit d'équipe.",
+  "photo_path": "/images/profile.jpg",
   "skills": [
     {
       "category": "Langages de programmation",
@@ -105,7 +106,8 @@
         "Management",
         "Coordination d'équipe",
         "Rédaction contractuelle"
-      ]
+      ],
+      "photo_path": "/images/utc.png"
     },
     {
       "title": "Chargé des Ressources Humaines",
@@ -118,7 +120,8 @@
         "Formation",
         "Communication interne",
         "Organisation d'événements"
-      ]
+      ],
+      "photo_path": "/images/utc.png"
     },
     {
       "title": "Opérateur de Conditionnement (stage ouvrier)",
@@ -130,23 +133,26 @@
         "Contrôle qualité",
         "Production industrielle",
         "Travail en équipe"
-      ]
+      ],
+      "photo_path": "/images/loreal.png"
     }
   ],
   "education": [
     {
-      "title": "Diplôme d’ingénieur (prévu en 2027)",
+      "title": "Diplôme d'ingénieur (prévu en 2027)",
       "company": "Université de Technologie de Compiègne (UTC)",
       "location": "Compiègne",
       "period": "Depuis Février 2023",
-      "description": "Branche Informatique (filière Intelligence Artificielle et sciences des données)."
+      "description": "Branche Informatique (filière Intelligence Artificielle et sciences des données).",
+      "photo_path": "/images/utc.png"
     },
     {
       "title": "Classes Préparatoires aux Grandes Écoles (MP2I/MPI) (classé 13e/38)",
       "company": "Lycée Louis Thuillier",
       "location": "Amiens",
       "period": "Septembre 2021 – Février 2023",
-      "description": "Formation approfondie en mathématiques, en physique et en informatique."
+      "description": "Formation approfondie en mathématiques, en physique et en informatique.",
+      "photo_path": "/images/utc.png"
     }
   ],
   "certifications": [

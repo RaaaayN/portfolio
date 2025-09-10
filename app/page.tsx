@@ -2,6 +2,7 @@ import { readProfile } from "@/lib/readProfile";
 import { Container } from "@/components/Container";
 import { Badge } from "@/components/Badge";
 import { CVDownload, CVBadge } from "@/components/CVDownload";
+import { PhotoDisplay } from "@/components/PhotoDisplay";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, Code, Briefcase, GraduationCap, Sparkles } from "lucide-react";
 
@@ -18,6 +19,18 @@ export default function Home() {
           <div className="relative pt-20 pb-16 text-center">
             <div className="mx-auto max-w-4xl">
               <div className="mb-8">
+                {/* Photo de profil */}
+                {profile.photo_path && (
+                  <div className="flex justify-center mb-8">
+                    <PhotoDisplay
+                      src={profile.photo_path}
+                      alt={`Photo de ${profile.name}`}
+                      size="xl"
+                      className="border-4 border-white/20"
+                    />
+                  </div>
+                )}
+                
                 <div className="flex flex-wrap justify-center gap-4 mb-4">
                   <Badge variant="secondary">
                     <Sparkles className="w-4 h-4 mr-2" />
@@ -144,14 +157,14 @@ export default function Home() {
 
             <Link
               href="/chat"
-              className="group p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              className="group p-6 bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-xl border border-orange-400/30 hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
             >
               <div className="text-center">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-500/30 transition-colors">
-                  <MessageCircle className="w-6 h-6 text-orange-400" />
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:from-orange-400 group-hover:to-red-400 transition-all duration-300 shadow-md">
+                  <MessageCircle className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Chat IA</h3>
-                <p className="text-gray-400 text-sm">Posez-moi des questions</p>
+                <p className="text-orange-200 text-sm">Posez-moi des questions</p>
               </div>
             </Link>
           </div>
@@ -233,7 +246,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/chat"
-                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 hover:scale-105"
+                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-red-500 rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
               >
                 <MessageCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
                 Commencer une conversation

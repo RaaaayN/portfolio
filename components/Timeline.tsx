@@ -1,4 +1,5 @@
 import { Calendar, MapPin } from "lucide-react";
+import { PhotoDisplay } from "./PhotoDisplay";
 
 interface TimelineItem {
   title: string;
@@ -8,6 +9,7 @@ interface TimelineItem {
   description: string;
   technologies?: string[];
   result?: string;
+  photo_path?: string;
 }
 
 interface TimelineProps {
@@ -21,14 +23,23 @@ export function Timeline({ items }: TimelineProps) {
         <div key={index} className="relative">
           {/* Timeline line */}
           {index < items.length - 1 && (
-            <div className="absolute left-4 top-8 w-0.5 h-full bg-gray-200" />
+            <div className="absolute left-8 top-16 w-0.5 h-full bg-gray-200" />
           )}
           
           <div className="flex items-start space-x-4">
-            {/* Timeline dot */}
-            <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-              <Calendar className="w-4 h-4 text-white" />
-            </div>
+            {/* Timeline dot ou photo */}
+            {item.photo_path ? (
+              <PhotoDisplay
+                src={item.photo_path}
+                alt={`Logo ${item.company || item.title}`}
+                size="md"
+                className="flex-shrink-0"
+              />
+            ) : (
+              <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-md">
+                <Calendar className="w-6 h-6 text-white" />
+              </div>
+            )}
             
             {/* Content */}
             <div className="flex-1 min-w-0">

@@ -5,6 +5,7 @@ export interface UserProfile {
   title: string;
   bio: string;
   about: string;
+  photo_path?: string;
   skills: {
     category: string;
     technologies: string[];
@@ -15,6 +16,7 @@ export interface UserProfile {
     description: string;
     technologies: string[];
     image?: string;
+    photo_path?: string;
     github?: string;
     live?: string;
     featured?: boolean;
@@ -29,6 +31,7 @@ export interface UserProfile {
     description: string;
     technologies?: string[];
     result?: string;
+    photo_path?: string;
   }[];
   education: {
     title: string;
@@ -37,6 +40,7 @@ export interface UserProfile {
     period: string;
     description: string;
     technologies?: string[];
+    photo_path?: string;
   }[];
   certifications?: string[];
   languages?: {

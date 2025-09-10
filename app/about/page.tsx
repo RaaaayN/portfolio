@@ -8,7 +8,7 @@ import { CVDownload } from "@/components/CVDownload";
 import { CertificationsList } from "@/components/CertificationsList";
 import { LanguagesList } from "@/components/LanguagesList";
 import { HobbiesList } from "@/components/HobbiesList";
-import { Code, Brain, Database, Globe, Award, Users, Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
+import { Code, Brain, Database, Globe, Award, Users, Briefcase, GraduationCap, Calendar, MapPin, Star, Target, Zap } from "lucide-react";
 
 export default function AboutPage() {
   const profile = readProfile();
@@ -72,7 +72,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* About Section */}
+        {/* 1. À propos de moi */}
         <section className="mb-16">
           <SectionTitle title="À propos de moi" />
           <Card>
@@ -84,9 +84,48 @@ export default function AboutPage() {
           </Card>
         </section>
 
-        {/* Skills Section */}
+        {/* 2. Expérience en chiffres */}
         <section className="mb-16">
-          <SectionTitle title="Mes compétences" />
+          <SectionTitle title="Mon expérience en chiffres" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {experienceStats.map((stat, index) => (
+              <Card key={index} hover className="text-center">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <div className="text-blue-600">
+                      {stat.icon}
+                    </div>
+                  </div>
+                </div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-lg font-semibold text-gray-700 mb-1">
+                  {stat.title}
+                </div>
+                <div className="text-gray-500 text-sm">
+                  {stat.description}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* 3. Formation */}
+        <section className="mb-16">
+          <SectionTitle title="Ma formation" />
+          <Timeline items={profile.education} />
+        </section>
+
+        {/* 4. Parcours professionnel */}
+        <section className="mb-16">
+          <SectionTitle title="Mon parcours professionnel" />
+          <Timeline items={profile.experience} />
+        </section>
+
+        {/* 5. Compétences techniques */}
+        <section className="mb-16">
+          <SectionTitle title="Mes compétences techniques" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {profile.skills.map((skill, index) => (
               <Card key={index} hover>
@@ -99,6 +138,11 @@ export default function AboutPage() {
                     {skill.category}
                   </h3>
                 </div>
+                {skill.description && (
+                  <p className="text-gray-600 mb-4 text-sm">
+                    {skill.description}
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-2">
                   {skill.technologies.map((tech, techIndex) => (
                     <span
@@ -114,36 +158,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Experience Stats */}
-        <section className="mb-16">
-          <SectionTitle title="Mon expérience en chiffres" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {experienceStats.map((stat, index) => (
-              <Card key={index} className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
-                  {stat.icon}
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                <div className="text-lg font-semibold text-gray-700 mb-1">{stat.title}</div>
-                <div className="text-sm text-gray-500">{stat.description}</div>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Experience Section */}
-        <section className="mb-16">
-          <SectionTitle title="Mon expérience" />
-          <Timeline items={profile.experience} />
-        </section>
-
-        {/* Education Section */}
-        <section className="mb-16">
-          <SectionTitle title="Ma formation" />
-          <Timeline items={profile.education} />
-        </section>
-
-        {/* Key Achievements */}
+        {/* 6. Réalisations clés */}
         <section className="mb-16">
           <SectionTitle title="Mes réalisations clés" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -154,12 +169,11 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Présidence Junior-Entreprise UTC
+                    Leadership & Management
                   </h3>
                   <p className="text-gray-600 mb-3">
-                    Direction d'une équipe de 15 personnes, développement commercial, 
-                    gestion de projets clients et formation des membres. Croissance de 
-                    40% du chiffre d'affaires sous ma direction.
+                    Présidence de la Junior-Entreprise UTC avec direction d'une équipe de 15 personnes, 
+                    croissance de 40% du chiffre d'affaires et formation de 32 membres.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="success" size="sm">Leadership</Badge>
@@ -172,68 +186,21 @@ export default function AboutPage() {
 
             <Card>
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Users className="w-6 h-6 text-purple-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Responsable Recrutement
-                  </h3>
-                  <p className="text-gray-600 mb-3">
-                    Gestion complète du processus de recrutement, organisation d'entretiens, 
-                    intégration de nouveaux membres et formation continue. 50+ candidats 
-                    évalués avec un taux de rétention de 90%.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" size="sm">RH</Badge>
-                    <Badge variant="secondary" size="sm">Recrutement</Badge>
-                    <Badge variant="secondary" size="sm">Formation</Badge>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card>
-              <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Briefcase className="w-6 h-6 text-blue-600" />
+                  <Code className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Stage Développement IA
+                    Projets Techniques
                   </h3>
                   <p className="text-gray-600 mb-3">
-                    Développement d'applications web et participation à des projets 
-                    d'intelligence artificielle. Contribution à l'amélioration des 
-                    performances de 30% sur les algorithmes de recommandation.
+                    Développement de solutions IA avancées : LSTM multivarié, moteur de recherche, 
+                    application RAG avec LangChain et applications web de data science.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="default" size="sm">Python</Badge>
-                    <Badge variant="default" size="sm">Machine Learning</Badge>
-                    <Badge variant="default" size="sm">Docker</Badge>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card>
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <GraduationCap className="w-6 h-6 text-orange-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Projet de Fin d'Études
-                  </h3>
-                  <p className="text-gray-600 mb-3">
-                    Développement d'un système RAG (Retrieval-Augmented Generation) 
-                    pour la génération de réponses contextuelles. Note de 18/20 
-                    et présentation devant un jury d'experts.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="warning" size="sm">RAG</Badge>
-                    <Badge variant="warning" size="sm">NLP</Badge>
-                    <Badge variant="warning" size="sm">Innovation</Badge>
+                    <Badge variant="default" size="sm">IA/ML</Badge>
+                    <Badge variant="default" size="sm">RAG</Badge>
+                    <Badge variant="default" size="sm">Data Science</Badge>
                   </div>
                 </div>
               </div>
@@ -241,80 +208,33 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Skills Evolution Timeline */}
-        <section className="mb-16">
-          <SectionTitle title="Évolution de mes compétences" />
-          <div className="space-y-6">
-            <div className="flex items-center space-x-4">
-              <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
-              <div className="flex-1">
-                <h4 className="font-semibold text-gray-900">2021-2022 : Fondations</h4>
-                <p className="text-gray-600">Classes préparatoires - Mathématiques, Physique, Informatique</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="w-4 h-4 bg-purple-600 rounded-full"></div>
-              <div className="flex-1">
-                <h4 className="font-semibold text-gray-900">2022-2023 : Spécialisation</h4>
-                <p className="text-gray-600">Entrée à l'UTC - Développement web, Python, bases de données</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="w-4 h-4 bg-green-600 rounded-full"></div>
-              <div className="flex-1">
-                <h4 className="font-semibold text-gray-900">2023-2024 : Leadership</h4>
-                <p className="text-gray-600">Présidence Junior-Entreprise - Management, IA, Data Science</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="w-4 h-4 bg-orange-600 rounded-full"></div>
-              <div className="flex-1">
-                <h4 className="font-semibold text-gray-900">2024-2025 : Expertise</h4>
-                <p className="text-gray-600">Projets RAG, Machine Learning avancé, Innovation technologique</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* 7. Certifications */}
+        {profile.certifications && profile.certifications.length > 0 && (
+          <section className="mb-16">
+            <SectionTitle title="Certifications" />
+            <CertificationsList certifications={profile.certifications} />
+          </section>
+        )}
 
-        {/* Achievements Section */}
-        <section className="mb-16">
-          <SectionTitle title="Mes réalisations" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Président Junior-Entreprise</h3>
-              <p className="text-gray-600 text-sm">
-                Direction d'une équipe de 15 personnes et gestion de projets clients
-              </p>
-            </Card>
-            
-            <Card className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Leadership & Management</h3>
-              <p className="text-gray-600 text-sm">
-                Expérience en recrutement, formation et encadrement d'équipe
-              </p>
-            </Card>
-            
-            <Card className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Brain className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Projets IA Innovants</h3>
-              <p className="text-gray-600 text-sm">
-                Développement de systèmes RAG et de recommandation intelligents
-              </p>
-            </Card>
-          </div>
-        </section>
+        {/* 8. Langues */}
+        {profile.languages && profile.languages.length > 0 && (
+          <section className="mb-16">
+            <SectionTitle title="Langues" />
+            <LanguagesList languages={profile.languages} />
+          </section>
+        )}
 
-        {/* Contact CTA */}
-        <section className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        {/* 9. Centres d'intérêt */}
+        {profile.hobbies && profile.hobbies.length > 0 && (
+          <section className="mb-16">
+            <SectionTitle title="Centres d'intérêt" />
+            <HobbiesList hobbies={profile.hobbies} />
+          </section>
+        )}
+
+        {/* 10. CTA Section */}
+        <section className="text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Intéressé par mon profil ?
           </h2>
           <p className="text-gray-600 mb-6">
@@ -330,36 +250,12 @@ export default function AboutPage() {
             </a>
             <a
               href="/chat"
-              className="inline-flex items-center justify-center px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 shadow-lg hover:shadow-orange-500/25"
             >
               Chat IA
             </a>
           </div>
         </section>
-
-        {/* Certifications Section */}
-        {profile.certifications && profile.certifications.length > 0 && (
-          <section className="mb-16">
-            <SectionTitle title="Certifications" />
-            <CertificationsList certifications={profile.certifications} />
-          </section>
-        )}
-
-        {/* Languages Section */}
-        {profile.languages && profile.languages.length > 0 && (
-          <section className="mb-16">
-            <SectionTitle title="Langues" />
-            <LanguagesList languages={profile.languages} />
-          </section>
-        )}
-
-        {/* Hobbies Section */}
-        {profile.hobbies && profile.hobbies.length > 0 && (
-          <section className="mb-16">
-            <SectionTitle title="Centres d'intérêt" />
-            <HobbiesList hobbies={profile.hobbies} />
-          </section>
-        )}
       </Container>
     </div>
   );
