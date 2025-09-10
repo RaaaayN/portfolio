@@ -8,6 +8,7 @@ import { CVDownload } from "@/components/CVDownload";
 import { CertificationsList } from "@/components/CertificationsList";
 import { LanguagesList } from "@/components/LanguagesList";
 import { HobbiesList } from "@/components/HobbiesList";
+import { PhotoDisplay } from "@/components/PhotoDisplay";
 import { Code, Brain, Database, Globe, Award, Users, Briefcase, GraduationCap, Calendar, MapPin, Star, Target, Zap } from "lucide-react";
 
 export default function AboutPage() {
@@ -45,11 +46,18 @@ export default function AboutPage() {
       <Container className="py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="w-32 h-32 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span className="text-4xl font-bold text-white">
-              {profile.name.split(' ').map(n => n[0]).join('')}
-            </span>
-          </div>
+          {/* Photo de profil */}
+          {profile.photo_path && (
+            <div className="flex justify-center mb-6">
+              <PhotoDisplay
+                src={profile.photo_path}
+                alt={`Photo de ${profile.name}`}
+                size="2xl"
+                className="border-4 border-white/20 shadow-lg"
+              />
+            </div>
+          )}
+          
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             {profile.name}
           </h1>
