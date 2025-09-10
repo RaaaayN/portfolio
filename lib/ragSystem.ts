@@ -59,7 +59,7 @@ export class RAGSystem {
     profile.skills.forEach((skillGroup, index) => {
       documents.push({
         id: `skill-${index}`,
-        content: `${skillGroup.category}: ${skillGroup.technologies.join(', ')}`,
+        content: `${skillGroup.category}: ${skillGroup.technologies.join(', ')}${skillGroup.description ? `\nDescription: ${skillGroup.description}` : ''}`,
         metadata: { 
           type: 'skill', 
           title: skillGroup.category,
@@ -72,7 +72,7 @@ export class RAGSystem {
     profile.projects.forEach((project, index) => {
       documents.push({
         id: `project-${index}`,
-        content: `Projet: ${project.title}\nDescription: ${project.description}\nTechnologies: ${project.technologies.join(', ')}${project.github ? `\nGitHub: ${project.github}` : ''}${project.live ? `\nSite: ${project.live}` : ''}`,
+        content: `Projet: ${project.title}\nDescription: ${project.description}\nTechnologies: ${project.technologies.join(', ')}${project.location ? `\nLieu: ${project.location}` : ''}${project.period ? `\nPériode: ${project.period}` : ''}${project.github ? `\nGitHub: ${project.github}` : ''}${project.live ? `\nSite: ${project.live}` : ''}`,
         metadata: { 
           type: 'project', 
           title: project.title,
@@ -85,7 +85,7 @@ export class RAGSystem {
     profile.experience.forEach((exp, index) => {
       documents.push({
         id: `exp-${index}`,
-        content: `${exp.title} chez ${exp.company || 'N/A'}\nPériode: ${exp.period}\nDescription: ${exp.description}${exp.technologies ? `\nTechnologies: ${exp.technologies.join(', ')}` : ''}`,
+        content: `${exp.title} chez ${exp.company || 'N/A'}\nPériode: ${exp.period}\nDescription: ${exp.description}${exp.result ? `\nRésultat: ${exp.result}` : ''}${exp.technologies ? `\nTechnologies: ${exp.technologies.join(', ')}` : ''}`,
         metadata: { 
           type: 'experience', 
           title: exp.title,
@@ -106,6 +106,46 @@ export class RAGSystem {
         }
       });
     });
+
+    // Certifications
+    if (profile.certifications && profile.certifications.length > 0) {
+      documents.push({
+        id: 'certifications',
+        content: `Certifications: ${profile.certifications.join(', ')}`,
+        metadata: { 
+          type: 'certification', 
+          title: 'Certifications',
+          section: 'Certifications'
+        }
+      });
+    }
+
+    // Langues
+    if (profile.languages && profile.languages.length > 0) {
+      const languagesText = profile.languages.map(lang => `${lang.language} (${lang.level})`).join(', ');
+      documents.push({
+        id: 'languages',
+        content: `Langues: ${languagesText}`,
+        metadata: { 
+          type: 'language', 
+          title: 'Langues',
+          section: 'Langues'
+        }
+      });
+    }
+
+    // Centres d'intérêt
+    if (profile.hobbies && profile.hobbies.length > 0) {
+      documents.push({
+        id: 'hobbies',
+        content: `Centres d'intérêt: ${profile.hobbies.join(', ')}`,
+        metadata: { 
+          type: 'hobby', 
+          title: 'Centres d\'intérêt',
+          section: 'Centres d\'intérêt'
+        }
+      });
+    }
 
     return documents;
   }
@@ -230,19 +270,19 @@ RÉPONSE :`;
       
       // Réponses basées sur le type de document
       if (bestMatch.document.metadata.type === 'profile') {
-        return `Basé sur le profil de Rayan : ${content}\n\nPour plus d'informations, n'hésitez pas à me poser des questions plus spécifiques ou à consulter la page contact.`;
+        return `Basé sur le profil de Rayan :\n\n${content}\n\nPour plus d'informations, n'hésitez pas à me poser des questions plus spécifiques ou à consulter la page contact.`;
       }
       
       if (bestMatch.document.metadata.type === 'project') {
-        return `Voici un projet de Rayan : ${content}\n\nIl a d'autres projets intéressants. Que souhaitez-vous savoir de plus ?`;
+        return `Voici un projet de Rayan :\n\n${content}\n\nIl a d'autres projets intéressants. Que souhaitez-vous savoir de plus ?`;
       }
       
       if (bestMatch.document.metadata.type === 'experience') {
-        return `Expérience de Rayan : ${content}\n\nIl a une expérience variée. Avez-vous des questions spécifiques ?`;
+        return `Expérience de Rayan :\n\n${content}\n\nIl a une expérience variée. Avez-vous des questions spécifiques ?`;
       }
       
       if (bestMatch.document.metadata.type === 'skill') {
-        return `Compétences de Rayan : ${content}\n\nIl maîtrise de nombreuses technologies. Voulez-vous en savoir plus sur un domaine particulier ?`;
+        return `Compétences de Rayan :\n\n${content}\n\nIl maîtrise de nombreuses technologies. Voulez-vous en savoir plus sur un domaine particulier ?`;
       }
     }
 

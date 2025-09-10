@@ -151,7 +151,7 @@ export default function ChatPage() {
                           : "bg-gray-100 text-gray-900"
                       }`}
                     >
-                      <p className="whitespace-pre-wrap">{message.content}</p>
+                      <p className="whitespace-pre-line">{message.content}</p>
                       <p
                         className={`text-xs mt-1 ${
                           message.sender === "user" ? "text-blue-100" : "text-gray-500"

@@ -7,6 +7,7 @@ interface TimelineItem {
   period: string;
   description: string;
   technologies?: string[];
+  result?: string;
 }
 
 interface TimelineProps {
@@ -55,9 +56,16 @@ export function Timeline({ items }: TimelineProps) {
                 </div>
               )}
               
-              <p className="text-gray-600 mb-3">
+              <p className="text-gray-600 mb-3 whitespace-pre-line">
                 {item.description}
               </p>
+              
+              {item.result && (
+                <div className="mb-3 p-3 bg-green-50 border-l-4 border-green-400 rounded-r">
+                  <p className="text-sm font-medium text-green-800 mb-1">Résultat :</p>
+                  <p className="text-sm text-green-700 whitespace-pre-line">{item.result}</p>
+                </div>
+              )}
               
               {item.technologies && item.technologies.length > 0 && (
                 <div className="flex flex-wrap gap-2">

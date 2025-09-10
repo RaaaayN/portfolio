@@ -34,7 +34,7 @@ export default function Home() {
                 <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
                   {profile.title}
                 </p>
-                <p className="text-lg text-gray-400 max-w-4xl mx-auto leading-relaxed">
+                <p className="text-lg text-gray-400 max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
                   {profile.bio}
                 </p>
               </div>
@@ -187,6 +187,35 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Quick Stats */}
+      <section className="py-16 bg-white/5 backdrop-blur-sm">
+        <Container>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">En quelques chiffres</h2>
+            <p className="text-gray-300">Mon parcours en statistiques</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">3+</div>
+              <div className="text-gray-300">Années d'expérience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">15</div>
+              <div className="text-gray-300">Personnes dirigées</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">{profile.projects.length}</div>
+              <div className="text-gray-300">Projets réalisés</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">{profile.skills.reduce((acc, skill) => acc + skill.technologies.length, 0)}+</div>
+              <div className="text-gray-300">Technologies maîtrisées</div>
+            </div>
           </div>
         </Container>
       </section>

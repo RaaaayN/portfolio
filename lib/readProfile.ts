@@ -8,6 +8,7 @@ export interface UserProfile {
   skills: {
     category: string;
     technologies: string[];
+    description?: string;
   }[];
   projects: {
     title: string;
@@ -17,6 +18,8 @@ export interface UserProfile {
     github?: string;
     live?: string;
     featured?: boolean;
+    location?: string;
+    period?: string;
   }[];
   experience: {
     title: string;
@@ -25,6 +28,7 @@ export interface UserProfile {
     period: string;
     description: string;
     technologies?: string[];
+    result?: string;
   }[];
   education: {
     title: string;
@@ -34,6 +38,12 @@ export interface UserProfile {
     description: string;
     technologies?: string[];
   }[];
+  certifications?: string[];
+  languages?: {
+    language: string;
+    level: string;
+  }[];
+  hobbies?: string[];
   contact: {
     email: string;
     linkedin: string;

@@ -1,4 +1,4 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, MapPin, Calendar } from "lucide-react";
 import { Card } from "./Card";
 import { Badge } from "./Badge";
 
@@ -10,6 +10,8 @@ interface Project {
   github?: string;
   live?: string;
   featured?: boolean;
+  location?: string;
+  period?: string;
 }
 
 interface ProjectCardProps {
@@ -42,7 +44,24 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
           </div>
           
-          <p className="text-gray-600 mb-4 flex-1">
+          {(project.location || project.period) && (
+            <div className="flex items-center text-sm text-gray-500 mb-3">
+              {project.location && (
+                <div className="flex items-center mr-4">
+                  <MapPin className="w-4 h-4 mr-1" />
+                  {project.location}
+                </div>
+              )}
+              {project.period && (
+                <div className="flex items-center">
+                  <Calendar className="w-4 h-4 mr-1" />
+                  {project.period}
+                </div>
+              )}
+            </div>
+          )}
+          
+          <p className="text-gray-600 mb-4 flex-1 whitespace-pre-line">
             {project.description}
           </p>
           

@@ -5,6 +5,9 @@ import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
 import { Timeline } from "@/components/Timeline";
 import { CVDownload } from "@/components/CVDownload";
+import { CertificationsList } from "@/components/CertificationsList";
+import { LanguagesList } from "@/components/LanguagesList";
+import { HobbiesList } from "@/components/HobbiesList";
 import { Code, Brain, Database, Globe, Award, Users, Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
 
 export default function AboutPage() {
@@ -74,7 +77,7 @@ export default function AboutPage() {
           <SectionTitle title="À propos de moi" />
           <Card>
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <p className="text-gray-600 leading-relaxed text-lg whitespace-pre-line">
                 {profile.about}
               </p>
             </div>
@@ -333,6 +336,30 @@ export default function AboutPage() {
             </a>
           </div>
         </section>
+
+        {/* Certifications Section */}
+        {profile.certifications && profile.certifications.length > 0 && (
+          <section className="mb-16">
+            <SectionTitle title="Certifications" />
+            <CertificationsList certifications={profile.certifications} />
+          </section>
+        )}
+
+        {/* Languages Section */}
+        {profile.languages && profile.languages.length > 0 && (
+          <section className="mb-16">
+            <SectionTitle title="Langues" />
+            <LanguagesList languages={profile.languages} />
+          </section>
+        )}
+
+        {/* Hobbies Section */}
+        {profile.hobbies && profile.hobbies.length > 0 && (
+          <section className="mb-16">
+            <SectionTitle title="Centres d'intérêt" />
+            <HobbiesList hobbies={profile.hobbies} />
+          </section>
+        )}
       </Container>
     </div>
   );

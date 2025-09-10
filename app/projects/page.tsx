@@ -105,7 +105,25 @@ export default function ProjectsPage() {
                       </Badge>
                     )}
                   </div>
-                  <p className="text-gray-600 mb-3">{project.description}</p>
+                  
+                  {(project.location || project.period) && (
+                    <div className="flex items-center text-sm text-gray-500 mb-2">
+                      {project.location && (
+                        <div className="flex items-center mr-4">
+                          <Calendar className="w-4 h-4 mr-1" />
+                          {project.location}
+                        </div>
+                      )}
+                      {project.period && (
+                        <div className="flex items-center">
+                          <Calendar className="w-4 h-4 mr-1" />
+                          {project.period}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
+                  <p className="text-gray-600 mb-3 whitespace-pre-line">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {project.technologies.map((tech, techIndex) => (
                       <span
