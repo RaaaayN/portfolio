@@ -23,7 +23,7 @@ export function Timeline({ items }: TimelineProps) {
         <div key={index} className="relative">
           {/* Timeline line */}
           {index < items.length - 1 && (
-            <div className="absolute left-8 top-16 w-0.5 h-full bg-gray-200" />
+            <div className="absolute left-12 top-24 w-0.5 h-full bg-gray-200" />
           )}
           
           <div className="flex items-start space-x-4">
@@ -32,12 +32,12 @@ export function Timeline({ items }: TimelineProps) {
               <PhotoDisplay
                 src={item.photo_path}
                 alt={`Logo ${item.company || item.title}`}
-                size="md"
+                size="lg"
                 className="flex-shrink-0"
               />
             ) : (
-              <div className="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-md">
-                <Calendar className="w-6 h-6 text-white" />
+              <div className="flex-shrink-0 w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center shadow-md">
+                <Calendar className="w-8 h-8 text-white" />
               </div>
             )}
             

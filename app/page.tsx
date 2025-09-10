@@ -25,7 +25,7 @@ export default function Home() {
                     <PhotoDisplay
                       src={profile.photo_path}
                       alt={`Photo de ${profile.name}`}
-                      size="xl"
+                      size="3xl"
                       className="border-4 border-white/20"
                     />
                   </div>

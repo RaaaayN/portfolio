@@ -107,7 +107,7 @@
         "Coordination d'équipe",
         "Rédaction contractuelle"
       ],
-      "photo_path": "/images/utc.png"
+      "photo_path": "/images/jutc_logo.jpg"
     },
     {
       "title": "Chargé des Ressources Humaines",
@@ -121,7 +121,7 @@
         "Communication interne",
         "Organisation d'événements"
       ],
-      "photo_path": "/images/utc.png"
+      "photo_path": "/images/jutc_logo.jpg"
     },
     {
       "title": "Opérateur de Conditionnement (stage ouvrier)",
@@ -152,7 +152,7 @@
       "location": "Amiens",
       "period": "Septembre 2021 – Février 2023",
       "description": "Formation approfondie en mathématiques, en physique et en informatique.",
-      "photo_path": "/images/utc.png"
+      "photo_path": ""
     }
   ],
   "certifications": [
