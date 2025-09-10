@@ -50,24 +50,35 @@ export default function ChatPage() {
     setIsLoading(true);
 
     try {
-      // Simulation d'une réponse RAG (à remplacer par une vraie API)
-      const response = await simulateRAGResponse(input.trim());
+      // Appel à l'API RAG
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: input.trim() }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur de l\'API');
+      }
+
+      const data = await response.json();
       
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: response,
+        content: data.message,
         sender: "bot",
         timestamp: new Date(),
       };
 
-      setTimeout(() => {
-        setMessages(prev => [...prev, botMessage]);
-        setIsLoading(false);
-      }, 1000 + Math.random() * 2000); // Simulation du délai de traitement
+      setMessages(prev => [...prev, botMessage]);
+      setIsLoading(false);
     } catch (error) {
+      console.error('Erreur API:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: "Désolé, une erreur s'est produite. Veuillez réessayer.",
+        content: "Désolé, une erreur s'est produite. Veuillez réessayer ou me contacter directement via la page contact.",
         sender: "bot",
         timestamp: new Date(),
       };
@@ -76,41 +87,6 @@ export default function ChatPage() {
     }
   };
 
-  const simulateRAGResponse = async (question: string): Promise<string> => {
-    // Simulation de réponses basées sur le profil de Rayan
-    const lowerQuestion = question.toLowerCase();
-    
-    if (lowerQuestion.includes("parcours") || lowerQuestion.includes("formation") || lowerQuestion.includes("études")) {
-      return "Rayan est actuellement en 4e année d'école d'ingénieur informatique à l'UTC (Université de Technologie de Compiègne), spécialisé en Intelligence Artificielle et Data Science. Il a suivi des classes préparatoires au Lycée Louis-le-Grand avant d'intégrer l'UTC. Son parcours académique est axé sur l'innovation technologique et la valorisation des données.";
-    }
-    
-    if (lowerQuestion.includes("compétences") || lowerQuestion.includes("technologies") || lowerQuestion.includes("langages")) {
-      return "Rayan maîtrise plusieurs domaines : les langages de programmation (Python, C++, JavaScript, TypeScript, R), l'Intelligence Artificielle (Machine Learning, Deep Learning, NLP, RAG), le développement web (React, Next.js, Node.js), et les outils de data science (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch). Il a également des compétences en gestion d'équipe et en leadership.";
-    }
-    
-    if (lowerQuestion.includes("projets") || lowerQuestion.includes("réalisations")) {
-      return "Parmi ses projets notables : un système de recommandation IA utilisant des techniques de machine learning, une application web de data science avec des tableaux de bord interactifs, et un projet RAG (Retrieval-Augmented Generation) pour la génération de réponses contextuelles. Il a également dirigé la Junior-Entreprise UTC en tant que Président.";
-    }
-    
-    if (lowerQuestion.includes("expérience") || lowerQuestion.includes("professionnel") || lowerQuestion.includes("travail")) {
-      return "Rayan a une expérience significative en gestion d'équipe en tant que Président de la Junior-Entreprise UTC (2023-2024), où il dirigeait 15 personnes. Il a également été Responsable Recrutement et a effectué des stages en développement, notamment chez TechCorp Solutions où il a travaillé sur des projets d'IA et de développement web.";
-    }
-    
-    if (lowerQuestion.includes("contact") || lowerQuestion.includes("email") || lowerQuestion.includes("téléphone")) {
-      return "Vous pouvez contacter Rayan par email à rayan.barre@icloud.com ou par téléphone au +33 7 82 59 80 57. Il est également présent sur LinkedIn (https://www.linkedin.com/in/rayan-barreddine/) et GitHub (https://github.com/RaaaayN). Il est disponible à partir de juillet 2025.";
-    }
-    
-    if (lowerQuestion.includes("junior") || lowerQuestion.includes("entreprise")) {
-      return "Rayan a été Président de la Junior-Entreprise UTC de 2023 à 2024. Cette expérience lui a permis de développer ses compétences en management, gestion de projets, communication et leadership. Il dirigeait une équipe de 15 personnes et gérait le développement commercial et la formation des membres.";
-    }
-    
-    if (lowerQuestion.includes("ia") || lowerQuestion.includes("intelligence artificielle") || lowerQuestion.includes("machine learning")) {
-      return "Rayan est spécialisé en Intelligence Artificielle et Data Science. Il travaille sur des projets de machine learning, deep learning, NLP (Natural Language Processing), et RAG (Retrieval-Augmented Generation). Il maîtrise des frameworks comme TensorFlow, PyTorch, et des outils de data science comme Pandas, NumPy, et Scikit-learn.";
-    }
-    
-    // Réponse par défaut
-    return "Je suis l'assistant IA de Rayan Barreddine, étudiant en 4e année d'ingénieur informatique spécialisé en IA et Data Science à l'UTC. Je peux vous renseigner sur son parcours académique, ses compétences techniques, ses projets, son expérience professionnelle, ou ses coordonnées. Que souhaitez-vous savoir de plus spécifique ?";
-  };
 
   const suggestedQuestions = [
     "Quel est le parcours académique de Rayan ?",
