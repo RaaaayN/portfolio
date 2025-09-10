@@ -8,12 +8,11 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navigation = [
-    { name: "Accueil", href: "#home" },
-    { name: "À propos", href: "#about" },
-    { name: "Compétences", href: "#skills" },
-    { name: "Projets", href: "#projects" },
-    { name: "Expérience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
+    { name: "Accueil", href: "/" },
+    { name: "À propos", href: "/about" },
+    { name: "Projets", href: "/projects" },
+    { name: "Expérience", href: "/experience" },
+    { name: "Chat IA", href: "/chat" },
   ];
 
   return (

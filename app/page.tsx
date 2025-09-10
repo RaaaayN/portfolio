@@ -1,132 +1,203 @@
 import { readProfile } from "@/lib/readProfile";
 import { Container } from "@/components/Container";
-import { SectionTitle } from "@/components/SectionTitle";
-import { Card } from "@/components/Card";
-import { ProjectCard } from "@/components/ProjectCard";
-import { Timeline } from "@/components/Timeline";
+import { Badge } from "@/components/Badge";
+import Link from "next/link";
+import { ArrowRight, MessageCircle, Code, Briefcase, GraduationCap, Sparkles } from "lucide-react";
 
 export default function Home() {
   const profile = readProfile();
 
   return (
-    <div className="min-h-screen bg-white">
-      <main>
-        {/* Hero Section */}
-        <section id="home" className="section bg-gradient-to-br from-blue-50 to-purple-50">
-          <Container>
-            <div className="text-center">
-              <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-6">
-                Bonjour, je suis{" "}
-                <span className="gradient-text">{profile.name}</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                {profile.title}
-              </p>
-              <p className="text-lg text-gray-500 max-w-3xl mx-auto">
-                {profile.bio}
-              </p>
-            </div>
-          </Container>
-        </section>
-
-        {/* About Section */}
-        <section id="about" className="section">
-          <Container>
-            <SectionTitle title="À propos" />
-            <Card>
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-600 leading-relaxed">
-                  {profile.about}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+        
+        <Container>
+          <div className="relative pt-20 pb-16 text-center">
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-8">
+                <Badge variant="secondary" className="mb-4">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Portfolio Interactif
+                </Badge>
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
+                  Salut, je suis{" "}
+                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    {profile.name.split(' ')[0]}
+                  </span>
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                  {profile.title}
+                </p>
+                <p className="text-lg text-gray-400 max-w-4xl mx-auto leading-relaxed">
+                  {profile.bio}
                 </p>
               </div>
-            </Card>
-          </Container>
-        </section>
 
-        {/* Skills Section */}
-        <section id="skills" className="section bg-gray-50">
-          <Container>
-            <SectionTitle title="Compétences" />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {profile.skills.map((skill, index) => (
-                <Card key={index}>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    {skill.category}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skill.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </Container>
-        </section>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <Link
+                  href="/about"
+                  className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-all duration-200 hover:scale-105"
+                >
+                  Découvrir mon parcours
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/chat"
+                  className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-purple-400 rounded-lg hover:bg-purple-400 hover:text-slate-900 transition-all duration-200 hover:scale-105"
+                >
+                  <MessageCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+                  Me poser des questions
+                </Link>
+              </div>
 
-        {/* Projects Section */}
-        <section id="projects" className="section">
-          <Container>
-            <SectionTitle title="Projets" />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {profile.projects.map((project, index) => (
-                <ProjectCard key={index} project={project} />
-              ))}
-            </div>
-          </Container>
-        </section>
-
-        {/* Experience Section */}
-        <section id="experience" className="section bg-gray-50">
-          <Container>
-            <SectionTitle title="Expérience" />
-            <Timeline items={profile.experience} />
-          </Container>
-        </section>
-
-        {/* Education Section */}
-        <section id="education" className="section">
-          <Container>
-            <SectionTitle title="Formation" />
-            <Timeline items={profile.education} />
-          </Container>
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="section bg-gradient-to-br from-blue-50 to-purple-50">
-          <Container>
-            <SectionTitle title="Contact" />
-            <Card>
-              <div className="text-center">
-                <p className="text-lg text-gray-600 mb-6">
-                  Intéressé par mon profil ? N'hésitez pas à me contacter !
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a
-                    href={`mailto:${profile.contact.email}`}
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    Envoyer un email
-                  </a>
-                  <a
-                    href={profile.contact.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
-                  >
-                    LinkedIn
-                  </a>
+              {/* Quick Stats */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white mb-2">{profile.projects.length}+</div>
+                  <div className="text-gray-400">Projets réalisés</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white mb-2">{profile.skills.length}</div>
+                  <div className="text-gray-400">Domaines d'expertise</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white mb-2">4</div>
+                  <div className="text-gray-400">Années d'études</div>
                 </div>
               </div>
-            </Card>
-          </Container>
-        </section>
-      </main>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Quick Navigation */}
+      <section className="py-16 bg-white/5 backdrop-blur-sm">
+        <Container>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">Explorez mon univers</h2>
+            <p className="text-gray-300">Découvrez mes projets, mon parcours et posez-moi des questions</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Link
+              href="/about"
+              className="group p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+            >
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/30 transition-colors">
+                  <Code className="w-6 h-6 text-blue-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">À propos</h3>
+                <p className="text-gray-400 text-sm">Mon parcours et mes compétences</p>
+              </div>
+            </Link>
+
+            <Link
+              href="/projects"
+              className="group p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+            >
+              <div className="text-center">
+                <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500/30 transition-colors">
+                  <Briefcase className="w-6 h-6 text-purple-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Projets</h3>
+                <p className="text-gray-400 text-sm">Mes réalisations techniques</p>
+              </div>
+            </Link>
+
+            <Link
+              href="/experience"
+              className="group p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+            >
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500/30 transition-colors">
+                  <GraduationCap className="w-6 h-6 text-green-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Expérience</h3>
+                <p className="text-gray-400 text-sm">Mon parcours professionnel</p>
+              </div>
+            </Link>
+
+            <Link
+              href="/chat"
+              className="group p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+            >
+              <div className="text-center">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-500/30 transition-colors">
+                  <MessageCircle className="w-6 h-6 text-orange-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Chat IA</h3>
+                <p className="text-gray-400 text-sm">Posez-moi des questions</p>
+              </div>
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* Featured Skills */}
+      <section className="py-16">
+        <Container>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">Mes domaines d'expertise</h2>
+            <p className="text-gray-300">Technologies et compétences que je maîtrise</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {profile.skills.map((skill, index) => (
+              <div key={index} className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                <h3 className="text-lg font-semibold text-white mb-4">{skill.category}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {skill.technologies.slice(0, 4).map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-3 py-1 bg-white/10 text-white text-sm rounded-full border border-white/20"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {skill.technologies.length > 4 && (
+                    <span className="px-3 py-1 bg-white/10 text-white text-sm rounded-full border border-white/20">
+                      +{skill.technologies.length - 4}
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm">
+        <Container>
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Prêt à collaborer ?
+            </h2>
+            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+              Découvrez mes projets, explorez mon parcours, ou posez-moi directement des questions via le chat IA.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/chat"
+                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 hover:scale-105"
+              >
+                <MessageCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+                Commencer une conversation
+              </Link>
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-lg hover:bg-white/10 transition-all duration-200 hover:scale-105"
+              >
+                Voir mes projets
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
     </div>
   );
 }
