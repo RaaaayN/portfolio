@@ -1,0 +1,95 @@
+{
+  "name": "Rayan Barreddine",
+  "title": "Étudiant en 4e année en informatique (UTC) — spécialité IA & Data",
+  "bio": "Étudiant en 4e année d'école d'ingénieur informatique à l'UTC, spécialisé en IA et Data. Passionné par l'innovation technologique, l'intelligence artificielle et la valorisation des données.",
+  "about": "Étudiant en 4e année d'école d'ingénieur informatique à l'UTC, spécialisé en IA et Data. Expériences en gestion de projets associatifs (Junior-Entreprise), recrutement, opérations et encadrement d'équipe. Passionné par l'innovation technologique, l'intelligence artificielle et la valorisation des données. Réalisations académiques et projets techniques en Python/C++, RAG, NLP, data science, développement web et applications embarquées. Forte capacité d'adaptation, leadership, et communication.",
+  "skills": [
+    {
+      "category": "Langages de programmation",
+      "technologies": ["Python", "C++", "JavaScript", "TypeScript", "R", "SQL", "HTML/CSS"]
+    },
+    {
+      "category": "Intelligence Artificielle & Data",
+      "technologies": ["Machine Learning", "Deep Learning", "NLP", "RAG", "Data Science", "Pandas", "NumPy", "Scikit-learn"]
+    },
+    {
+      "category": "Développement Web",
+      "technologies": ["React", "Next.js", "Node.js", "Express", "MongoDB", "PostgreSQL", "Tailwind CSS"]
+    },
+    {
+      "category": "Outils & Technologies",
+      "technologies": ["Git", "Docker", "AWS", "Linux", "Jupyter", "TensorFlow", "PyTorch", "Streamlit"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Système de recommandation IA",
+      "description": "Développement d'un système de recommandation utilisant des techniques de machine learning avancées pour prédire les préférences utilisateur.",
+      "technologies": ["Python", "Scikit-learn", "Pandas", "NumPy", "Streamlit"],
+      "github": "https://github.com/RaaaayN/recommendation-system",
+      "featured": true
+    },
+    {
+      "title": "Application Web de Data Science",
+      "description": "Création d'une application web interactive pour l'analyse et la visualisation de données avec des tableaux de bord dynamiques.",
+      "technologies": ["Python", "Streamlit", "Plotly", "Pandas", "MongoDB"],
+      "github": "https://github.com/RaaaayN/data-science-app"
+    },
+    {
+      "title": "Projet RAG (Retrieval-Augmented Generation)",
+      "description": "Implémentation d'un système RAG pour la génération de réponses contextuelles basées sur des documents.",
+      "technologies": ["Python", "Transformers", "LangChain", "Vector Databases", "NLP"],
+      "github": "https://github.com/RaaaayN/rag-system"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Président - Junior-Entreprise UTC",
+      "company": "Junior-Entreprise UTC",
+      "location": "Compiègne, France",
+      "period": "2023 - 2024",
+      "description": "Direction et gestion d'une équipe de 15 personnes, développement commercial, gestion de projets clients et formation des membres.",
+      "technologies": ["Management", "Gestion de projet", "Communication", "Leadership"]
+    },
+    {
+      "title": "Responsable Recrutement",
+      "company": "Junior-Entreprise UTC",
+      "location": "Compiègne, France",
+      "period": "2022 - 2023",
+      "description": "Gestion du processus de recrutement, organisation d'entretiens et intégration de nouveaux membres.",
+      "technologies": ["RH", "Recrutement", "Formation", "Communication"]
+    },
+    {
+      "title": "Stagiaire Développeur",
+      "company": "TechCorp Solutions",
+      "location": "Paris, France",
+      "period": "Été 2023",
+      "description": "Développement d'applications web et participation à des projets d'intelligence artificielle.",
+      "technologies": ["Python", "React", "Machine Learning", "Docker"]
+    }
+  ],
+  "education": [
+    {
+      "title": "Diplôme d'Ingénieur en Informatique",
+      "company": "Université de Technologie de Compiègne (UTC)",
+      "location": "Compiègne, France",
+      "period": "2021 - 2025",
+      "description": "Spécialisation en Intelligence Artificielle et Data Science. Projets en machine learning, NLP et développement d'applications.",
+      "technologies": ["Python", "C++", "Machine Learning", "Data Science", "IA"]
+    },
+    {
+      "title": "Classes Préparatoires aux Grandes Écoles",
+      "company": "Lycée Louis-le-Grand",
+      "location": "Paris, France",
+      "period": "2019 - 2021",
+      "description": "Formation intensive en mathématiques, physique et informatique préparant aux concours d'ingénieurs.",
+      "technologies": ["Mathématiques", "Physique", "Informatique", "Algorithmique"]
+    }
+  ],
+  "contact": {
+    "email": "rayan.barre@icloud.com",
+    "linkedin": "https://www.linkedin.com/in/rayan-barreddine/",
+    "github": "https://github.com/RaaaayN",
+    "phone": "+33 7 82 59 80 57"
+  }
+}

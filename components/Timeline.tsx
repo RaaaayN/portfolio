@@ -1,0 +1,80 @@
+import { Calendar, MapPin } from "lucide-react";
+
+interface TimelineItem {
+  title: string;
+  company?: string;
+  location?: string;
+  period: string;
+  description: string;
+  technologies?: string[];
+}
+
+interface TimelineProps {
+  items: TimelineItem[];
+}
+
+export function Timeline({ items }: TimelineProps) {
+  return (
+    <div className="space-y-8">
+      {items.map((item, index) => (
+        <div key={index} className="relative">
+          {/* Timeline line */}
+          {index < items.length - 1 && (
+            <div className="absolute left-4 top-8 w-0.5 h-full bg-gray-200" />
+          )}
+          
+          <div className="flex items-start space-x-4">
+            {/* Timeline dot */}
+            <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+              <Calendar className="w-4 h-4 text-white" />
+            </div>
+            
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {item.title}
+                </h3>
+                <span className="text-sm text-gray-500 mt-1 sm:mt-0">
+                  {item.period}
+                </span>
+              </div>
+              
+              {item.company && (
+                <div className="flex items-center text-gray-600 mb-2">
+                  <span className="font-medium">{item.company}</span>
+                  {item.location && (
+                    <>
+                      <span className="mx-2">•</span>
+                      <div className="flex items-center">
+                        <MapPin className="w-4 h-4 mr-1" />
+                        <span>{item.location}</span>
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+              
+              <p className="text-gray-600 mb-3">
+                {item.description}
+              </p>
+              
+              {item.technologies && item.technologies.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {item.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
