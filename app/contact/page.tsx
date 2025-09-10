@@ -5,16 +5,17 @@ import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Card } from "@/components/Card";
 import { CVDownload, CVBadge } from "@/components/CVDownload";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Linkedin, 
-  Github, 
-  Send, 
-  CheckCircle, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
+  Send,
+  CheckCircle,
   AlertCircle,
-  Clock
+  Clock,
+  MessageSquare
 } from "lucide-react";
 
 interface ContactFormData {
@@ -286,7 +287,24 @@ export default function ContactPage() {
                 </button>
               </form>
             </Card>
-
+            {/* Additional Info */}
+            <Card className="mt-6 bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200">
+              <div className="text-center">
+                <MessageSquare className="w-8 h-8 text-orange-500 mx-auto mb-3" />
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  Préférez le chat IA ?
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Posez-moi des questions directement via l'assistant IA
+                </p>
+                <a
+                  href="/chat"
+                  className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 shadow-lg hover:shadow-orange-500/25"
+                >
+                  Accéder au chat IA
+                </a>
+              </div>
+            </Card>
           </div>
         </div>
       </Container>

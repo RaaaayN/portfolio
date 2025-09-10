@@ -3,7 +3,7 @@ import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Badge } from "@/components/Badge";
-import { ExternalLink, Github, Star, Calendar, Code2 } from "lucide-react";
+import { ExternalLink, Github, Star, Calendar, Code2, Bot } from "lucide-react";
 
 export default function ProjectsPage() {
   const profile = readProfile();
@@ -195,10 +195,11 @@ export default function ProjectsPage() {
               Voir sur GitHub
             </a>
             <a
-              href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              href="/chat"
+              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 shadow-lg hover:shadow-orange-500/25"
             >
-              Me contacter
+              <Bot className="w-5 h-5 mr-2" />
+              Discuter des projets
             </a>
           </div>
         </section>

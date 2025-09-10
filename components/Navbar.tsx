@@ -13,6 +13,7 @@ export function Navbar() {
     { name: "À propos", href: "/about" },
     { name: "Projets", href: "/projects" },
     { name: "Contact", href: "/contact" },
+    { name: "Chat IA", href: "/chat" },
   ];
 
   return (
@@ -29,7 +30,11 @@ export function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="transition-colors text-gray-600 hover:text-blue-600"
+                className={`transition-colors ${
+                  item.name === "Chat IA"
+                    ? "bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-400 hover:to-red-400 shadow-lg hover:shadow-orange-500/25"
+                    : "text-gray-600 hover:text-blue-600"
+                }`}
               >
                 {item.name}
               </a>
@@ -56,7 +61,11 @@ export function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="transition-colors text-gray-600 hover:text-blue-600"
+                  className={`transition-colors ${
+                    item.name === "Chat IA"
+                      ? "bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-400 hover:to-red-400 shadow-lg hover:shadow-orange-500/25 text-center"
+                      : "text-gray-600 hover:text-blue-600"
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

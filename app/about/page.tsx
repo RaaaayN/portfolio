@@ -9,7 +9,7 @@ import { CertificationsList } from "@/components/CertificationsList";
 import { LanguagesList } from "@/components/LanguagesList";
 import { HobbiesList } from "@/components/HobbiesList";
 import { PhotoDisplay } from "@/components/PhotoDisplay";
-import { Code, Brain, Database, Globe, Award, Users, Briefcase, GraduationCap, Calendar, MapPin, Star, Target, Zap } from "lucide-react";
+import { Code, Brain, Database, Globe, Award, Users, Briefcase, GraduationCap, Calendar, MapPin, Star, Target, Zap, Bot } from "lucide-react";
 
 export default function AboutPage() {
   const profile = readProfile();
@@ -246,7 +246,7 @@ export default function AboutPage() {
             Intéressé par mon profil ?
           </h2>
           <p className="text-gray-600 mb-6">
-            N'hésitez pas à me contacter ou télécharger mon CV pour en savoir plus !
+            N'hésitez pas à me contacter, télécharger mon CV ou utiliser le chat IA pour en savoir plus !
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <CVDownload variant="default" size="md" />
@@ -255,6 +255,13 @@ export default function AboutPage() {
               className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Envoyer un email
+            </a>
+            <a
+              href="/chat"
+              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 shadow-lg hover:shadow-orange-500/25"
+            >
+              <Bot className="w-5 h-5 mr-2" />
+              Chat IA
             </a>
           </div>
         </section>
