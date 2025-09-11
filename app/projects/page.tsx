@@ -3,7 +3,8 @@ import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Badge } from "@/components/Badge";
-import { ExternalLink, Github, Star, Calendar, Code2, Bot } from "lucide-react";
+import { ExternalLink, Github, Star, Calendar, Code2, Bot, Eye, Video, Image as ImageIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function ProjectsPage() {
   const profile = readProfile();
@@ -134,29 +135,40 @@ export default function ProjectsPage() {
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-4">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </a>
-                    )}
-                    {project.live && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center text-blue-600 hover:text-blue-700 transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </a>
-                    )}
+                  <div className="flex items-center justify-between">
+                    <div className="flex gap-4">
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+                        >
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </a>
+                      )}
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center text-blue-600 hover:text-blue-700 transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
+                    
+                    {/* Bouton Voir les détails */}
+                    <Link
+                      href={`/projects/${project.id}`}
+                      className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 text-sm"
+                    >
+                      <Eye className="w-4 h-4" />
+                      Détails
+                    </Link>
                   </div>
                 </div>
               </div>

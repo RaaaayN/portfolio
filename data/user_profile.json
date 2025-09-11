@@ -53,45 +53,118 @@
   ],
   "projects": [
     {
-      "title": "Wallet Prediction: LSTM Multivarié",
-      "location": "Compiègne",
-      "period": "Depuis Janvier 2025",
-      "description": "• Pipeline d’ingestion et d’enrichissement des données en Python (yfinance, Pandas) avec calcul d’indicateurs techniques (SMA, EMA, RSI, Bollinger, MACD).\n• Conception et entraînement d’un LSTM bi-couche multivarié sous TensorFlow/Keras (optimiseur Adam, loss MSE, early stopping).\n• Forecasting itératif jusqu’en 2026 via un CLI Python (argparse, tqdm) et visualisation Dash/Matplotlib.",
+      "id": "hive-cpp",
+      "title": "Jeu de société HIVE en C++",
+      "description": "Développement en C++ du jeu de société Hive avec une architecture orientée objet et une interface graphique interactive conçue avec Qt.",
+      "details": "1. Utilisation de plusieurs design patterns (Factory, Strategy, Observer,...) pour structurer la logique du jeu et faciliter les extensions.\n2. Modélisation fine des pièces et règles via une hiérarchie de classes, respectant les principes SOLID.\n3. Système de vérification de la connectivité de la ruche implémenté avec des algorithmes de parcours de graphe.\n4. Séparation nette entre moteur de jeu et interface grâce à une architecture optimisée.\n5. Interface Qt dynamique avec gestion des événements utilisateur, animations et mise à jour temps réel de l'état du plateau.",
       "technologies": [
-        "Python",
-        "TensorFlow",
-        "Keras",
-        "Pandas",
-        "yfinance",
-        "Dash",
-        "Matplotlib"
+        "C++",
+        "Qt",
+        "Programmation orientée objet",
+        "Patrons de conception"
       ],
-      "featured": true
+      "photos": [
+        "/images/projects/hive/gameplay1.jpg",
+        "/images/projects/hive/architecture.png",
+        "/images/projects/hive/ui.png"
+      ],
+      "video": "https://www.youtube.com/watch?v=example1",
+      "location": "UTC",
+      "period": "2023",
+      "photo_path": "/images/projects/hive/thumbnail.jpg"
     },
     {
-      "title": "Moteur de recherche",
-      "location": "Compiègne",
-      "period": "Février 2025 – Mai 2025",
-      "description": "• Conception et développement d’un moteur de recherche textuel : index inversés compressés, jokers, pondération tf–idf.\n• Collecte et structuration du corpus par web-scraping, ingestion et indexation automatisées.\n• Analyse linguistique avec spaCy/SnowBall: tokenisation et lemmatisation.\n• Prise en charge des requêtes en langage naturel + booléen, avec correction orthographique et suggestions.",
+      "id": "adit-search",
+      "title": "Moteur de recherche sur des bulletins de l'ADIT",
+      "description": "Développement complet d'un moteur de recherche en Python appliqué à un corpus de bulletins ADIT, intégrant correction orthographique, lemmatisation, indexation inversée et interface graphique.",
+      "details": "1. Nettoyage du corpus HTML et transformation en XML structuré, avec extraction fine des métadonnées.\n2. Construction d'un anti-dictionnaire basé sur le score tf-idf, renforcé par une analyse statistique (loi de Zipf-Mandelbrot).\n3. Indexation optimisée via lemmatisation spaCy et normalisation des entités par distance de Levenshtein.\n4. Traitement avancé des requêtes en langage naturel via analyse de patterns et conversion en JSON.\n5. Interface web interactive en Dash, avec tri par pertinence/date, et moteur évalué avec des métriques de précision, rappel et F1.",
       "technologies": [
         "Python",
-        "spaCy",
-        "SnowBall",
-        "Web Scraping"
-      ]
+        "SpaCy",
+        "Snowball",
+        "JSON",
+        "XML",
+        "Dash"
+      ],
+      "photos": [
+        "/images/projects/adit/search_interface.png",
+        "/images/projects/adit/architecture.png",
+        "/images/projects/adit/results.png"
+      ],
+      "video": "https://www.youtube.com/watch?v=example2",
+      "location": "UTC",
+      "period": "2023",
+      "photo_path": "/images/projects/adit/thumbnail.jpg"
     },
     {
-      "title": "Application Retrieval-Augmented Generation (RAG)",
-      "period": "Avril 2025 – Juin 2025",
-      "description": "• Définition du cas d’usage, collecte et nettoyage du corpus puis vectorisation pour l’indexation.\n• Pipeline RAG complet (LangChain 0.1 + ChromaDB + langchain-google-genai) : recherche hybride, détection/mitigation des hallucinations et suivi métriques.\n• Interface Streamlit déployée via Docker / Streamlit Cloud : chat interactif, citations des sources et jauge de confiance.",
+      "id": "financial-prediction",
+      "title": "Outil de prédiction sur les marchés financiers",
+      "description": "Plateforme intelligente de gestion de portefeuille financier, combinant optimisation mathématique, prédiction des marchés et automatisation des décisions selon le profil de risque de l'utilisateur.",
+      "details": "1. Intègre des modèles de machine learning (Random Forest, LSTM, ARIMA) pour anticiper les variations de prix avec validation croisée.\n2. Propose une gestion manuelle ou automatique des portefeuilles, avec ajustements dynamiques toutes les 5 minutes.\n3. Calcule en continu les performances (rendement, volatilité, Sharpe) et optimise les allocations via scipy.optimize.\n4. Offre une interface réactive via Dash, avec gestion en temps réel des actions, alertes de risque, et visualisations.\n5. Sécurise les données et assure la robustesse du système via une architecture modulaire, un cache, des sauvegardes persistantes, et une gestion fine des erreurs.",
       "technologies": [
         "Python",
-        "LangChain",
+        "Machine Learning",
+        "Random Forest",
+        "LSTM",
+        "ARIMA",
+        "SciPy",
+        "TensorFlow",
+        "Dash"
+      ],
+      "photos": [
+        "/images/projects/financial/dashboard.png",
+        "/images/projects/financial/predictions.png",
+        "/images/projects/financial/portfolio.png"
+      ],
+      "video": "https://www.youtube.com/watch?v=example3",
+      "location": "UTC",
+      "period": "2024",
+      "photo_path": "/images/projects/financial/thumbnail.jpg"
+    },
+    {
+      "id": "pokemon-rag",
+      "title": "RAG sur Pokémon",
+      "description": "Système de RAG spécialisé sur l'univers Pokémon, combinant données structurées issues de PokéAPI et contenus textuels de Poképédia, avec une interface Streamlit interactive.",
+      "details": "1. Collecte hybride : fusion de données textuelles et structurées, avec nettoyage, filtrage et indexation pour optimiser la pertinence et la performance.\n2. Architecture orientée objet : encapsulation complète du système dans une classe RAGSystem, respectant les principes SOLID.\n3. Base vectorielle avec ChromaDB: vectorisation des documents, gestion des modes de réponse (normal vs engagé) et nettoyage automatique des ressources.\n4. Interface Streamlit : système interactif avec réglage de la température, affichage des passages utilisés, détection des hallucinations et outil d'évaluation intégré.\n5. Évaluation fine : mesures RAGAS et internes (faithfulness, context precision, relevancy...), comparaison des modes, et pistes d'amélioration identifiées (hybrid search, enrichissement du corpus, tuning des prompts).",
+      "technologies": [
+        "Python",
+        "Retrieval-Augmented Generation (RAG)",
         "ChromaDB",
-        "langchain-google-genai",
         "Streamlit",
-        "Docker"
-      ]
+        "Google Gemini",
+        "LLM"
+      ],
+      "photos": [
+        "/images/projects/pokemon/interface.png",
+        "/images/projects/pokemon/rag_architecture.png",
+        "/images/projects/pokemon/evaluation.png"
+      ],
+      "video": "https://www.youtube.com/watch?v=example4",
+      "location": "UTC",
+      "period": "2024",
+      "photo_path": "/images/projects/pokemon/thumbnail.jpg"
+    },
+    {
+      "id": "driving-school",
+      "title": "Site de gestion d'auto-école",
+      "description": "Application web PHP/MySQL complète pour la gestion des élèves, séances et inscriptions avec interface moderne.",
+      "details": "- Sécurité assurée grâce aux requêtes préparées, à la validation serveur et à la gestion fine des erreurs.\n- Interface moderne en design sombre, responsive et animée pour une navigation fluide et intuitive.\n- Gestion complète des données : inscription avec vérification, suivi des notes et calendrier intégré.\n- Base de données relationnelle solide avec contraintes d'intégrité et gestion des capacités.\n- Fonctions avancées incluant désinscription, validation des séances et aperçus dynamiques des données.",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "PHP",
+        "SQL",
+        "MySQL"
+      ],
+      "photos": [
+        "/images/projects/driving-school/dashboard.png",
+        "/images/projects/driving-school/students.png",
+        "/images/projects/driving-school/calendar.png"
+      ],
+      "video": "https://www.youtube.com/watch?v=example5",
+      "location": "UTC",
+      "period": "2023",
+      "photo_path": "/images/projects/driving-school/thumbnail.jpg"
     }
   ],
   "experience": [

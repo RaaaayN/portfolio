@@ -12,9 +12,13 @@ export interface UserProfile {
     description?: string;
   }[];
   projects: {
+    id: string;
     title: string;
     description: string;
+    details: string;
     technologies: string[];
+    photos: string[];
+    video?: string;
     image?: string;
     photo_path?: string;
     github?: string;
