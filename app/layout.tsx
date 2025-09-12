@@ -3,12 +3,15 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { readProfile } from "@/lib/readProfile";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const profile = readProfile();
+
 export const metadata: Metadata = {
-  title: "Rayan Barreddine — Portfolio",
-  description: "Portfolio simple et lumineux. Projets, expériences, formations, certifications et contacts.",
+  title: `${profile.name} — Portfolio`,
+  description: profile.bio,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

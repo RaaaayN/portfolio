@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Card } from "@/components/Card";
 import { CVDownload, CVBadge } from "@/components/CVDownload";
+import { readProfile } from "@/lib/readProfile";
 import {
   Mail,
   Phone,
@@ -26,6 +27,7 @@ interface ContactFormData {
 }
 
 export default function ContactPage() {
+  const profile = readProfile();
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -80,36 +82,36 @@ export default function ContactPage() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "rayan.barre@icloud.com",
-      href: "mailto:rayan.barre@icloud.com",
+      value: profile.contact.email,
+      href: `mailto:${profile.contact.email}`,
       description: "Réponse sous 24h"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Téléphone",
-      value: "+33 7 82 59 80 57",
-      href: "tel:+33782598057",
+      value: profile.contact.phone,
+      href: `tel:${profile.contact.phone.replace(/\s+/g, '')}`,
       description: "Disponible 9h-18h"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Localisation",
-      value: "Erquery, France",
+      value: profile.location,
       href: "#",
       description: "Proche de Paris"
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
       title: "LinkedIn",
-      value: "Rayan Barreddine",
-      href: "https://www.linkedin.com/in/rayan-barreddine/",
+      value: profile.name,
+      href: profile.contact.linkedin,
       description: "Profil professionnel"
     },
     {
       icon: <Github className="w-6 h-6" />,
       title: "GitHub",
-      value: "RaaaayN",
-      href: "https://github.com/RaaaayN",
+      value: profile.contact.github.split('/').pop(),
+      href: profile.contact.github,
       description: "Code source"
     }
   ];

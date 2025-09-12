@@ -7,6 +7,7 @@ import { Badge } from "@/components/Badge";
 import { SmartButtons } from "@/components/SmartButtons";
 import { generateSmartButtons, cleanText } from "@/lib/smartButtons";
 import { Send, Bot, User, Loader2, Sparkles } from "lucide-react";
+import { readProfile } from "@/lib/readProfile";
 
 interface Message {
   id: string;
@@ -16,10 +17,12 @@ interface Message {
 }
 
 export default function ChatPage() {
+  const profile = readProfile();
+  const firstName = profile.name.split(' ')[0];
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      content: "Salut ! Je suis l'assistant IA de Rayan. Je peux répondre à vos questions sur son parcours, ses projets, ses compétences, ou tout autre sujet lié à son profil. Que souhaitez-vous savoir ?",
+      content: `Salut ! Je suis l'assistant IA de ${profile.name}. Je peux répondre à vos questions sur son parcours, ses projets, ses compétences, ou tout autre sujet lié à son profil. Que souhaitez-vous savoir ?`,
       sender: "bot",
       timestamp: new Date(),
     },
@@ -91,11 +94,11 @@ export default function ChatPage() {
 
 
   const suggestedQuestions = [
-    "Quel est le parcours académique de Rayan ?",
+    `Quel est le parcours académique de ${firstName} ?`,
     "Quelles sont ses compétences techniques ?",
     "Peux-tu me parler de ses projets ?",
     "Comment le contacter ?",
-    "Quelle est son expérience en IA ?",
+    `Quelle est son expérience en IA ?`,
   ];
 
   return (
@@ -109,7 +112,7 @@ export default function ChatPage() {
                 <Bot className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">Chat avec Rayan</h1>
+                <h1 className="text-3xl font-bold text-gray-900">Chat avec {firstName}</h1>
                 <p className="text-gray-600">Assistant IA alimenté par RAG</p>
               </div>
             </div>
@@ -184,7 +187,7 @@ export default function ChatPage() {
                     <div className="px-4 py-3 rounded-lg bg-gray-100 text-gray-900">
                       <div className="flex items-center space-x-2">
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Rayan réfléchit...</span>
+                        <span>{firstName} réfléchit...</span>
                       </div>
                     </div>
                   </div>
@@ -217,7 +220,7 @@ export default function ChatPage() {
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Posez une question sur Rayan..."
+                  placeholder={`Posez une question sur ${firstName}...`}
                   className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   disabled={isLoading}
                 />

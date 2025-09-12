@@ -4,9 +4,11 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
 import { CVDownload } from "./CVDownload";
+import { readProfile } from "@/lib/readProfile";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const profile = readProfile();
 
   const navigation = [
     { name: "Accueil", href: "/" },
@@ -21,7 +23,7 @@ export function Navbar() {
       <Container>
         <div className="flex justify-between items-center py-4">
           <div className="text-xl font-bold text-gray-900">
-            Rayan Barreddine
+            {profile.name}
           </div>
           
           {/* Desktop Navigation */}

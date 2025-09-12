@@ -1,18 +1,17 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import { readProfile } from "@/lib/readProfile";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const profile = readProfile();
 
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-semibold mb-4">Rayan Barreddine</h3>
-            <p className="text-gray-300">
-              Développeur passionné par la création d'expériences numériques
-              exceptionnelles.
-            </p>
+            <h3 className="text-xl font-semibold mb-4">{profile.name}</h3>
+            <p className="text-gray-300">{profile.bio}</p>
           </div>
           
           <div>
@@ -45,14 +44,14 @@ export function Footer() {
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <div className="space-y-3">
               <a
-                href="mailto:rayan.barreddine@example.com"
+                href={`mailto:${profile.contact.email}`}
                 className="flex items-center text-gray-300 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4 mr-2" />
-                rayan.barreddine@example.com
+                {profile.contact.email}
               </a>
               <a
-                href="https://linkedin.com/in/rayan-barreddine"
+                href={profile.contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-gray-300 hover:text-white transition-colors"
@@ -61,7 +60,7 @@ export function Footer() {
                 LinkedIn
               </a>
               <a
-                href="https://github.com/rayan-barreddine"
+                href={profile.contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-gray-300 hover:text-white transition-colors"
@@ -75,7 +74,7 @@ export function Footer() {
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © {currentYear} Rayan Barreddine. Tous droits réservés.
+            © {currentYear} {profile.name}. Tous droits réservés.
           </p>
         </div>
       </div>

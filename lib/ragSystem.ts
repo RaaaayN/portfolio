@@ -24,6 +24,7 @@ export class RAGSystem {
   private genAI: GoogleGenerativeAI;
   private documents: Document[] = [];
   private isInitialized = false;
+  private profile: UserProfile | null = null;
 
   constructor() {
     this.genAI = new GoogleGenerativeAI(geminiConfig.apiKey);
@@ -35,6 +36,7 @@ export class RAGSystem {
 
     try {
       const profile = readProfile();
+      this.profile = profile;
       this.documents = this.createDocumentsFromProfile(profile);
       this.isInitialized = true;
       console.log(`✅ RAG System initialisé avec ${this.documents.length} documents`);
@@ -211,17 +213,18 @@ export class RAGSystem {
 
       // Essayer Gemini avec timeout
       try {
-        const prompt = `Tu es l'assistant IA de Rayan Barreddine, développeur full-stack.
-Tu dois répondre uniquement aux questions concernant Rayan Barreddine, en te basant sur les informations suivantes :
+        const profile = this.profile || readProfile();
+        const prompt = `Tu es l'assistant IA de ${profile.name}, ${profile.title}.
+Tu dois répondre uniquement aux questions concernant ${profile.name}, en te basant sur les informations suivantes :
 
-INFORMATIONS SUR RAYAN :
+INFORMATIONS SUR ${profile.name.toUpperCase()} :
 ${context}
 
 QUESTION DU VISITEUR : ${query}
 
 INSTRUCTIONS :
-- Réponds uniquement si la question concerne Rayan Barreddine ou son parcours, ses projets, ses compétences, etc.
-- Si la question ne concerne pas Rayan, indique poliment que tu ne peux répondre qu'aux questions sur lui.
+- Réponds uniquement si la question concerne ${profile.name} ou son parcours, ses projets, ses compétences, etc.
+- Si la question ne concerne pas ${profile.name.split(' ')[0]}, indique poliment que tu ne peux répondre qu'aux questions sur lui.
 - Réponds de manière professionnelle et amicale
 - Utilise les informations fournies pour donner des réponses précises
 - Si tu ne trouves pas d'information pertinente, dis-le poliment
@@ -281,51 +284,56 @@ RÉPONSE :`;
       const bestMatch = searchResults[0];
       const content = bestMatch.document.content;
       
+      const profile = this.profile || readProfile();
       // Réponses basées sur le type de document
       if (bestMatch.document.metadata.type === 'profile') {
-        return `Basé sur le profil de Rayan :\n\n${content}\n\nPour plus d'informations, n'hésitez pas à me poser des questions plus spécifiques ou à consulter la page contact.`;
+        return `Basé sur le profil de ${profile.name} :\n\n${content}\n\nPour plus d'informations, n'hésitez pas à me poser des questions plus spécifiques ou à consulter la page contact.`;
       }
-      
+
       if (bestMatch.document.metadata.type === 'project') {
-        return `Voici un projet de Rayan :\n\n${content}\n\nIl a d'autres projets intéressants. Que souhaitez-vous savoir de plus ?`;
+        return `Voici un projet de ${profile.name} :\n\n${content}\n\nIl a d'autres projets intéressants. Que souhaitez-vous savoir de plus ?`;
       }
-      
+
       if (bestMatch.document.metadata.type === 'experience') {
-        return `Expérience de Rayan :\n\n${content}\n\nIl a une expérience variée. Avez-vous des questions spécifiques ?`;
+        return `Expérience de ${profile.name} :\n\n${content}\n\nIl a une expérience variée. Avez-vous des questions spécifiques ?`;
       }
-      
+
       if (bestMatch.document.metadata.type === 'skill') {
-        return `Compétences de Rayan :\n\n${content}\n\nIl maîtrise de nombreuses technologies. Voulez-vous en savoir plus sur un domaine particulier ?`;
+        return `Compétences de ${profile.name} :\n\n${content}\n\nIl maîtrise de nombreuses technologies. Voulez-vous en savoir plus sur un domaine particulier ?`;
       }
     }
 
     // Réponses par mots-clés avec redirections
+    const profile = this.profile || readProfile();
     if (lowerQuery.includes('parcours') || lowerQuery.includes('formation') || lowerQuery.includes('études')) {
-      return "Rayan est étudiant en 4e année d'ingénieur informatique à l'UTC, spécialisé en Intelligence Artificielle et Data Science. Il a suivi des classes préparatoires au Lycée Louis-le-Grand avant d'intégrer l'UTC.\n\n[REDIRECT:about]";
+      return `${profile.about}\n\n[REDIRECT:about]`;
     }
-    
+
     if (lowerQuery.includes('compétences') || lowerQuery.includes('technologies') || lowerQuery.includes('langages')) {
-      return "Rayan maîtrise Python, C++, JavaScript, TypeScript, R, l'Intelligence Artificielle (Machine Learning, Deep Learning, NLP, RAG), le développement web (React, Next.js, Node.js), et les outils de data science (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch).\n\n[REDIRECT:projects]";
+      const skills = profile.skills.map(s => s.category).join(', ');
+      return `${profile.name} maîtrise notamment : ${skills}.\n\n[REDIRECT:projects]`;
     }
-    
+
     if (lowerQuery.includes('projets') || lowerQuery.includes('réalisations')) {
-      return "Parmi ses projets : un système de recommandation IA, une application web de data science avec des tableaux de bord interactifs, et un projet RAG (Retrieval-Augmented Generation). Il a également dirigé la Junior-Entreprise UTC.\n\n[REDIRECT:projects]";
+      const projects = profile.projects.slice(0,3).map(p => p.title).join(', ');
+      return `Parmi ses projets : ${projects}.\n\n[REDIRECT:projects]`;
     }
-    
+
     if (lowerQuery.includes('expérience') || lowerQuery.includes('professionnel') || lowerQuery.includes('travail')) {
-      return "Rayan a été Président de la Junior-Entreprise UTC (2023-2024), où il dirigeait 15 personnes. Il a également été Responsable Recrutement et a effectué des stages en développement.\n\n[REDIRECT:about]";
+      const exp = profile.experience[0]?.title || 'une expérience notable';
+      return `${profile.name} a notamment été ${exp}.\n\n[REDIRECT:about]`;
     }
-    
+
     if (lowerQuery.includes('contact') || lowerQuery.includes('email') || lowerQuery.includes('téléphone')) {
-      return "Vous pouvez contacter Rayan par email à rayan.barre@icloud.com ou par téléphone au +33 7 82 59 80 57. Il est également présent sur LinkedIn et GitHub.\n\n[REDIRECT:contact]";
+      return `Vous pouvez contacter ${profile.name} par email à ${profile.contact.email} ou par téléphone au ${profile.contact.phone}. Il est également présent sur LinkedIn et GitHub.\n\n[REDIRECT:contact]`;
     }
-    
+
     if (lowerQuery.includes('ia') || lowerQuery.includes('intelligence artificielle') || lowerQuery.includes('machine learning')) {
-      return "Rayan est spécialisé en Intelligence Artificielle et Data Science. Il travaille sur des projets de machine learning, deep learning, NLP, et RAG. Il maîtrise TensorFlow, PyTorch, et les outils de data science.";
+      return `${profile.name.split(' ')[0]} est spécialisé en ${profile.skills[1]?.category || 'Intelligence Artificielle'}.`;
     }
 
     // Réponse par défaut
-    return "Je suis l'assistant de Rayan Barreddine, étudiant en 4e année d'ingénieur informatique spécialisé en IA et Data Science à l'UTC. Je peux vous renseigner sur son parcours, ses compétences, ses projets, ou ses coordonnées. Que souhaitez-vous savoir ?";
+    return `Je suis l'assistant de ${profile.name}, ${profile.title}. Je peux vous renseigner sur son parcours, ses compétences, ses projets, ou ses coordonnées. Que souhaitez-vous savoir ?`;
   }
 
   // Obtenir des suggestions de questions

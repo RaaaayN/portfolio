@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { emailConfig } from '@/lib/emailConfig';
+import { readProfile } from '@/lib/readProfile';
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,6 +25,7 @@ export async function POST(request: NextRequest) {
     });
 
     // Configuration de l'email
+    const profile = readProfile();
     const mailOptions = {
       from: emailConfig.user,
       to: emailConfig.to, // Email de destination (votre email)
@@ -54,7 +56,7 @@ export async function POST(request: NextRequest) {
           </div>
           
           <div style="margin-top: 20px; text-align: center; color: #6b7280; font-size: 12px;">
-            <p>Message envoyé depuis le portfolio de Rayan Barreddine</p>
+            <p>Message envoyé depuis le portfolio de ${profile.name}</p>
             <p>Date: ${new Date().toLocaleString('fr-FR')}</p>
           </div>
         </div>

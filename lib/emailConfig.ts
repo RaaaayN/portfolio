@@ -1,18 +1,21 @@
 // Configuration pour l'envoi d'emails avec Gmail
 // Créez un fichier .env.local avec vos informations Gmail
+import { readProfile } from '@/lib/readProfile';
+
+const profile = readProfile();
 
 export const emailConfig = {
   // Votre adresse Gmail
-  user: process.env.EMAIL_USER || 'rayan.barreddine@gmail.com',
-  
+  user: process.env.EMAIL_USER || profile.contact.email,
+
   // Mot de passe d'application Gmail (16 caractères)
   pass: process.env.EMAIL_PASS || 'your_gmail_app_password',
-  
+
   // Service Gmail
   service: 'gmail',
-  
+
   // Email de destination (votre Gmail)
-  to: process.env.EMAIL_USER || 'rayan.barre@icloud.com',
+  to: process.env.EMAIL_USER || profile.contact.email,
 };
 
 // Instructions pour configurer Gmail :

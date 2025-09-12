@@ -92,7 +92,7 @@ export default function Home() {
                   <div className="text-gray-400">Domaines d'expertise</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">4</div>
+                  <div className="text-3xl font-bold text-white mb-2">{profile.stats.study_years}</div>
                   <div className="text-gray-400">Années d'études</div>
                 </div>
               </div>
@@ -207,11 +207,11 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">3+</div>
+              <div className="text-3xl font-bold text-white mb-2">{profile.stats.experience_years}+</div>
               <div className="text-gray-300">Années d'expérience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">15</div>
+              <div className="text-3xl font-bold text-white mb-2">{profile.stats.people_led}</div>
               <div className="text-gray-300">Personnes dirigées</div>
             </div>
             <div className="text-center">

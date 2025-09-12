@@ -2,6 +2,7 @@
 
 import { Download, FileText } from "lucide-react";
 import { Badge } from "./Badge";
+import { readProfile } from "@/lib/readProfile";
 
 interface CVDownloadProps {
   variant?: "default" | "outline" | "ghost";
@@ -10,17 +11,18 @@ interface CVDownloadProps {
   className?: string;
 }
 
-export function CVDownload({ 
+export function CVDownload({
   variant = "default", 
   size = "md", 
   showIcon = true,
-  className = "" 
+  className = ""
 }: CVDownloadProps) {
+  const profile = readProfile();
   const handleDownload = () => {
     // Créer un lien de téléchargement
     const link = document.createElement('a');
-    link.href = '/cv/CV_Rayan_Barreddine.pdf';
-    link.download = 'CV_Rayan_Barreddine.pdf';
+    link.href = profile.cv_path;
+    link.download = profile.cv_path.split('/').pop() || 'CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

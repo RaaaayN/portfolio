@@ -63,15 +63,11 @@
         "Programmation orientée objet",
         "Patrons de conception"
       ],
-      "photos": [
-        "/images/projects/hive/gameplay1.jpg",
-        "/images/projects/hive/architecture.png",
-        "/images/projects/hive/ui.png"
-      ],
+      "photos": [],
       "video": "https://www.youtube.com/watch?v=example1",
       "location": "UTC",
       "period": "2023",
-      "photo_path": "/images/projects/hive/thumbnail.jpg"
+      "photo_path": "/images/projects/placeholder.svg"
     },
     {
       "id": "adit-search",
@@ -86,15 +82,11 @@
         "XML",
         "Dash"
       ],
-      "photos": [
-        "/images/projects/adit/search_interface.png",
-        "/images/projects/adit/architecture.png",
-        "/images/projects/adit/results.png"
-      ],
+      "photos": [],
       "video": "https://www.youtube.com/watch?v=example2",
       "location": "UTC",
       "period": "2023",
-      "photo_path": "/images/projects/adit/thumbnail.jpg"
+      "photo_path": "/images/projects/placeholder.svg"
     },
     {
       "id": "financial-prediction",
@@ -111,15 +103,11 @@
         "TensorFlow",
         "Dash"
       ],
-      "photos": [
-        "/images/projects/financial/dashboard.png",
-        "/images/projects/financial/predictions.png",
-        "/images/projects/financial/portfolio.png"
-      ],
+      "photos": [],
       "video": "https://www.youtube.com/watch?v=example3",
       "location": "UTC",
       "period": "2024",
-      "photo_path": "/images/projects/financial/thumbnail.jpg"
+      "photo_path": "/images/projects/placeholder.svg"
     },
     {
       "id": "pokemon-rag",
@@ -134,15 +122,11 @@
         "Google Gemini",
         "LLM"
       ],
-      "photos": [
-        "/images/projects/pokemon/interface.png",
-        "/images/projects/pokemon/rag_architecture.png",
-        "/images/projects/pokemon/evaluation.png"
-      ],
+      "photos": [],
       "video": "https://www.youtube.com/watch?v=example4",
       "location": "UTC",
       "period": "2024",
-      "photo_path": "/images/projects/pokemon/thumbnail.jpg"
+      "photo_path": "/images/projects/placeholder.svg"
     },
     {
       "id": "driving-school",
@@ -156,15 +140,11 @@
         "SQL",
         "MySQL"
       ],
-      "photos": [
-        "/images/projects/driving-school/dashboard.png",
-        "/images/projects/driving-school/students.png",
-        "/images/projects/driving-school/calendar.png"
-      ],
+      "photos": [],
       "video": "https://www.youtube.com/watch?v=example5",
       "location": "UTC",
       "period": "2023",
-      "photo_path": "/images/projects/driving-school/thumbnail.jpg"
+      "photo_path": "/images/projects/placeholder.svg"
     }
   ],
   "experience": [
@@ -260,5 +240,12 @@
     "linkedin": "https://www.linkedin.com/in/rayan-barreddine/",
     "github": "https://github.com/RaaaayN",
     "phone": "+33 7 82 59 80 57"
+  },
+  "cv_path": "/cv/CV_Rayan_Barreddine.pdf",
+  "location": "Erquery, France",
+  "stats": {
+    "experience_years": 3,
+    "people_led": 15,
+    "study_years": 4
   }
 }
