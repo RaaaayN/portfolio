@@ -1,9 +1,33 @@
+"use client";
+
 import { Github, Linkedin, Mail } from "lucide-react";
 import { readProfile } from "@/lib/readProfile";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const profile = readProfile();
+  const { language } = useLanguage();
+  const profile = readProfile(language);
+  const texts = {
+    fr: {
+      quickLinks: "Liens rapides",
+      about: "À propos",
+      projects: "Projets",
+      experience: "Expérience",
+      contact: "Contact",
+      contactTitle: "Contact",
+      rights: "Tous droits réservés.",
+    },
+    en: {
+      quickLinks: "Quick Links",
+      about: "About",
+      projects: "Projects",
+      experience: "Experience",
+      contact: "Contact",
+      contactTitle: "Contact",
+      rights: "All rights reserved.",
+    },
+  }[language];
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -15,33 +39,33 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Liens rapides</h4>
+            <h4 className="text-lg font-semibold mb-4">{texts.quickLinks}</h4>
             <ul className="space-y-2">
               <li>
                 <a href="#about" className="text-gray-300 hover:text-white transition-colors">
-                  À propos
+                  {texts.about}
                 </a>
               </li>
               <li>
                 <a href="#projects" className="text-gray-300 hover:text-white transition-colors">
-                  Projets
+                  {texts.projects}
                 </a>
               </li>
               <li>
                 <a href="#experience" className="text-gray-300 hover:text-white transition-colors">
-                  Expérience
+                  {texts.experience}
                 </a>
               </li>
               <li>
                 <a href="#contact" className="text-gray-300 hover:text-white transition-colors">
-                  Contact
+                  {texts.contact}
                 </a>
               </li>
             </ul>
           </div>
-          
+
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4">{texts.contactTitle}</h4>
             <div className="space-y-3">
               <a
                 href={`mailto:${profile.contact.email}`}
@@ -74,7 +98,7 @@ export function Footer() {
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © {currentYear} {profile.name}. Tous droits réservés.
+            © {currentYear} {profile.name}. {texts.rights}
           </p>
         </div>
       </div>

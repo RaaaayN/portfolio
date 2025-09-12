@@ -1,0 +1,265 @@
+{
+  "name": "Rayan Barreddine",
+  "title": "Fourth-year student at UTC, specializing in Artificial Intelligence & Data",
+  "bio": "Final-year student at UTC with a passion for AI, data science, and technological innovation. Experienced in project management, intelligent solution development, and team leadership.",
+  "about": "I combine a strong background in computer engineering at UTC with significant involvement in technical and associative projects. My experience spans project management, AI/data application development, research, and team supervision. I stand out for my ability to carry projects from start to finish, adaptability, and team spirit.",
+  "photo_path": "/images/1.png",
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "technologies": [
+        "Python",
+        "C",
+        "C++",
+        "HTML",
+        "CSS",
+        "PHP",
+        "SQL",
+        "R",
+        "Lisp",
+        "OCaml"
+      ],
+      "description": "Advanced proficiency in multiple languages for web development, data analysis, and AI."
+    },
+    {
+      "category": "Artificial Intelligence & Data Science",
+      "technologies": [
+        "Pandas",
+        "NumPy",
+        "scikit-learn",
+        "TensorFlow",
+        "PowerBI",
+        "Azure",
+        "AWS",
+        "PostgreSQL",
+        "Linux"
+      ],
+      "description": "Expertise in machine learning, deep learning, data manipulation and visualization, cloud and data tools."
+    },
+    {
+      "category": "Project Management",
+      "technologies": [
+        "AGILE",
+        "SCRUM",
+        "PBS",
+        "WBS",
+        "PDP",
+        "OBS",
+        "GANTT",
+        "Business Plan"
+      ],
+      "description": "Management of complex projects, planning, monitoring and leading multidisciplinary teams."
+    },
+    {
+      "category": "Management",
+      "technologies": [
+        "AGILE",
+        "SCRUM",
+        "PBS",
+        "WBS",
+        "PDP",
+        "OBS",
+        "GANTT",
+        "Business Plan"
+      ],
+      "description": "Management of complex projects, planning, monitoring and leading multidisciplinary teams."
+    }
+  ],
+  "projects": [
+    {
+      "id": "hive-cpp",
+      "title": "Hive board game in C++",
+      "description": "C++ development of the Hive board game with an object-oriented architecture and an interactive Qt interface.",
+      "details": "1. Use of several design patterns (Factory, Strategy, Observer,...) to structure game logic and facilitate extensions.\n2. Precise modeling of pieces and rules through a class hierarchy respecting SOLID principles.\n3. Hive connectivity checking system implemented with graph traversal algorithms.\n4. Clear separation between game engine and interface thanks to an optimized architecture.\n5. Dynamic Qt interface with user event management, animations and real-time board state updates.",
+      "technologies": [
+        "C++",
+        "Qt",
+        "Object-oriented programming",
+        "Design patterns"
+      ],
+      "photos": [],
+      "video": "https://www.youtube.com/watch?v=example1",
+      "location": "UTC",
+      "period": "2023",
+      "photo_path": "/images/projects/placeholder.svg"
+    },
+    {
+      "id": "adit-search",
+      "title": "Search engine on ADIT newsletters",
+      "description": "Complete development of a search engine in Python applied to a corpus of ADIT bulletins, integrating spell checking, lemmatization, inverted indexing and graphical interface.",
+      "details": "1. Cleaning of HTML corpus and transformation into structured XML with fine metadata extraction.\n2. Construction of an anti-dictionary based on tf-idf score, reinforced by statistical analysis (Zipf-Mandelbrot law).\n3. Optimized indexing via spaCy lemmatization and entity normalization by Levenshtein distance.\n4. Advanced processing of natural language queries through pattern analysis and conversion to JSON.\n5. Interactive web interface in Dash, with sorting by relevance/date, and engine evaluated with precision, recall and F1 metrics.",
+      "technologies": [
+        "Python",
+        "SpaCy",
+        "Snowball",
+        "JSON",
+        "XML",
+        "Dash"
+      ],
+      "photos": [],
+      "video": "https://www.youtube.com/watch?v=example2",
+      "location": "UTC",
+      "period": "2023",
+      "photo_path": "/images/projects/placeholder.svg"
+    },
+    {
+      "id": "financial-prediction",
+      "title": "Financial market prediction tool",
+      "description": "Intelligent platform for financial portfolio management, combining mathematical optimization, market prediction and automated decisions according to user risk profile.",
+      "details": "1. Integrates machine learning models (Random Forest, LSTM, ARIMA) to anticipate price variations with cross validation.\n2. Offers manual or automatic portfolio management with dynamic adjustments every 5 minutes.\n3. Continuously calculates performances (return, volatility, Sharpe) and optimizes allocations via scipy.optimize.\n4. Provides a reactive interface via Dash, with real-time action management, risk alerts and visualizations.\n5. Secures data and ensures system robustness through modular architecture, caching, persistent backups and fine error handling.",
+      "technologies": [
+        "Python",
+        "Machine Learning",
+        "Random Forest",
+        "LSTM",
+        "ARIMA",
+        "SciPy",
+        "TensorFlow",
+        "Dash"
+      ],
+      "photos": [],
+      "video": "https://www.youtube.com/watch?v=example3",
+      "location": "UTC",
+      "period": "2024",
+      "photo_path": "/images/projects/placeholder.svg"
+    },
+    {
+      "id": "pokemon-rag",
+      "title": "Pokémon RAG system",
+      "description": "RAG system specialized in the Pokémon universe, combining structured data from PokéAPI and textual content from Poképedia with an interactive Streamlit interface.",
+      "details": "1. Hybrid collection: merging textual and structured data with cleaning, filtering and indexing to optimize relevance and performance.\n2. Object-oriented architecture: full encapsulation of the system in a RAGSystem class, respecting SOLID principles.\n3. Vector database with ChromaDB: document vectorization, management of response modes (normal vs engaged) and automatic resource cleanup.\n4. Streamlit interface: interactive system with temperature setting, display of used passages, hallucination detection and integrated evaluation tool.\n5. Fine evaluation: RAGAS and internal measures (faithfulness, context precision, relevancy...), comparison of modes, and identified improvement paths (hybrid search, corpus enrichment, prompt tuning).",
+      "technologies": [
+        "Python",
+        "Retrieval-Augmented Generation (RAG)",
+        "ChromaDB",
+        "Streamlit",
+        "Google Gemini",
+        "LLM"
+      ],
+      "photos": [],
+      "video": "https://www.youtube.com/watch?v=example4",
+      "location": "UTC",
+      "period": "2024",
+      "photo_path": "/images/projects/placeholder.svg"
+    },
+    {
+      "id": "driving-school",
+      "title": "Driving school management site",
+      "description": "Full PHP/MySQL web application for managing students, sessions and registrations with a modern interface.",
+      "details": "- Security ensured through prepared statements, server-side validation and detailed error management.\n- Modern dark design, responsive and animated for smooth and intuitive navigation.\n- Complete data management: registration with verification, grade tracking and integrated calendar.\n- Robust relational database with integrity constraints and capacity management.\n- Advanced features including unregistration, session validation and dynamic data previews.",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "PHP",
+        "SQL",
+        "MySQL"
+      ],
+      "photos": [],
+      "video": "https://www.youtube.com/watch?v=example5",
+      "location": "UTC",
+      "period": "2023",
+      "photo_path": "/images/projects/placeholder.svg"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Project Manager",
+      "company": "Junior UTC",
+      "location": "Compiègne, France",
+      "period": "January 2025 - September 2025",
+      "description": "Oversight of the project from initial client contact to final deliverable. Supervision of client projects, team coordination and drafting of contractual documents.",
+      "technologies": [
+        "Project management",
+        "Management",
+        "Team coordination",
+        "Contract drafting"
+      ],
+      "photo_path": "/images/jutc_logo.jpg"
+    },
+    {
+      "title": "Human Resources Officer",
+      "company": "Junior UTC",
+      "location": "Compiègne, France",
+      "period": "June 2024 – January 2025",
+      "description": "Managed recruitment and onboarding of new members. Organized training and monitored development of 32 members. Led internal cohesion through 11 events.",
+      "technologies": [
+        "Recruitment",
+        "Training",
+        "Internal communication",
+        "Event organization"
+      ],
+      "photo_path": "/images/jutc_logo.jpg"
+    },
+    {
+      "title": "Packaging Operator (worker internship)",
+      "company": "L’Oréal B.R.I",
+      "location": "Lassigny, France",
+      "period": "Summer 2023",
+      "description": "Quality control and packaging of 50,000 products per week on several production lines. Participation in production worth a total of 2,000,000 euros per week.",
+      "technologies": [
+        "Quality control",
+        "Industrial production",
+        "Teamwork"
+      ],
+      "photo_path": "/images/loreal.png"
+    }
+  ],
+  "education": [
+    {
+      "title": "Engineering degree (expected 2027)",
+      "company": "Université de Technologie de Compiègne (UTC)",
+      "location": "Compiègne",
+      "period": "Since February 2023",
+      "description": "Computer Science branch (Artificial Intelligence and Data Science track).",
+      "photo_path": "/images/utc.png"
+    },
+    {
+      "title": "Classes Préparatoires aux Grandes Écoles (MP2I/MPI) (ranked 13/38)",
+      "company": "Lycée Louis Thuillier",
+      "location": "Amiens",
+      "period": "September 2021 – February 2023",
+      "description": "Intensive training in mathematics, physics and computer science.",
+      "photo_path": ""
+    }
+  ],
+  "certifications": [
+    "Professional Scrum Product Owner 1 (SCRUM)",
+    "Kaggle Contributor",
+    "Introduction to Corporate Finance (The Wharton School, University of Pennsylvania)"
+  ],
+  "languages": [
+    {
+      "language": "French",
+      "level": "Native"
+    },
+    {
+      "language": "English",
+      "level": "Fluent"
+    },
+    {
+      "language": "German",
+      "level": "B1"
+    }
+  ],
+  "hobbies": [
+    "Running",
+    "Trail",
+    "Tennis",
+    "Football",
+    "Music",
+    "Video games"
+  ],
+  "contact": {
+    "email": "rayan.barre@icloud.com",
+    "linkedin": "https://www.linkedin.com/in/rayan-barreddine/",
+    "github": "https://github.com/RaaaayN",
+    "phone": "+33 7 82 59 80 57"
+  },
+  "cv_path": "/cv/CV_Rayan_Barreddine.pdf",
+  "location": "Erquery, France",
+  "stats": {
+    "experience_years": 3,
+    "people_led": 15,
+    "study_years": 4
+  }
+}

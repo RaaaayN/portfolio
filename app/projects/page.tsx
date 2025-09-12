@@ -1,3 +1,5 @@
+"use client";
+
 import { readProfile } from "@/lib/readProfile";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -5,9 +7,11 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Badge } from "@/components/Badge";
 import { ExternalLink, Github, Star, Calendar, Code2, Bot, Eye, Video, Image as ImageIcon } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function ProjectsPage() {
-  const profile = readProfile();
+  const { language } = useLanguage();
+  const profile = readProfile(language);
 
   const projectCategories = [
     {

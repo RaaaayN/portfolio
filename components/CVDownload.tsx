@@ -3,6 +3,7 @@
 import { Download, FileText } from "lucide-react";
 import { Badge } from "./Badge";
 import { readProfile } from "@/lib/readProfile";
+import { useLanguage } from "@/lib/LanguageContext";
 
 interface CVDownloadProps {
   variant?: "default" | "outline" | "ghost";
@@ -16,8 +17,13 @@ export function CVDownload({
   size = "md", 
   showIcon = true,
   className = ""
-}: CVDownloadProps) {
-  const profile = readProfile();
+  }: CVDownloadProps) {
+    const { language } = useLanguage();
+    const profile = readProfile(language);
+    const texts = {
+      fr: { download: "Télécharger mon CV" },
+      en: { download: "Download my resume" },
+    }[language];
   const handleDownload = () => {
     // Créer un lien de téléchargement
     const link = document.createElement('a');
@@ -47,19 +53,21 @@ export function CVDownload({
       onClick={handleDownload}
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
     >
-      {showIcon && <Download className="w-4 h-4 mr-2" />}
-      <FileText className="w-4 h-4 mr-2" />
-      Télécharger mon CV
-    </button>
+        {showIcon && <Download className="w-4 h-4 mr-2" />}
+        <FileText className="w-4 h-4 mr-2" />
+        {texts.download}
+      </button>
   );
 }
 
 // Composant Badge pour indiquer la disponibilité du CV
 export function CVBadge() {
+  const { language } = useLanguage();
+  const text = { fr: "CV disponible", en: "Resume available" }[language];
   return (
     <Badge variant="success" size="sm" className="animate-pulse">
       <FileText className="w-3 h-3 mr-1" />
-      CV disponible
+      {text}
     </Badge>
   );
 }

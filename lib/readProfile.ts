@@ -1,4 +1,5 @@
-import userProfile from "@/data/user_profile.json";
+import userProfileFr from "@/data/user_profile.json";
+import userProfileEn from "@/data/user_profile_en.json";
 
 export interface UserProfile {
   name: string;
@@ -58,8 +59,16 @@ export interface UserProfile {
     github: string;
     phone: string;
   };
+  cv_path: string;
+  location: string;
+  stats: {
+    experience_years: number;
+    people_led: number;
+    study_years: number;
+  };
 }
 
-export function readProfile(): UserProfile {
-  return userProfile as UserProfile;
+export function readProfile(lang: "fr" | "en" = "fr"): UserProfile {
+  return (lang === "en" ? userProfileEn : userProfileFr) as UserProfile;
 }
+

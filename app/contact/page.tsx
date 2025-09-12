@@ -6,6 +6,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Card } from "@/components/Card";
 import { CVDownload, CVBadge } from "@/components/CVDownload";
 import { readProfile } from "@/lib/readProfile";
+import { useLanguage } from "@/lib/LanguageContext";
 import {
   Mail,
   Phone,
@@ -27,7 +28,8 @@ interface ContactFormData {
 }
 
 export default function ContactPage() {
-  const profile = readProfile();
+  const { language } = useLanguage();
+  const profile = readProfile(language);
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",

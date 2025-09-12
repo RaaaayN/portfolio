@@ -8,6 +8,7 @@ import { SmartButtons } from "@/components/SmartButtons";
 import { generateSmartButtons, cleanText } from "@/lib/smartButtons";
 import { Send, Bot, User, Loader2, Sparkles } from "lucide-react";
 import { readProfile } from "@/lib/readProfile";
+import { useLanguage } from "@/lib/LanguageContext";
 
 interface Message {
   id: string;
@@ -17,7 +18,8 @@ interface Message {
 }
 
 export default function ChatPage() {
-  const profile = readProfile();
+  const { language } = useLanguage();
+  const profile = readProfile(language);
   const firstName = profile.name.split(' ')[0];
   const [messages, setMessages] = useState<Message[]>([
     {

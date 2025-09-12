@@ -1,3 +1,5 @@
+"use client";
+
 import { readProfile } from "@/lib/readProfile";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -8,10 +10,12 @@ import { CVDownload } from "@/components/CVDownload";
 import { CertificationsList } from "@/components/CertificationsList";
 import { LanguagesList } from "@/components/LanguagesList";
 import { HobbiesList } from "@/components/HobbiesList";
+import { useLanguage } from "@/lib/LanguageContext";
 import { Code, Brain, Database, Globe, Award, Users, Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
 
 export default function AboutPage() {
-  const profile = readProfile();
+  const { language } = useLanguage();
+  const profile = readProfile(language);
 
   const experienceStats = [
     {

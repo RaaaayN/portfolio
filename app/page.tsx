@@ -1,3 +1,5 @@
+"use client";
+
 import { readProfile } from "@/lib/readProfile";
 import { Container } from "@/components/Container";
 import { Badge } from "@/components/Badge";
@@ -5,9 +7,11 @@ import { CVDownload, CVBadge } from "@/components/CVDownload";
 import { PhotoDisplay } from "@/components/PhotoDisplay";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, Briefcase, GraduationCap, Sparkles, Bot } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Home() {
-  const profile = readProfile();
+  const { language } = useLanguage();
+  const profile = readProfile(language);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">

@@ -1,3 +1,5 @@
+"use client";
+
 import { readProfile } from "@/lib/readProfile";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
@@ -5,20 +7,17 @@ import { Badge } from "@/components/Badge";
 import { PhotoDisplay } from "@/components/PhotoDisplay";
 import { ArrowLeft, ExternalLink, Github, Calendar, MapPin, Play, Image as ImageIcon, Video } from "lucide-react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { useParams } from "next/navigation";
+import { useLanguage } from "@/lib/LanguageContext";
 
-interface ProjectDetailPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
-  const profile = readProfile();
-  const project = profile.projects.find(p => p.id === params.id);
+export default function ProjectDetailPage() {
+  const params = useParams<{ id: string }>();
+  const { language } = useLanguage();
+  const profile = readProfile(language);
+  const project = profile.projects.find(p => p.id === params?.id);
 
   if (!project) {
-    notFound();
+    return <div className="p-8">Project not found</div>;
   }
 
   const extractVideoId = (url: string) => {
