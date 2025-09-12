@@ -49,6 +49,20 @@
         "Business Plan"
       ],
       "description": "Gestion de projets complexes, planification, suivi et animation d'équipes pluridisciplinaires."
+    },
+    {
+      "category": "Management",
+      "technologies": [
+        "AGILE",
+        "SCRUM",
+        "PBS",
+        "WBS",
+        "PDP",
+        "OBS",
+        "GANTT",
+        "Business Plan"
+      ],
+      "description": "Gestion de projets complexes, planification, suivi et animation d'équipes pluridisciplinaires."
     }
   ],
   "projects": [
