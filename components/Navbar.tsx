@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
 import { CVDownload } from "./CVDownload";
@@ -40,7 +41,7 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className={`transition-colors ${
@@ -50,7 +51,7 @@ export function Navbar() {
                 }`}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
             <CVDownload variant="ghost" size="sm" showIcon={false} />
             <button
@@ -77,7 +78,7 @@ export function Navbar() {
           <div className="md:hidden py-4 border-t">
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className={`transition-colors ${
@@ -88,7 +89,7 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               <div className="pt-2 flex flex-col space-y-2">
                 <CVDownload variant="outline" size="sm" className="w-full" />
