@@ -12,6 +12,70 @@ import { useLanguage } from "@/lib/LanguageContext";
 export default function Home() {
   const { language } = useLanguage();
   const profile = readProfile(language);
+  const texts = {
+    fr: {
+      heroBadge: "Portfolio Interactif",
+      greet: "Salut, je suis",
+      discover: "Découvrir mon parcours",
+      aiChat: "Discuter avec mon IA",
+      contact: "Me contacter",
+      projectsDone: "Projets réalisés",
+      expertise: "Domaines d'expertise",
+      studyYears: "Années d'études",
+      exploreTitle: "Explorez mon univers",
+      exploreSubtitle: "Découvrez mes projets, mon parcours ou posez-moi des questions",
+      projects: "Projets",
+      viewProjects: "Voir mes réalisations",
+      about: "À propos",
+      learnMore: "En savoir plus sur moi",
+      experience: "Expérience",
+      myPath: "Mon parcours professionnel",
+      contactCard: "Contact",
+      sendMessage: "Envoyez-moi un message",
+      chat: "Chat IA",
+      askQuestions: "Posez-moi des questions",
+      expertiseTitle: "Mes domaines d'expertise",
+      expertiseSubtitle: "Technologies et compétences que je maîtrise",
+      statsTitle: "En quelques chiffres",
+      statsSubtitle: "Mon parcours en statistiques",
+      expYears: "Années d'expérience",
+      peopleLed: "Personnes dirigées",
+      techMastered: "Technologies maîtrisées",
+      readyTitle: "Prêt à collaborer ?",
+      readySubtitle: "Découvrez mes projets, explorez mon parcours ou contactez-moi directement.",
+    },
+    en: {
+      heroBadge: "Interactive Portfolio",
+      greet: "Hi, I'm",
+      discover: "Discover my journey",
+      aiChat: "Chat with my AI",
+      contact: "Contact me",
+      projectsDone: "Projects completed",
+      expertise: "Fields of expertise",
+      studyYears: "Years of study",
+      exploreTitle: "Explore my world",
+      exploreSubtitle: "Check out my projects, background or ask me questions",
+      projects: "Projects",
+      viewProjects: "See my work",
+      about: "About",
+      learnMore: "Learn more about me",
+      experience: "Experience",
+      myPath: "Professional background",
+      contactCard: "Contact",
+      sendMessage: "Send me a message",
+      chat: "AI Chat",
+      askQuestions: "Ask me questions",
+      expertiseTitle: "My areas of expertise",
+      expertiseSubtitle: "Technologies and skills I master",
+      statsTitle: "In numbers",
+      statsSubtitle: "My journey in statistics",
+      expYears: "Years of experience",
+      peopleLed: "People led",
+      techMastered: "Technologies mastered",
+      readyTitle: "Ready to collaborate?",
+      readySubtitle: "Check out my projects, explore my background or contact me directly.",
+    },
+  }[language];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -38,12 +102,12 @@ export default function Home() {
                 <div className="flex flex-wrap justify-center gap-4 mb-4">
                   <Badge variant="secondary">
                     <Sparkles className="w-4 h-4 mr-2" />
-                    Portfolio Interactif
+                    {texts.heroBadge}
                   </Badge>
                   <CVBadge />
                 </div>
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
-                  Salut, je suis{" "}
+                  {texts.greet}{" "}
                   <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     {profile.name.split(' ')[0]}
                   </span>
@@ -61,7 +125,7 @@ export default function Home() {
                   href="/about"
                   className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-all duration-200 hover:scale-105"
                 >
-                  Découvrir mon parcours
+                  {texts.discover}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
@@ -69,14 +133,14 @@ export default function Home() {
                   className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-red-500 rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
                 >
                   <Bot className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                  Discuter avec mon IA
+                  {texts.aiChat}
                 </Link>
                 <Link
                   href="/contact"
                   className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all duration-200 hover:scale-105"
                 >
                   <MessageCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                  Me contacter
+                  {texts.contact}
                 </Link>
                 <CVDownload
                   variant="outline"
@@ -89,15 +153,15 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white mb-2">{profile.projects.length}+</div>
-                  <div className="text-gray-400">Projets réalisés</div>
+                  <div className="text-gray-400">{texts.projectsDone}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white mb-2">{profile.skills.length}</div>
-                  <div className="text-gray-400">Domaines d'expertise</div>
+                  <div className="text-gray-400">{texts.expertise}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white mb-2">{profile.stats.study_years}</div>
-                  <div className="text-gray-400">Années d'études</div>
+                  <div className="text-gray-400">{texts.studyYears}</div>
                 </div>
               </div>
             </div>
@@ -109,8 +173,8 @@ export default function Home() {
       <section className="py-16 bg-white/5 backdrop-blur-sm">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Explorez mon univers</h2>
-            <p className="text-gray-300">Découvrez mes projets, mon parcours ou posez-moi des questions</p>
+            <h2 className="text-3xl font-bold text-white mb-4">{texts.exploreTitle}</h2>
+            <p className="text-gray-300">{texts.exploreSubtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -122,8 +186,8 @@ export default function Home() {
                 <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500/30 transition-colors">
                   <Briefcase className="w-6 h-6 text-purple-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Projets</h3>
-                <p className="text-gray-400 text-sm">Mes réalisations techniques</p>
+                <h3 className="text-lg font-semibold text-white mb-2">{texts.projects}</h3>
+                <p className="text-gray-400 text-sm">{texts.viewProjects}</p>
               </div>
             </Link>
 
@@ -135,8 +199,8 @@ export default function Home() {
                 <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500/30 transition-colors">
                   <GraduationCap className="w-6 h-6 text-green-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">À propos</h3>
-                <p className="text-gray-400 text-sm">Mon parcours complet</p>
+                <h3 className="text-lg font-semibold text-white mb-2">{texts.about}</h3>
+                <p className="text-gray-400 text-sm">{texts.learnMore}</p>
               </div>
             </Link>
 
@@ -148,8 +212,8 @@ export default function Home() {
                 <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500/30 transition-colors">
                   <MessageCircle className="w-6 h-6 text-green-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Contact</h3>
-                <p className="text-gray-400 text-sm">Envoyez-moi un message</p>
+                <h3 className="text-lg font-semibold text-white mb-2">{texts.contactCard}</h3>
+                <p className="text-gray-400 text-sm">{texts.sendMessage}</p>
               </div>
             </Link>
             <Link
@@ -160,8 +224,8 @@ export default function Home() {
                 <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:from-orange-400 group-hover:to-red-400 transition-all duration-300 shadow-md">
                   <Bot className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Chat IA</h3>
-                <p className="text-orange-200 text-sm">Posez-moi des questions</p>
+                <h3 className="text-lg font-semibold text-white mb-2">{texts.chat}</h3>
+                <p className="text-orange-200 text-sm">{texts.askQuestions}</p>
               </div>
             </Link>
           </div>
@@ -172,8 +236,8 @@ export default function Home() {
       <section className="py-16">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Mes domaines d'expertise</h2>
-            <p className="text-gray-300">Technologies et compétences que je maîtrise</p>
+            <h2 className="text-3xl font-bold text-white mb-4">{texts.expertiseTitle}</h2>
+            <p className="text-gray-300">{texts.expertiseSubtitle}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -205,26 +269,26 @@ export default function Home() {
       <section className="py-16 bg-white/5 backdrop-blur-sm">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">En quelques chiffres</h2>
-            <p className="text-gray-300">Mon parcours en statistiques</p>
+            <h2 className="text-3xl font-bold text-white mb-4">{texts.statsTitle}</h2>
+            <p className="text-gray-300">{texts.statsSubtitle}</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-2">{profile.stats.experience_years}+</div>
-              <div className="text-gray-300">Années d'expérience</div>
+              <div className="text-gray-300">{texts.expYears}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-2">{profile.stats.people_led}</div>
-              <div className="text-gray-300">Personnes dirigées</div>
+              <div className="text-gray-300">{texts.peopleLed}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-2">{profile.projects.length}</div>
-              <div className="text-gray-300">Projets réalisés</div>
+              <div className="text-gray-300">{texts.projectsDone}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-2">{profile.skills.reduce((acc, skill) => acc + skill.technologies.length, 0)}+</div>
-              <div className="text-gray-300">Technologies maîtrisées</div>
+              <div className="text-gray-300">{texts.techMastered}</div>
             </div>
           </div>
         </Container>
@@ -235,10 +299,10 @@ export default function Home() {
         <Container>
           <div className="text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
-              Prêt à collaborer ?
+              {texts.readyTitle}
             </h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Découvrez mes projets, explorez mon parcours ou contactez-moi directement.
+              {texts.readySubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -246,13 +310,13 @@ export default function Home() {
                 className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-all duration-200 hover:scale-105"
               >
                 <MessageCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                Me contacter
+                {texts.contact}
               </Link>
               <Link
                 href="/about"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-lg hover:bg-white/10 transition-all duration-200 hover:scale-105"
               >
-                Découvrir mon parcours
+                {texts.discover}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </div>
