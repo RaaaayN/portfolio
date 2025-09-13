@@ -1,0 +1,138 @@
+{
+  "name": "Anaïs FERREIRA",
+  "title": "Étudiante en Digital Engineering et Management (UTC/EDHEC)",
+  "bio": "Étudiante à l’UTC/EDHEC, à la recherche d’un stage de 6 mois en Business Analyst à partir de janvier 2026.",
+  "about": "Programme hybride combinant technologie et management. Expérience en communication digitale, gestion de projet, analyse de données et engagement associatif.",
+  "photo_path": "/images/anais.png",
+  "skills": [
+    {
+      "category": "Soft Skills",
+      "technologies": [
+        "Travail en équipe",
+        "Communication",
+        "Esprit entrepreneurial"
+      ],
+      "description": "Capacité à travailler en équipe, à communiquer efficacement et à entreprendre des initiatives."
+    },
+    {
+      "category": "Hard Skills",
+      "technologies": [
+        "Python",
+        "SQL",
+        "HTML/CSS",
+        "PHP",
+        "Excel"
+      ],
+      "description": "Compétences en programmation, analyse de données et développement web."
+    }
+  ],
+  "projects": [
+    {
+      "id": "les-entreps",
+      "title": "Les Entrep’ Compiègne",
+      "description": "Formation à l’entrepreneuriat : conception d’un projet de semelles intelligentes adaptatives pour sportifs et femmes portant des talons.",
+      "details": "Étude de marché auprès de 100+ répondants, business model, présentation devant jury, retours positifs.",
+      "technologies": [
+        "Entrepreneuriat",
+        "Étude de marché",
+        "Business Model"
+      ],
+      "location": "Compiègne",
+      "period": "2023-2024",
+      "photo_path": "/images/projects/placeholder.svg"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Community Manager",
+      "company": "Junior UTC",
+      "location": "Compiègne",
+      "period": "Sept. 2024 – Fév. 2025",
+      "description": "Stratégie de communication digitale sur Instagram et LinkedIn, 6 campagnes, 70K vues, +45% de portée, 30K impressions LinkedIn, engagement >5%. Production régulière de contenus.",
+      "technologies": [
+        "Communication digitale",
+        "Réseaux sociaux",
+        "Gestion de projet"
+      ],
+      "photo_path": "/images/jutc_logo.jpg"
+    },
+    {
+      "title": "Stage Accueil, Comptabilité, Finance",
+      "company": "Mairie Villers-Sous-Saint-Leu",
+      "location": "Villers-Sous-Saint-Leu",
+      "period": "2024 (1 mois)",
+      "description": "Accueil de 100+ citoyens/semaine, traitement des demandes (satisfaction 95%), assistance comptabilité et finance (budget >2M€).",
+      "technologies": [
+        "Accueil",
+        "Comptabilité",
+        "Finance"
+      ],
+      "photo_path": ""
+    },
+    {
+      "title": "Stage Ouvrier",
+      "company": "Imerys",
+      "location": "Villers-Sous-Saint-Leu",
+      "period": "2024 (1 mois)",
+      "description": "Soutien aux opérations industrielles quotidiennes, respect des normes de sécurité et de production.",
+      "technologies": [
+        "Production industrielle",
+        "Sécurité"
+      ],
+      "photo_path": ""
+    }
+  ],
+  "education": [
+    {
+      "title": "BBADouble Diplôme — Digital Engineering & Management",
+      "company": "UTC/EDHEC",
+      "location": "Compiègne & Lille",
+      "period": "2023—2027",
+      "description": "Programme hybride technologie/management. Mobilité académique : 6 mois à Shanghai (UTSEUS).",
+      "photo_path": ""
+    },
+    {
+      "title": "Double Baccalauréat Abibac — Mention Bien (15,7/20) / Abitur Distinction",
+      "company": "Lycée Félix Faure",
+      "location": "Beauvais",
+      "period": "2023",
+      "description": "Programme binational franco-allemand (Abibac).",
+      "photo_path": ""
+    }
+  ],
+  "certifications": [
+    "Certificat premiers secours"
+  ],
+  "languages": [
+    {
+      "language": "Français",
+      "level": "Natif"
+    },
+    {
+      "language": "Anglais",
+      "level": "Courant"
+    },
+    {
+      "language": "Allemand",
+      "level": "Courant (échange Brigitte Sauzay 3 mois)"
+    }
+  ],
+  "hobbies": [
+    "Piano",
+    "Voyages interculturels",
+    "Intérêt pour la mode"
+  ],
+  "contact": {
+    "email": "anaisferreira43@gmail.com",
+    "linkedin": "",
+    "github": "",
+    "phone": "+33 7 68 67 75 77"
+  },
+  "cv_path": "/cv/CV_Anais_Ferreira.pdf",
+  "location": "Paris, France",
+  "stats": {
+    "experience_years": 2,
+    "people_led": 0,
+    "study_years": 2
+  }
+}
