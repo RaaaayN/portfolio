@@ -1,5 +1,5 @@
-import userProfileFr from "@/data/user_profile.json";
-import userProfileEn from "@/data/user_profile_en.json";
+import userProfileFr from "@/data/user_profile_rayan.json";
+import userProfileEn from "@/data/user_profile_rayan_en.json";
 
 export interface UserProfile {
   name: string;
