@@ -1,8 +1,11 @@
+"use client";
+
 import { ExternalLink, Github, MapPin, Calendar, Eye, Video, Image as ImageIcon } from "lucide-react";
 import { Card } from "./Card";
 import { Badge } from "./Badge";
 import { PhotoDisplay } from "./PhotoDisplay";
 import Link from "next/link";
+import { useLanguage } from "@/lib/LanguageContext";
 
 interface Project {
   id: string;
@@ -26,6 +29,24 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const { language } = useLanguage();
+  const texts = {
+    fr: {
+      featured: "À la une",
+      details: "Voir les détails",
+      video: "Vidéo",
+      sourceTitle: "Code source",
+      viewTitle: "Voir le projet",
+    },
+    en: {
+      featured: "Featured",
+      details: "View details",
+      video: "Video",
+      sourceTitle: "Source code",
+      viewTitle: "View project",
+    },
+  }[language];
+
   return (
     <Card hover className="h-full">
       <div className="flex flex-col h-full">
@@ -48,7 +69,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </h3>
             {project.featured && (
               <Badge variant="warning" size="sm">
-                Featured
+                {texts.featured}
               </Badge>
             )}
           </div>
@@ -90,7 +111,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 text-sm font-medium"
           >
             <Eye size={16} />
-            Voir les détails
+            {texts.details}
           </Link>
 
           {/* Indicateurs de contenu */}
@@ -104,7 +125,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.video && (
               <div className="flex items-center gap-1">
                 <Video size={14} />
-                Vidéo
+                {texts.video}
               </div>
             )}
           </div>
@@ -117,7 +138,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors"
-                title="Code source"
+                title={texts.sourceTitle}
               >
                 <Github size={16} />
               </a>
@@ -128,7 +149,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-blue-600 hover:text-blue-700 transition-colors"
-                title="Voir le projet"
+                title={texts.viewTitle}
               >
                 <ExternalLink size={16} />
               </a>

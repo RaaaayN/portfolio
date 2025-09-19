@@ -4,9 +4,10 @@ import { Badge } from "./Badge";
 
 interface HobbiesListProps {
   hobbies: string[];
+  title?: string;
 }
 
-export function HobbiesList({ hobbies }: HobbiesListProps) {
+export function HobbiesList({ hobbies, title = "Centres d'intérêt" }: HobbiesListProps) {
   if (!hobbies || hobbies.length === 0) return null;
 
   const getHobbyIcon = (hobby: string) => {
@@ -23,7 +24,7 @@ export function HobbiesList({ hobbies }: HobbiesListProps) {
     <Card>
       <div className="flex items-center mb-4">
         <Heart className="w-6 h-6 text-red-600 mr-3" />
-        <h3 className="text-xl font-semibold text-gray-900">Centres d'intérêt</h3>
+        <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
       </div>
       
       <div className="flex flex-wrap gap-3">

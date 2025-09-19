@@ -21,10 +21,49 @@ export default function ChatPage() {
   const { language } = useLanguage();
   const profile = readProfile(language);
   const firstName = profile.name.split(' ')[0];
+  const texts = {
+    fr: {
+      initialMessage: (name: string) =>
+        `Salut ! Je suis l'assistant IA de ${name}. Je peux répondre à vos questions sur son parcours, ses projets, ses compétences, ou tout autre sujet lié à son profil. Que souhaitez-vous savoir ?`,
+      error: "Désolé, une erreur s'est produite. Veuillez réessayer ou me contacter directement via la page contact.",
+      headerTitle: (name: string) => `Chat avec ${name}`,
+      headerSubtitle: "Assistant IA alimenté par RAG",
+      badge: "Posez-moi des questions sur mon parcours",
+      suggestedLabel: "Questions suggérées :",
+      suggestions: (name: string) => [
+        `Quel est le parcours académique de ${name} ?`,
+        "Quelles sont ses compétences techniques ?",
+        "Peux-tu me parler de ses projets ?",
+        "Comment le contacter ?",
+        `Quelle est son expérience en IA ?`,
+      ],
+      placeholder: (name: string) => `Posez une question sur ${name}...`,
+      thinking: (name: string) => `${name} réfléchit...`,
+    },
+    en: {
+      initialMessage: (name: string) =>
+        `Hi! I'm ${name}'s AI assistant. I can answer questions about his background, projects, skills, or anything else related to his profile. What would you like to know?`,
+      error: "Sorry, something went wrong. Please try again or contact me directly through the contact page.",
+      headerTitle: (name: string) => `Chat with ${name}`,
+      headerSubtitle: "AI assistant powered by RAG",
+      badge: "Ask me anything about my background",
+      suggestedLabel: "Suggested questions:",
+      suggestions: (name: string) => [
+        `What is ${name}'s academic background?`,
+        "What are his technical skills?",
+        "Can you tell me about his projects?",
+        "How can I contact him?",
+        `What is his experience in AI?`,
+      ],
+      placeholder: (name: string) => `Ask a question about ${name}...`,
+      thinking: (name: string) => `${name} is thinking...`,
+    },
+  }[language];
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      content: `Salut ! Je suis l'assistant IA de ${profile.name}. Je peux répondre à vos questions sur son parcours, ses projets, ses compétences, ou tout autre sujet lié à son profil. Que souhaitez-vous savoir ?`,
+      content: texts.initialMessage(profile.name),
       sender: "bot",
       timestamp: new Date(),
     },
@@ -85,7 +124,7 @@ export default function ChatPage() {
       console.error('Erreur API:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: "Désolé, une erreur s'est produite. Veuillez réessayer ou me contacter directement via la page contact.",
+        content: texts.error,
         sender: "bot",
         timestamp: new Date(),
       };
@@ -93,15 +132,7 @@ export default function ChatPage() {
       setIsLoading(false);
     }
   };
-
-
-  const suggestedQuestions = [
-    `Quel est le parcours académique de ${firstName} ?`,
-    "Quelles sont ses compétences techniques ?",
-    "Peux-tu me parler de ses projets ?",
-    "Comment le contacter ?",
-    `Quelle est son expérience en IA ?`,
-  ];
+  const suggestedQuestions = texts.suggestions(firstName);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -114,13 +145,13 @@ export default function ChatPage() {
                 <Bot className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">Chat avec {firstName}</h1>
-                <p className="text-gray-600">Assistant IA alimenté par RAG</p>
+                <h1 className="text-3xl font-bold text-gray-900">{texts.headerTitle(firstName)}</h1>
+                <p className="text-gray-600">{texts.headerSubtitle}</p>
               </div>
             </div>
             <Badge variant="secondary" className="mb-4">
               <Sparkles className="w-4 h-4 mr-2" />
-              Posez-moi des questions sur mon parcours
+              {texts.badge}
             </Badge>
           </div>
 
@@ -189,7 +220,7 @@ export default function ChatPage() {
                     <div className="px-4 py-3 rounded-lg bg-gray-100 text-gray-900">
                       <div className="flex items-center space-x-2">
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>{firstName} réfléchit...</span>
+                        <span>{texts.thinking(firstName)}</span>
                       </div>
                     </div>
                   </div>
@@ -200,7 +231,7 @@ export default function ChatPage() {
             {/* Suggested Questions */}
             {messages.length === 1 && (
               <div className="p-4 border-t border-gray-200">
-                <p className="text-sm text-gray-600 mb-3">Questions suggérées :</p>
+                <p className="text-sm text-gray-600 mb-3">{texts.suggestedLabel}</p>
                 <div className="flex flex-wrap gap-2">
                   {suggestedQuestions.map((question, index) => (
                     <button
@@ -222,7 +253,7 @@ export default function ChatPage() {
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder={`Posez une question sur ${firstName}...`}
+                  placeholder={texts.placeholder(firstName)}
                   className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   disabled={isLoading}
                 />

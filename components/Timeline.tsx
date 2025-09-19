@@ -14,9 +14,10 @@ interface TimelineItem {
 
 interface TimelineProps {
   items: TimelineItem[];
+  resultLabel?: string;
 }
 
-export function Timeline({ items }: TimelineProps) {
+export function Timeline({ items, resultLabel = "Résultat :" }: TimelineProps) {
   return (
     <div className="space-y-8">
       {items.map((item, index) => (
@@ -73,7 +74,7 @@ export function Timeline({ items }: TimelineProps) {
               
               {item.result && (
                 <div className="mb-3 p-3 bg-green-50 border-l-4 border-green-400 rounded-r">
-                  <p className="text-sm font-medium text-green-800 mb-1">Résultat :</p>
+                  <p className="text-sm font-medium text-green-800 mb-1">{resultLabel}</p>
                   <p className="text-sm text-green-700 whitespace-pre-line">{item.result}</p>
                 </div>
               )}

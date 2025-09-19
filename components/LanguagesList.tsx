@@ -9,16 +9,20 @@ interface Language {
 
 interface LanguagesListProps {
   languages: Language[];
+  title?: string;
 }
 
-export function LanguagesList({ languages }: LanguagesListProps) {
+export function LanguagesList({ languages, title = "Langues" }: LanguagesListProps) {
   if (!languages || languages.length === 0) return null;
 
   const getLevelColor = (level: string) => {
     switch (level.toLowerCase()) {
       case 'natif':
+      case 'native':
         return 'bg-green-100 text-green-800';
       case 'courant':
+      case 'fluent':
+      case 'professional':
         return 'bg-blue-100 text-blue-800';
       case 'b1':
       case 'b2':
@@ -35,7 +39,7 @@ export function LanguagesList({ languages }: LanguagesListProps) {
     <Card>
       <div className="flex items-center mb-4">
         <Globe className="w-6 h-6 text-blue-600 mr-3" />
-        <h3 className="text-xl font-semibold text-gray-900">Langues</h3>
+        <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
       </div>
       
       <div className="space-y-3">
