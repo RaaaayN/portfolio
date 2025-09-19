@@ -111,11 +111,14 @@ export class RAGSystem {
 
     // Certifications
     if (profile.certifications && profile.certifications.length > 0) {
+      const certificationsList = profile.certifications
+        .map(cert => cert.title)
+        .join(', ');
       documents.push({
         id: 'certifications',
-        content: `Certifications: ${profile.certifications.join(', ')}`,
-        metadata: { 
-          type: 'certification', 
+        content: `Certifications: ${certificationsList}`,
+        metadata: {
+          type: 'certification',
           title: 'Certifications',
           section: 'Certifications'
         }

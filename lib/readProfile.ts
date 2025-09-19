@@ -27,6 +27,7 @@ export interface UserProfile {
     featured?: boolean;
     location?: string;
     period?: string;
+    report?: string;
   }[];
   experience: {
     title: string;
@@ -47,7 +48,12 @@ export interface UserProfile {
     technologies?: string[];
     photo_path?: string;
   }[];
-  certifications?: string[];
+  certifications?: {
+    id: string;
+    title: string;
+    issuer?: string;
+    pdf?: string;
+  }[];
   languages?: {
     language: string;
     level: string;

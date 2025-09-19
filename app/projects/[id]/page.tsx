@@ -5,7 +5,8 @@ import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
 import { PhotoDisplay } from "@/components/PhotoDisplay";
-import { ArrowLeft, ExternalLink, Github, Calendar, MapPin, Play, Image as ImageIcon, Video } from "lucide-react";
+import { PdfViewer } from "@/components/PdfViewer";
+import { ArrowLeft, ExternalLink, Github, Calendar, MapPin, Play, Image as ImageIcon, Video, FileText } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLanguage } from "@/lib/LanguageContext";
@@ -16,8 +17,39 @@ export default function ProjectDetailPage() {
   const profile = readProfile(language);
   const project = profile.projects.find(p => p.id === params?.id);
 
+  const texts = {
+    fr: {
+      back: "Retour aux projets",
+      technologies: "Technologies utilisées",
+      video: "Démonstration vidéo",
+      pdfSection: "Rapport PDF",
+      pdfDescription: "Consultez le rapport associé à ce projet.",
+      download: "Télécharger le PDF",
+      details: "Détails du projet",
+      contactTitle: "Intéressé par ce projet ?",
+      contactDescription: "N'hésitez pas à me contacter pour en discuter ou voir d'autres projets.",
+      contactCta: "Me contacter",
+      allProjects: "Voir tous les projets",
+      notFound: "Projet introuvable",
+    },
+    en: {
+      back: "Back to projects",
+      technologies: "Technologies used",
+      video: "Video demo",
+      pdfSection: "PDF report",
+      pdfDescription: "Check out the report associated with this project.",
+      download: "Download PDF",
+      details: "Project details",
+      contactTitle: "Interested in this project?",
+      contactDescription: "Feel free to get in touch to discuss it or see more work.",
+      contactCta: "Contact me",
+      allProjects: "View all projects",
+      notFound: "Project not found",
+    },
+  }[language];
+
   if (!project) {
-    return <div className="p-8">Project not found</div>;
+    return <div className="p-8">{texts.notFound}</div>;
   }
 
   const extractVideoId = (url: string) => {
@@ -32,12 +64,12 @@ export default function ProjectDetailPage() {
       <Container className="py-16">
         {/* Navigation */}
         <div className="mb-8">
-          <Link 
-            href="/projects" 
+          <Link
+            href="/projects"
             className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Retour aux projets
+            {texts.back}
           </Link>
         </div>
 
@@ -87,7 +119,7 @@ export default function ProjectDetailPage() {
               {/* Technologies */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  Technologies utilisées
+                  {texts.technologies}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
@@ -131,7 +163,7 @@ export default function ProjectDetailPage() {
         {/* Détails du projet */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Détails du projet
+            {texts.details}
           </h2>
           <Card>
             <div className="prose prose-lg max-w-none">
@@ -147,7 +179,7 @@ export default function ProjectDetailPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <Video className="w-6 h-6 mr-3" />
-              Démonstration vidéo
+              {texts.video}
             </h2>
             <Card>
               <div className="aspect-video">
@@ -186,28 +218,47 @@ export default function ProjectDetailPage() {
           </section>
         )}
 
+        {project.report && (
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <FileText className="w-6 h-6 mr-3" />
+              {texts.pdfSection}
+            </h2>
+            <Card>
+              <div className="space-y-4">
+                <p className="text-gray-600">{texts.pdfDescription}</p>
+                <PdfViewer
+                  src={project.report}
+                  title={`${project.title} - ${texts.pdfSection}`}
+                  downloadLabel={texts.download}
+                />
+              </div>
+            </Card>
+          </section>
+        )}
+
         {/* CTA */}
         <section className="text-center">
           <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
             <div className="py-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Intéressé par ce projet ?
+                {texts.contactTitle}
               </h3>
               <p className="text-gray-600 mb-6">
-                N'hésitez pas à me contacter pour en discuter ou voir d'autres projets.
+                {texts.contactDescription}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
                   href="/contact"
                   className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 shadow-lg hover:shadow-orange-500/25"
                 >
-                  Me contacter
+                  {texts.contactCta}
                 </Link>
                 <Link
                   href="/projects"
                   className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
                 >
-                  Voir tous les projets
+                  {texts.allProjects}
                 </Link>
               </div>
             </div>

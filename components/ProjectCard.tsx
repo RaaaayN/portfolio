@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Github, MapPin, Calendar, Eye, Video, Image as ImageIcon } from "lucide-react";
+import { ExternalLink, Github, MapPin, Calendar, Eye, Video, Image as ImageIcon, FileText } from "lucide-react";
 import { Card } from "./Card";
 import { Badge } from "./Badge";
 import { PhotoDisplay } from "./PhotoDisplay";
@@ -22,6 +22,7 @@ interface Project {
   featured?: boolean;
   location?: string;
   period?: string;
+  report?: string;
 }
 
 interface ProjectCardProps {
@@ -35,6 +36,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       featured: "À la une",
       details: "Voir les détails",
       video: "Vidéo",
+      report: "Rapport",
       sourceTitle: "Code source",
       viewTitle: "Voir le projet",
     },
@@ -42,10 +44,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
       featured: "Featured",
       details: "View details",
       video: "Video",
+      report: "Report",
       sourceTitle: "Source code",
       viewTitle: "View project",
     },
   }[language];
+
+  const hasPhotos = project.photos && project.photos.length > 0;
+  const hasVideo = Boolean(project.video && project.video.trim().length > 0);
+  const hasReport = Boolean(project.report && project.report.trim().length > 0);
 
   return (
     <Card hover className="h-full">
@@ -116,16 +123,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
           {/* Indicateurs de contenu */}
           <div className="flex items-center gap-2 text-sm text-gray-500">
-            {project.photos && project.photos.length > 0 && (
+            {hasPhotos && (
               <div className="flex items-center gap-1">
                 <ImageIcon size={14} />
                 {project.photos.length}
               </div>
             )}
-            {project.video && (
+            {hasVideo && (
               <div className="flex items-center gap-1">
                 <Video size={14} />
                 {texts.video}
+              </div>
+            )}
+            {hasReport && (
+              <div className="flex items-center gap-1">
+                <FileText size={14} />
+                {texts.report}
               </div>
             )}
           </div>

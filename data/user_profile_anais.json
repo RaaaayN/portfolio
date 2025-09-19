@@ -101,7 +101,10 @@
     }
   ],
   "certifications": [
-    "Certificat premiers secours"
+    {
+      "id": "first-aid",
+      "title": "Certificat premiers secours"
+    }
   ],
   "languages": [
     {

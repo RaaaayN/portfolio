@@ -77,11 +77,12 @@
         "Object-oriented programming",
         "Design patterns"
       ],
-      "photos": [],
-      "video": "https://www.youtube.com/watch?v=example1",
-      "location": "UTC",
-      "period": "2023",
-      "photo_path": "/images/projects/placeholder.svg"
+  "photos": [],
+  "video": "https://www.youtube.com/watch?v=example1",
+  "location": "UTC",
+  "period": "2023",
+  "photo_path": "/images/projects/placeholder.svg",
+  "report": "/projects/reports/hive-cpp-report.pdf"
     },
     {
       "id": "adit-search",
@@ -223,9 +224,23 @@
     }
   ],
   "certifications": [
-    "Professional Scrum Product Owner 1 (SCRUM)",
-    "Kaggle Contributor",
-    "Introduction to Corporate Finance (The Wharton School, University of Pennsylvania)"
+    {
+      "id": "pspo1",
+      "title": "Professional Scrum Product Owner 1",
+      "issuer": "Scrum.org",
+      "pdf": "/certifications/pspo1.pdf"
+    },
+    {
+      "id": "kaggle-contributor",
+      "title": "Kaggle Contributor",
+      "issuer": "Kaggle",
+      "pdf": "/certifications/kaggle-contributor.pdf"
+    },
+    {
+      "id": "wharton-finance",
+      "title": "Introduction to Corporate Finance",
+      "issuer": "The Wharton School, University of Pennsylvania"
+    }
   ],
   "languages": [
     {
