@@ -191,7 +191,19 @@ export default function ProjectsPage() {
                     </div>
                   )}
                   
-                  <p className="text-gray-600 mb-3 whitespace-pre-line">{project.description}</p>
+                  <div className="text-gray-600 mb-3">
+                    {Array.isArray(project.description) ? (
+                      <ul className="list-disc space-y-1 pl-5">
+                        {project.description.map((line, lineIndex) => (
+                          <li key={lineIndex} className="leading-relaxed">
+                            {line}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="whitespace-pre-line leading-relaxed">{project.description}</p>
+                    )}
+                  </div>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {project.technologies.map((tech, techIndex) => (
                       <span

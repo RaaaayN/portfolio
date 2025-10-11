@@ -23,7 +23,7 @@ export interface UserProfile {
   projects: {
     id: string;
     title: string;
-    description: string;
+    description: string | string[];
     details: string;
     technologies: string[];
     photos: string[];
@@ -54,7 +54,7 @@ export interface UserProfile {
     company?: string;
     location?: string;
     period: string;
-    description: string;
+    description: string | string[];
     technologies?: string[];
     photo_path?: string;
   }[];

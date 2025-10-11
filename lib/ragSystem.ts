@@ -20,6 +20,11 @@ export interface SearchResult {
   score: number;
 }
 
+const normalizeDescription = (description: string | string[]): string =>
+  Array.isArray(description)
+    ? description.map(line => `- ${line}`).join('\n')
+    : description;
+
 export class RAGSystem {
   private genAI: GoogleGenerativeAI;
   private documents: Document[] = [];
@@ -74,7 +79,7 @@ export class RAGSystem {
     profile.projects.forEach((project, index) => {
       documents.push({
         id: `project-${index}`,
-        content: `Projet: ${project.title}\nDescription: ${project.description}\nTechnologies: ${project.technologies.join(', ')}${project.location ? `\nLieu: ${project.location}` : ''}${project.period ? `\nPériode: ${project.period}` : ''}${project.github ? `\nGitHub: ${project.github}` : ''}${project.live ? `\nSite: ${project.live}` : ''}`,
+        content: `Projet: ${project.title}\nDescription: ${normalizeDescription(project.description)}\nTechnologies: ${project.technologies.join(', ')}${project.location ? `\nLieu: ${project.location}` : ''}${project.period ? `\nPériode: ${project.period}` : ''}${project.github ? `\nGitHub: ${project.github}` : ''}${project.live ? `\nSite: ${project.live}` : ''}`,
         metadata: { 
           type: 'project', 
           title: project.title,
@@ -100,7 +105,7 @@ export class RAGSystem {
     profile.education.forEach((edu, index) => {
       documents.push({
         id: `edu-${index}`,
-        content: `${edu.title} chez ${edu.company || 'N/A'}\nPériode: ${edu.period}\nDescription: ${edu.description}${edu.technologies ? `\nTechnologies: ${edu.technologies.join(', ')}` : ''}`,
+        content: `${edu.title} chez ${edu.company || 'N/A'}\nPériode: ${edu.period}\nDescription: ${normalizeDescription(edu.description)}${edu.technologies ? `\nTechnologies: ${edu.technologies.join(', ')}` : ''}`,
         metadata: { 
           type: 'education', 
           title: edu.title,

@@ -95,9 +95,19 @@ export default function ProjectDetailPage() {
                 <h1 className="text-4xl font-bold text-gray-900 mb-4">
                   {project.title}
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed whitespace-pre-line">
-                  {project.description}
-                </p>
+                <div className="text-xl text-gray-600 leading-relaxed">
+                  {Array.isArray(project.description) ? (
+                    <ul className="list-disc space-y-2 pl-6 text-base">
+                      {project.description.map((line, index) => (
+                        <li key={index} className="leading-relaxed">
+                          {line}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="whitespace-pre-line">{project.description}</p>
+                  )}
+                </div>
               </div>
 
               {/* Métadonnées */}
@@ -167,9 +177,21 @@ export default function ProjectDetailPage() {
           </h2>
           <Card>
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-                {project.details}
-              </p>
+              {/* 
+                Si details est un tableau (array of string), on l'affiche en bullets, ligne sautée
+                Sinon, on affiche en paragraphe (comme avant)
+              */}
+              {Array.isArray(project.details) ? (
+                <ul className="list-disc space-y-4 pl-6 text-gray-700">
+                  {project.details.map((line: string, i: number) => (
+                    <li key={i} className="leading-relaxed whitespace-pre-line">{line}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  {project.details}
+                </p>
+              )}
             </div>
           </Card>
         </section>

@@ -10,7 +10,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 interface Project {
   id: string;
   title: string;
-  description: string;
+  description: string | string[];
   details: string;
   technologies: string[];
   photos: string[];
@@ -98,9 +98,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </div>
           )}
           
-          <p className="text-gray-600 mb-4 flex-1 whitespace-pre-line">
-            {project.description}
-          </p>
+          <div className="text-gray-600 mb-4 flex-1">
+            {Array.isArray(project.description) ? (
+              <ul className="list-disc space-y-1 pl-5">
+                {project.description.map((line, index) => (
+                  <li key={index} className="leading-relaxed">
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="whitespace-pre-line leading-relaxed">
+                {project.description}
+              </p>
+            )}
+          </div>
           
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.map((tech, index) => (

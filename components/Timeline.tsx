@@ -10,7 +10,7 @@ interface TimelineItem {
   company?: string;
   location?: string;
   period: string;
-  description: string;
+  description: string | string[];
   technologies?: string[];
   result?: string;
   photo_path?: string;
@@ -129,9 +129,21 @@ export function Timeline({
                     </div>
                   )}
 
-                  <p className="mb-3 whitespace-pre-line text-gray-600">
-                    {item.description}
-                  </p>
+                  <div className="mb-3">
+                    {Array.isArray(item.description) ? (
+                      <ul className="list-disc space-y-1 pl-5 text-gray-600">
+                        {item.description.map((line, lineIndex) => (
+                          <li key={lineIndex} className="leading-relaxed">
+                            {line}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="whitespace-pre-line text-gray-600 leading-relaxed">
+                        {item.description}
+                      </p>
+                    )}
+                  </div>
 
                   {item.result && (
                     <div className="mb-3 rounded-r border-l-4 border-green-400 bg-green-50 p-3">
