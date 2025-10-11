@@ -444,35 +444,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Quick Stats */}
-      <section className="py-16 bg-white/5 backdrop-blur-sm">
-        <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">{texts.statsTitle}</h2>
-            <p className="text-gray-300">{texts.statsSubtitle}</p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">{profile.stats.experience_years}+</div>
-              <div className="text-gray-300">{texts.expYears}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">{profile.stats.people_led}</div>
-              <div className="text-gray-300">{texts.peopleLed}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">{profile.projects.length}</div>
-              <div className="text-gray-300">{texts.projectsDone}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">{profile.skills.reduce((acc, skill) => acc + skill.technologies.length, 0)}+</div>
-              <div className="text-gray-300">{texts.techMastered}</div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
+  
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm">
         <Container>

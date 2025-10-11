@@ -298,54 +298,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 6. Réalisations clés */}
-        <section className="mb-16">
-          <SectionTitle title={texts.achievementsTitle} />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Award className="w-6 h-6 text-green-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {texts.achievements.leadershipTitle}
-                  </h3>
-                  <p className="text-gray-600 mb-3">
-                    {texts.achievements.leadershipDescription}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="success" size="sm">Leadership</Badge>
-                    <Badge variant="success" size="sm">Management</Badge>
-                    <Badge variant="success" size="sm">Business Development</Badge>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card>
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Code className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {texts.achievements.technicalTitle}
-                  </h3>
-                  <p className="text-gray-600 mb-3">
-                    {texts.achievements.technicalDescription}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="default" size="sm">IA/ML</Badge>
-                    <Badge variant="default" size="sm">RAG</Badge>
-                    <Badge variant="default" size="sm">Data Science</Badge>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </section>
-
+      
         {/* 7. Certifications */}
         {profile.certifications && profile.certifications.length > 0 && (
           <section className="mb-16">
