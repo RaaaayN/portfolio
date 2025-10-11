@@ -176,6 +176,20 @@
   ],
   "experience": [
     {
+      "title": "Data & AI Engineer (Internship)",
+      "company": "Histia",
+      "location": "Station F, Paris, France",
+      "period": "September 2025 – Present",
+      "description": "Development of AI agents capable of reasoning, learning, and assisting with complex problems. Built pipelines for advanced data processing: ingestion, structuring, and large-scale utilization. Used PydanticAI and MCP (Model Context Protocol) to design modular, interoperable agents. Contributed to an entrepreneurial project incubated at Station F (HEC x CentraleSupélec) combining technological innovation and business challenges. Collaborated closely with founders to turn prototypes into deployable AI solutions for the financial sector.",
+      "technologies": [
+        "AI Agents",
+        "Data pipelines",
+        "PydanticAI",
+        "Model Context Protocol (MCP)",
+        "Entrepreneurship"
+      ]
+    },
+    {
       "title": "Project Manager",
       "company": "Junior UTC",
       "location": "Compiègne, France",

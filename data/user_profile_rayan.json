@@ -1,20 +1,20 @@
-{
+﻿{
   "name": "Rayan Barreddine",
-  "title": "Étudiant en 4e année à l'UTC, spécialité Intelligence Artificielle & Data",
-  "bio": "Étudiant en dernière année à l'UTC, passionné par l'IA, la data science et l'innovation technologique. Expérience en gestion de projets, développement de solutions intelligentes et leadership d'équipe.",
-  "about": "Je combine une solide formation en ingénierie informatique à l'UTC avec une forte implication dans des projets techniques et associatifs. Mes expériences couvrent la gestion de projets, le développement d'applications IA/data, la recherche, et l'encadrement d'équipes. Je me distingue par ma capacité à mener des projets de bout en bout, mon adaptabilité et mon esprit d'équipe.",
+  "title": "Ã‰tudiant en 4e annÃ©e Ã  l'UTC, spÃ©cialitÃ© Intelligence Artificielle & Data",
+  "bio": "Ã‰tudiant en derniÃ¨re annÃ©e Ã  l'UTC, passionnÃ© par l'IA, la data science et l'innovation technologique. ExpÃ©rience en gestion de projets, dÃ©veloppement de solutions intelligentes et leadership d'Ã©quipe.",
+  "about": "Je combine une solide formation en ingÃ©nierie informatique Ã  l'UTC avec une forte implication dans des projets techniques et associatifs. Mes expÃ©riences couvrent la gestion de projets, le dÃ©veloppement d'applications IA/data, la recherche, et l'encadrement d'Ã©quipes. Je me distingue par ma capacitÃ© Ã  mener des projets de bout en bout, mon adaptabilitÃ© et mon esprit d'Ã©quipe.",
   "photo_path": "/images/1.png",
   "hero": {
-    "tagline": "IA & Data pour créer de la valeur",
-    "subtitle": "Chef de projet à Junior UTC & futur ingénieur IA",
+    "tagline": "IA & Data pour crÃ©er de la valeur",
+    "subtitle": "Chef de projet Ã  Junior UTC & futur ingÃ©nieur IA",
     "highlights": [
-      "Pilotage d'équipes pluridisciplinaires",
+      "Pilotage d'Ã©quipes pluridisciplinaires",
       "Construction de solutions data de bout en bout",
       "Engagement associatif et transmission"
     ],
-    "quote": "Je suis convaincu que la technologie prend tout son sens lorsqu'elle sert l'humain et crée des opportunités concrètes.",
+    "quote": "Je suis convaincu que la technologie prend tout son sens lorsqu'elle sert l'humain et crÃ©e des opportunitÃ©s concrÃ¨tes.",
     "signature": "Rayan",
-    "availability": "Disponible pour un stage de fin d'études dès septembre 2025."
+    "availability": "Disponible pour un stage de fin d'Ã©tudes dÃ¨s septembre 2025."
   },
   "skills": [
     {
@@ -31,7 +31,7 @@
         "Lisp",
         "OCaml"
       ],
-      "description": "Maîtrise avancée de plusieurs langages pour le développement web, l'analyse de données et l'IA."
+      "description": "MaÃ®trise avancÃ©e de plusieurs langages pour le dÃ©veloppement web, l'analyse de donnÃ©es et l'IA."
     },
     {
       "category": "Intelligence Artificielle & Data Science",
@@ -46,7 +46,7 @@
         "PostgreSQL",
         "Linux"
       ],
-      "description": "Expertise en machine learning, deep learning, manipulation et visualisation de données, cloud et outils data."
+      "description": "Expertise en machine learning, deep learning, manipulation et visualisation de donnÃ©es, cloud et outils data."
     },
     {
       "category": "Gestion de projets",
@@ -60,7 +60,7 @@
         "GANTT",
         "Business Plan"
       ],
-      "description": "Gestion de projets complexes, planification, suivi et animation d'équipes pluridisciplinaires."
+      "description": "Gestion de projets complexes, planification, suivi et animation d'Ã©quipes pluridisciplinaires."
     },
     {
       "category": "Management",
@@ -74,19 +74,19 @@
         "GANTT",
         "Business Plan"
       ],
-      "description": "Gestion de projets complexes, planification, suivi et animation d'équipes pluridisciplinaires."
+      "description": "Gestion de projets complexes, planification, suivi et animation d'Ã©quipes pluridisciplinaires."
     }
   ],
   "projects": [
     {
       "id": "hive-cpp",
-      "title": "Jeu de société HIVE en C++",
-      "description": "Développement en C++ du jeu de société Hive avec une architecture orientée objet et une interface graphique interactive conçue avec Qt.",
-      "details": "1. Utilisation de plusieurs design patterns (Factory, Strategy, Observer,...) pour structurer la logique du jeu et faciliter les extensions.\n2. Modélisation fine des pièces et règles via une hiérarchie de classes, respectant les principes SOLID.\n3. Système de vérification de la connectivité de la ruche implémenté avec des algorithmes de parcours de graphe.\n4. Séparation nette entre moteur de jeu et interface grâce à une architecture optimisée.\n5. Interface Qt dynamique avec gestion des événements utilisateur, animations et mise à jour temps réel de l'état du plateau.",
+      "title": "Jeu de sociÃ©tÃ© HIVE en C++",
+      "description": "DÃ©veloppement en C++ du jeu de sociÃ©tÃ© Hive avec une architecture orientÃ©e objet et une interface graphique interactive conÃ§ue avec Qt.",
+      "details": "1. Utilisation de plusieurs design patterns (Factory, Strategy, Observer,...) pour structurer la logique du jeu et faciliter les extensions.\n2. ModÃ©lisation fine des piÃ¨ces et rÃ¨gles via une hiÃ©rarchie de classes, respectant les principes SOLID.\n3. SystÃ¨me de vÃ©rification de la connectivitÃ© de la ruche implÃ©mentÃ© avec des algorithmes de parcours de graphe.\n4. SÃ©paration nette entre moteur de jeu et interface grÃ¢ce Ã  une architecture optimisÃ©e.\n5. Interface Qt dynamique avec gestion des Ã©vÃ©nements utilisateur, animations et mise Ã  jour temps rÃ©el de l'Ã©tat du plateau.",
       "technologies": [
         "C++",
         "Qt",
-        "Programmation orientée objet",
+        "Programmation orientÃ©e objet",
         "Patrons de conception"
       ],
   "photos": [],
@@ -99,8 +99,8 @@
     {
       "id": "adit-search",
       "title": "Moteur de recherche sur des bulletins de l'ADIT",
-      "description": "Développement complet d'un moteur de recherche en Python appliqué à un corpus de bulletins ADIT, intégrant correction orthographique, lemmatisation, indexation inversée et interface graphique.",
-      "details": "1. Nettoyage du corpus HTML et transformation en XML structuré, avec extraction fine des métadonnées.\n2. Construction d'un anti-dictionnaire basé sur le score tf-idf, renforcé par une analyse statistique (loi de Zipf-Mandelbrot).\n3. Indexation optimisée via lemmatisation spaCy et normalisation des entités par distance de Levenshtein.\n4. Traitement avancé des requêtes en langage naturel via analyse de patterns et conversion en JSON.\n5. Interface web interactive en Dash, avec tri par pertinence/date, et moteur évalué avec des métriques de précision, rappel et F1.",
+      "description": "DÃ©veloppement complet d'un moteur de recherche en Python appliquÃ© Ã  un corpus de bulletins ADIT, intÃ©grant correction orthographique, lemmatisation, indexation inversÃ©e et interface graphique.",
+      "details": "1. Nettoyage du corpus HTML et transformation en XML structurÃ©, avec extraction fine des mÃ©tadonnÃ©es.\n2. Construction d'un anti-dictionnaire basÃ© sur le score tf-idf, renforcÃ© par une analyse statistique (loi de Zipf-Mandelbrot).\n3. Indexation optimisÃ©e via lemmatisation spaCy et normalisation des entitÃ©s par distance de Levenshtein.\n4. Traitement avancÃ© des requÃªtes en langage naturel via analyse de patterns et conversion en JSON.\n5. Interface web interactive en Dash, avec tri par pertinence/date, et moteur Ã©valuÃ© avec des mÃ©triques de prÃ©cision, rappel et F1.",
       "technologies": [
         "Python",
         "SpaCy",
@@ -117,9 +117,9 @@
     },
     {
       "id": "financial-prediction",
-      "title": "Outil de prédiction sur les marchés financiers",
-      "description": "Plateforme intelligente de gestion de portefeuille financier, combinant optimisation mathématique, prédiction des marchés et automatisation des décisions selon le profil de risque de l'utilisateur.",
-      "details": "1. Intègre des modèles de machine learning (Random Forest, LSTM, ARIMA) pour anticiper les variations de prix avec validation croisée.\n2. Propose une gestion manuelle ou automatique des portefeuilles, avec ajustements dynamiques toutes les 5 minutes.\n3. Calcule en continu les performances (rendement, volatilité, Sharpe) et optimise les allocations via scipy.optimize.\n4. Offre une interface réactive via Dash, avec gestion en temps réel des actions, alertes de risque, et visualisations.\n5. Sécurise les données et assure la robustesse du système via une architecture modulaire, un cache, des sauvegardes persistantes, et une gestion fine des erreurs.",
+      "title": "Outil de prÃ©diction sur les marchÃ©s financiers",
+      "description": "Plateforme intelligente de gestion de portefeuille financier, combinant optimisation mathÃ©matique, prÃ©diction des marchÃ©s et automatisation des dÃ©cisions selon le profil de risque de l'utilisateur.",
+      "details": "1. IntÃ¨gre des modÃ¨les de machine learning (Random Forest, LSTM, ARIMA) pour anticiper les variations de prix avec validation croisÃ©e.\n2. Propose une gestion manuelle ou automatique des portefeuilles, avec ajustements dynamiques toutes les 5 minutes.\n3. Calcule en continu les performances (rendement, volatilitÃ©, Sharpe) et optimise les allocations via scipy.optimize.\n4. Offre une interface rÃ©active via Dash, avec gestion en temps rÃ©el des actions, alertes de risque, et visualisations.\n5. SÃ©curise les donnÃ©es et assure la robustesse du systÃ¨me via une architecture modulaire, un cache, des sauvegardes persistantes, et une gestion fine des erreurs.",
       "technologies": [
         "Python",
         "Machine Learning",
@@ -138,9 +138,9 @@
     },
     {
       "id": "pokemon-rag",
-      "title": "RAG sur Pokémon",
-      "description": "Système de RAG spécialisé sur l'univers Pokémon, combinant données structurées issues de PokéAPI et contenus textuels de Poképédia, avec une interface Streamlit interactive.",
-      "details": "1. Collecte hybride : fusion de données textuelles et structurées, avec nettoyage, filtrage et indexation pour optimiser la pertinence et la performance.\n2. Architecture orientée objet : encapsulation complète du système dans une classe RAGSystem, respectant les principes SOLID.\n3. Base vectorielle avec ChromaDB: vectorisation des documents, gestion des modes de réponse (normal vs engagé) et nettoyage automatique des ressources.\n4. Interface Streamlit : système interactif avec réglage de la température, affichage des passages utilisés, détection des hallucinations et outil d'évaluation intégré.\n5. Évaluation fine : mesures RAGAS et internes (faithfulness, context precision, relevancy...), comparaison des modes, et pistes d'amélioration identifiées (hybrid search, enrichissement du corpus, tuning des prompts).",
+      "title": "RAG sur PokÃ©mon",
+      "description": "SystÃ¨me de RAG spÃ©cialisÃ© sur l'univers PokÃ©mon, combinant donnÃ©es structurÃ©es issues de PokÃ©API et contenus textuels de PokÃ©pÃ©dia, avec une interface Streamlit interactive.",
+      "details": "1. Collecte hybride : fusion de donnÃ©es textuelles et structurÃ©es, avec nettoyage, filtrage et indexation pour optimiser la pertinence et la performance.\n2. Architecture orientÃ©e objet : encapsulation complÃ¨te du systÃ¨me dans une classe RAGSystem, respectant les principes SOLID.\n3. Base vectorielle avec ChromaDB: vectorisation des documents, gestion des modes de rÃ©ponse (normal vs engagÃ©) et nettoyage automatique des ressources.\n4. Interface Streamlit : systÃ¨me interactif avec rÃ©glage de la tempÃ©rature, affichage des passages utilisÃ©s, dÃ©tection des hallucinations et outil d'Ã©valuation intÃ©grÃ©.\n5. Ã‰valuation fine : mesures RAGAS et internes (faithfulness, context precision, relevancy...), comparaison des modes, et pistes d'amÃ©lioration identifiÃ©es (hybrid search, enrichissement du corpus, tuning des prompts).",
       "technologies": [
         "Python",
         "Retrieval-Augmented Generation (RAG)",
@@ -157,9 +157,9 @@
     },
     {
       "id": "driving-school",
-      "title": "Site de gestion d'auto-école",
-      "description": "Application web PHP/MySQL complète pour la gestion des élèves, séances et inscriptions avec interface moderne.",
-      "details": "- Sécurité assurée grâce aux requêtes préparées, à la validation serveur et à la gestion fine des erreurs.\n- Interface moderne en design sombre, responsive et animée pour une navigation fluide et intuitive.\n- Gestion complète des données : inscription avec vérification, suivi des notes et calendrier intégré.\n- Base de données relationnelle solide avec contraintes d'intégrité et gestion des capacités.\n- Fonctions avancées incluant désinscription, validation des séances et aperçus dynamiques des données.",
+      "title": "Site de gestion d'auto-Ã©cole",
+      "description": "Application web PHP/MySQL complÃ¨te pour la gestion des Ã©lÃ¨ves, sÃ©ances et inscriptions avec interface moderne.",
+      "details": "- SÃ©curitÃ© assurÃ©e grÃ¢ce aux requÃªtes prÃ©parÃ©es, Ã  la validation serveur et Ã  la gestion fine des erreurs.\n- Interface moderne en design sombre, responsive et animÃ©e pour une navigation fluide et intuitive.\n- Gestion complÃ¨te des donnÃ©es : inscription avec vÃ©rification, suivi des notes et calendrier intÃ©grÃ©.\n- Base de donnÃ©es relationnelle solide avec contraintes d'intÃ©gritÃ© et gestion des capacitÃ©s.\n- Fonctions avancÃ©es incluant dÃ©sinscription, validation des sÃ©ances et aperÃ§us dynamiques des donnÃ©es.",
       "technologies": [
         "HTML",
         "CSS",
@@ -175,6 +175,20 @@
     }
   ],
   "experience": [
+    {
+      "title": "Ingénieur Data & IA",
+      "company": "Histia",
+      "location": "Station F, Paris, France",
+      "period": "sept. 2025 - aujourd’hui",
+      "description": "Développement d’agents IA capables de raisonner, apprendre et assister sur des problématiques complexes. Mise en place de pipelines dédiés au traitement complexe de la donnée : ingestion, structuration et exploitation à grande échelle. Utilisation de PydanticAI et du protocole MCP (Model Context Protocol) pour concevoir des agents modulaires et interopérables. Contribution à un projet entrepreneurial incubé à Station F (HEC x CentraleSupélec), mêlant innovation technologique et enjeux business. Collaboration directe avec les fondateurs pour transformer des prototypes en solutions IA déployables dans le secteur financier.",
+      "technologies": [
+        "Agents IA",
+        "Pipelines data",
+        "PydanticAI",
+        "Model Context Protocol",
+        "Entrepreneuriat"
+      ]
+    },
     {
       "title": "Chef de Projet",
       "company": "Junior UTC",
@@ -225,19 +239,19 @@
   ],
   "education": [
     {
-      "title": "Diplôme d'ingénieur (prévu en 2027)",
-      "company": "Université de Technologie de Compiègne (UTC)",
-      "location": "Compiègne",
-      "period": "Depuis Février 2023",
-      "description": "Branche Informatique (filière Intelligence Artificielle et sciences des données).",
+      "title": "DiplÃ´me d'ingÃ©nieur (prÃ©vu en 2027)",
+      "company": "UniversitÃ© de Technologie de CompiÃ¨gne (UTC)",
+      "location": "CompiÃ¨gne",
+      "period": "Depuis FÃ©vrier 2023",
+      "description": "Branche Informatique (filiÃ¨re Intelligence Artificielle et sciences des donnÃ©es).",
       "photo_path": "/images/utc.png"
     },
     {
-      "title": "Classes Préparatoires aux Grandes Écoles (MP2I/MPI) (classé 13e/38)",
-      "company": "Lycée Louis Thuillier",
+      "title": "Classes PrÃ©paratoires aux Grandes Ã‰coles (MP2I/MPI) (classÃ© 13e/38)",
+      "company": "LycÃ©e Louis Thuillier",
       "location": "Amiens",
-      "period": "Septembre 2021 – Février 2023",
-      "description": "Formation approfondie en mathématiques, en physique et en informatique.",
+      "period": "Septembre 2021 â€“ FÃ©vrier 2023",
+      "description": "Formation approfondie en mathÃ©matiques, en physique et en informatique.",
       "photo_path": ""
     }
   ],
@@ -256,13 +270,13 @@
     },
     {
       "id": "wharton-finance",
-      "title": "Introduction à la finance d’entreprise",
+      "title": "Introduction Ã  la finance dâ€™entreprise",
       "issuer": "The Wharton School, University of Pennsylvania"
     }
   ],
   "languages": [
     {
-      "language": "Français",
+      "language": "FranÃ§ais",
       "level": "Natif"
     },
     {
@@ -275,12 +289,12 @@
     }
   ],
   "hobbies": [
-    "Course à pied",
+    "Course Ã  pied",
     "Trail",
     "Tennis",
     "Football",
     "Musique",
-    "Jeux vidéo"
+    "Jeux vidÃ©o"
   ],
   "contact": {
     "email": "rayan.barre@icloud.com",
@@ -296,3 +310,5 @@
     "study_years": 4
   }
 }
+
+
