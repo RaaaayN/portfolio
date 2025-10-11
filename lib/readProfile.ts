@@ -7,6 +7,14 @@ export interface UserProfile {
   bio: string;
   about: string;
   photo_path?: string;
+  hero?: {
+    tagline?: string;
+    subtitle?: string;
+    highlights?: string[];
+    quote?: string;
+    signature?: string;
+    availability?: string;
+  };
   skills: {
     category: string;
     technologies: string[];
@@ -38,6 +46,8 @@ export interface UserProfile {
     technologies?: string[];
     result?: string;
     photo_path?: string;
+    image_path?: string;
+    image_caption?: string;
   }[];
   education: {
     title: string;

@@ -1,0 +1,27 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="720" rx="48" fill="url(#paint0_linear)"/>
+  <g opacity="0.25">
+    <rect x="120" y="160" width="720" height="420" rx="36" fill="#F9FAFB"/>
+    <path d="M160 360H800" stroke="#D1D5DB" stroke-width="6" stroke-linecap="round"/>
+    <path d="M160 440H800" stroke="#D1D5DB" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g stroke="#F9FAFB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="220" y="240" width="520" height="240" rx="32" fill="#111827" fill-opacity="0.45"/>
+    <path d="M260 320H680"/>
+    <path d="M260 360H680"/>
+    <path d="M260 400H680"/>
+    <path d="M260 440H680"/>
+    <rect x="320" y="480" width="120" height="48" rx="20" fill="#10B981"/>
+    <rect x="520" y="480" width="120" height="48" rx="20" fill="#F59E0B"/>
+  </g>
+  <g transform="translate(320 188)">
+    <rect x="0" y="0" width="320" height="96" rx="28" fill="white" opacity="0.9"/>
+    <text x="160" y="58" text-anchor="middle" font-family="'Inter', sans-serif" font-size="28" font-weight="700" fill="#1F2937">L'Oréal B.R.I</text>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear" x1="120" y1="80" x2="840" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+</svg>

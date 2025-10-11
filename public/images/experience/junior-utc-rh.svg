@@ -1,0 +1,25 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="720" rx="48" fill="url(#paint0_linear)"/>
+  <g opacity="0.35">
+    <circle cx="220" cy="520" r="180" fill="#FFF5F5"/>
+    <circle cx="780" cy="200" r="200" fill="#FEF3C7"/>
+  </g>
+  <g stroke="#1F2937" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="white">
+    <rect x="260" y="180" width="440" height="360" rx="48" fill="#F9FAFB"/>
+    <path d="M480 400C531.438 400 573.333 358.105 573.333 306.667C573.333 255.229 531.438 213.333 480 213.333C428.562 213.333 386.667 255.229 386.667 306.667C386.667 358.105 428.562 400 480 400Z"/>
+    <path d="M320 503.333C341.333 452.809 391.467 420 448 420H512C568.533 420 618.667 452.809 640 503.333"/>
+    <path d="M336 272H384"/>
+    <path d="M576 272H624"/>
+  </g>
+  <g transform="translate(640 440)">
+    <rect x="0" y="0" width="200" height="160" rx="32" fill="#1E3A8A"/>
+    <text x="100" y="64" text-anchor="middle" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="white">HR Lab</text>
+    <text x="100" y="110" text-anchor="middle" font-family="'Inter', sans-serif" font-size="20" fill="#E0E7FF">Training</text>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear" x1="80" y1="60" x2="880" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+  </defs>
+</svg>

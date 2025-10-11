@@ -34,6 +34,8 @@ export default function AboutPage() {
       languagesTitle: "Langues",
       hobbiesTitle: "Centres d'intérêt",
       resultLabel: "Résultat :",
+      viewImage: "Voir la photo",
+      closeImage: "Fermer la photo",
       achievements: {
         leadershipTitle: "Leadership & Management",
         leadershipDescription:
@@ -88,6 +90,8 @@ export default function AboutPage() {
       languagesTitle: "Languages",
       hobbiesTitle: "Interests",
       resultLabel: "Result:",
+      viewImage: "View photo",
+      closeImage: "Close photo",
       achievements: {
         leadershipTitle: "Leadership & Management",
         leadershipDescription:
@@ -240,13 +244,23 @@ export default function AboutPage() {
         {/* 3. Formation */}
         <section className="mb-16">
           <SectionTitle title={texts.educationTitle} />
-          <Timeline items={profile.education} resultLabel={texts.resultLabel} />
+          <Timeline
+            items={profile.education}
+            resultLabel={texts.resultLabel}
+            viewImageLabel={texts.viewImage}
+            closeImageLabel={texts.closeImage}
+          />
         </section>
 
         {/* 4. Parcours professionnel */}
         <section className="mb-16">
           <SectionTitle title={texts.careerTitle} />
-          <Timeline items={profile.experience} resultLabel={texts.resultLabel} />
+          <Timeline
+            items={profile.experience}
+            resultLabel={texts.resultLabel}
+            viewImageLabel={texts.viewImage}
+            closeImageLabel={texts.closeImage}
+          />
         </section>
 
         {/* 5. Compétences techniques */}

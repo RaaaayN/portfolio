@@ -4,6 +4,18 @@
   "bio": "Final-year student at UTC with a passion for AI, data science, and technological innovation. Experienced in project management, intelligent solution development, and team leadership.",
   "about": "I combine a strong background in computer engineering at UTC with significant involvement in technical and associative projects. My experience spans project management, AI/data application development, research, and team supervision. I stand out for my ability to carry projects from start to finish, adaptability, and team spirit.",
   "photo_path": "/images/1.png",
+  "hero": {
+    "tagline": "AI & Data to create meaningful impact",
+    "subtitle": "Project lead at Junior UTC & future AI engineer",
+    "highlights": [
+      "Leading cross-functional teams",
+      "Building end-to-end data solutions",
+      "Sharing knowledge through mentoring"
+    ],
+    "quote": "Technology matters when it serves people and turns ideas into tangible opportunities.",
+    "signature": "Rayan",
+    "availability": "Available for a final-year internship starting September 2025."
+  },
   "skills": [
     {
       "category": "Programming Languages",
@@ -175,7 +187,9 @@
         "Team coordination",
         "Contract drafting"
       ],
-      "photo_path": "/images/jutc_logo.jpg"
+      "photo_path": "/images/jutc_logo.jpg",
+      "image_path": "/images/experience/junior-utc-chef-projet.svg",
+      "image_caption": "Leading the project team and facilitating client workshops at Junior UTC."
     },
     {
       "title": "Human Resources Officer",
@@ -189,7 +203,9 @@
         "Internal communication",
         "Event organization"
       ],
-      "photo_path": "/images/jutc_logo.jpg"
+      "photo_path": "/images/jutc_logo.jpg",
+      "image_path": "/images/experience/junior-utc-rh.svg",
+      "image_caption": "Training session for new members of the Junior-Enterprise."
     },
     {
       "title": "Packaging Operator (worker internship)",
@@ -202,7 +218,9 @@
         "Industrial production",
         "Teamwork"
       ],
-      "photo_path": "/images/loreal.png"
+      "photo_path": "/images/loreal.png",
+      "image_path": "/images/experience/loreal-production.svg",
+      "image_caption": "On the packaging line inside the L'Oréal B.R.I plant."
     }
   ],
   "education": [

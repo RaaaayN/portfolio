@@ -4,6 +4,18 @@
   "bio": "Étudiant en dernière année à l'UTC, passionné par l'IA, la data science et l'innovation technologique. Expérience en gestion de projets, développement de solutions intelligentes et leadership d'équipe.",
   "about": "Je combine une solide formation en ingénierie informatique à l'UTC avec une forte implication dans des projets techniques et associatifs. Mes expériences couvrent la gestion de projets, le développement d'applications IA/data, la recherche, et l'encadrement d'équipes. Je me distingue par ma capacité à mener des projets de bout en bout, mon adaptabilité et mon esprit d'équipe.",
   "photo_path": "/images/1.png",
+  "hero": {
+    "tagline": "IA & Data pour créer de la valeur",
+    "subtitle": "Chef de projet à Junior UTC & futur ingénieur IA",
+    "highlights": [
+      "Pilotage d'équipes pluridisciplinaires",
+      "Construction de solutions data de bout en bout",
+      "Engagement associatif et transmission"
+    ],
+    "quote": "Je suis convaincu que la technologie prend tout son sens lorsqu'elle sert l'humain et crée des opportunités concrètes.",
+    "signature": "Rayan",
+    "availability": "Disponible pour un stage de fin d'études dès septembre 2025."
+  },
   "skills": [
     {
       "category": "Langages de programmation",
@@ -175,7 +187,9 @@
         "Coordination d'équipe",
         "Rédaction contractuelle"
       ],
-      "photo_path": "/images/jutc_logo.jpg"
+      "photo_path": "/images/jutc_logo.jpg",
+      "image_path": "/images/experience/junior-utc-chef-projet.svg",
+      "image_caption": "Encadrement de l'équipe projet et animation des ateliers clients chez Junior UTC."
     },
     {
       "title": "Chargé des Ressources Humaines",
@@ -189,7 +203,9 @@
         "Communication interne",
         "Organisation d'événements"
       ],
-      "photo_path": "/images/jutc_logo.jpg"
+      "photo_path": "/images/jutc_logo.jpg",
+      "image_path": "/images/experience/junior-utc-rh.svg",
+      "image_caption": "Séance de formation des nouveaux membres de la Junior-Entreprise."
     },
     {
       "title": "Opérateur de Conditionnement (stage ouvrier)",
@@ -202,7 +218,9 @@
         "Production industrielle",
         "Travail en équipe"
       ],
-      "photo_path": "/images/loreal.png"
+      "photo_path": "/images/loreal.png",
+      "image_path": "/images/experience/loreal-production.svg",
+      "image_caption": "Sur la ligne de conditionnement au sein de l'usine L'Oréal B.R.I."
     }
   ],
   "education": [
