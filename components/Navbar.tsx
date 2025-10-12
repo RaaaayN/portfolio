@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
@@ -30,6 +31,19 @@ export function Navbar() {
     ],
   }[language];
 
+  const languageToggleDetails =
+    language === "fr"
+      ? {
+          label: "FR",
+          flagSrc: "/flags/fr.svg",
+          flagAlt: "Drapeau français",
+        }
+      : {
+          label: "EN",
+          flagSrc: "/flags/gb.svg",
+          flagAlt: "Flag of the United Kingdom",
+        };
+
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <Container>
@@ -58,7 +72,18 @@ export function Navbar() {
               onClick={toggleLanguage}
               className="text-gray-600 hover:text-blue-600 border px-2 py-1 rounded"
             >
-              {language === "fr" ? "EN" : "FR"}
+              <span className="flex items-center gap-2">
+                <span className="font-semibold tracking-wide">
+                  {languageToggleDetails.label}
+                </span>
+                <Image
+                  src={languageToggleDetails.flagSrc}
+                  alt={languageToggleDetails.flagAlt}
+                  width={20}
+                  height={14}
+                  className="h-3.5 w-5 rounded-sm shadow-sm"
+                />
+              </span>
             </button>
           </div>
 
@@ -100,7 +125,18 @@ export function Navbar() {
                   }}
                   className="w-full border px-2 py-1 rounded text-gray-600 hover:text-blue-600"
                 >
-                  {language === "fr" ? "English" : "Français"}
+                  <span className="flex items-center justify-center gap-2">
+                    <span className="font-semibold tracking-wide">
+                      {languageToggleDetails.label}
+                    </span>
+                    <Image
+                      src={languageToggleDetails.flagSrc}
+                      alt={languageToggleDetails.flagAlt}
+                      width={20}
+                      height={14}
+                      className="h-3.5 w-5 rounded-sm shadow-sm"
+                    />
+                  </span>
                 </button>
               </div>
             </div>
