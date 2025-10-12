@@ -41,7 +41,7 @@ export function PhotoDisplay({
   }
 
   return (
-    <div className={`${sizeClasses[size]} ${rounded ? "rounded-full" : "rounded-lg"} ${shadow ? "shadow-md" : ""} overflow-hidden ${className}`}>
+    <div className={`${sizeClasses[size]} ${rounded ? "rounded-full" : "rounded-lg"} ${shadow ? "shadow-md" : ""} overflow-hidden bg-white ${className}`}>
       <Image
         src={src}
         alt={alt}

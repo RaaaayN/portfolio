@@ -6,6 +6,7 @@ import { Badge } from "./Badge";
 import { PhotoDisplay } from "./PhotoDisplay";
 import Link from "next/link";
 import { useLanguage } from "@/lib/LanguageContext";
+import { clsx } from "clsx";
 
 interface Project {
   id: string;
@@ -55,7 +56,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const hasReport = Boolean(project.report && project.report.trim().length > 0);
 
   return (
-    <Card hover className="h-full">
+    <Card
+      hover
+      className={clsx(
+        "h-full",
+        project.featured && "bg-amber-50 border-amber-300 shadow-lg ring-2 ring-amber-200/60"
+      )}
+    >
       <div className="flex flex-col h-full">
         {(project.image || project.photo_path) && (
           <div className="mb-4 rounded-lg overflow-hidden">
@@ -71,7 +78,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
         
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-xl font-semibold text-gray-900">
+            <h3
+              className={clsx(
+                "text-xl font-semibold text-gray-900",
+                project.featured && "text-amber-900"
+              )}
+            >
               {project.title}
             </h3>
             {project.featured && (

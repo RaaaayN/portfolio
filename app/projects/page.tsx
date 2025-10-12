@@ -101,6 +101,8 @@ export default function ProjectsPage() {
     ).length,
   }));
 
+  const featuredProjects = profile.projects.filter((project) => project.featured);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Container className="py-16">
@@ -126,21 +128,23 @@ export default function ProjectsPage() {
         </div>
 
         {/* Featured Projects */}
-        <section className="mb-16">
-          <div className="flex items-center justify-between mb-8">
-            <SectionTitle title={texts.featuredTitle} />
-            <Badge variant="warning" size="lg">
-              <Star className="w-4 h-4 mr-2" />
-              {texts.featuredBadge}
-            </Badge>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {profile.projects.filter(p => p.featured).map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
-          </div>
-        </section>
+        {featuredProjects.length > 0 && (
+          <section className="mb-16">
+            <div className="flex items-center justify-between mb-8">
+              <SectionTitle title={texts.featuredTitle} />
+              <Badge variant="warning" size="lg">
+                <Star className="w-4 h-4 mr-2" />
+                {texts.featuredBadge}
+              </Badge>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {featuredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* All Projects */}
         <section className="mb-16">

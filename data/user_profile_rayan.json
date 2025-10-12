@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "Rayan Barreddine",
   "title": "Étudiant en 4e année à l'UTC, spécialité Intelligence Artificielle & Data",
   "bio": "Étudiant en dernière année à l'UTC, passionné par l'IA, la data science, l'innovation technologique, la gestion de projets et le leadership.",
@@ -103,7 +103,8 @@
       "location": "UTC",
       "period": "2023",
       "photo_path": "/images/projects/placeholder.svg",
-      "report": "/projects/reports/hive-cpp-report.pdf"
+      "report": "/projects/reports/hive-cpp-report.pdf",
+      "featured": true
     },
     {
       "id": "adit-search",
@@ -186,7 +187,8 @@
       "video": "https://www.youtube.com/watch?v=example4",
       "location": "UTC",
       "period": "2024",
-      "photo_path": "/images/projects/placeholder.svg"
+      "photo_path": "/images/projects/placeholder.svg",
+      "featured": true
     },
     {
       "id": "driving-school",
@@ -234,7 +236,8 @@
         "PydanticAI",
         "Model Context Protocol",
         "Entrepreneuriat"
-      ]
+      ],
+      "featured": true
     },
     {
       "title": "Chef de Projet",
@@ -304,8 +307,8 @@
         "Branche Informatique (filière Intelligence Artificielle et sciences des données).",
         "Projets menés en apprentissage automatique, visualisation de données et innovation numérique."
       ],
-
-      "photo_path": "/images/utc.png"
+      "photo_path": "/images/utc.png",
+      "featured": true
     },
     {
       "title": "Classes Préparatoires aux Grandes Écoles (MP2I/MPI) (classé 13e/38)",

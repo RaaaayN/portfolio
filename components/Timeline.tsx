@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Calendar, MapPin, X, Image as ImageIcon } from "lucide-react";
+import { Calendar, MapPin, X, Image as ImageIcon, Star } from "lucide-react";
+import { clsx } from "clsx";
 import { PhotoDisplay } from "./PhotoDisplay";
 
 interface TimelineItem {
@@ -16,6 +17,7 @@ interface TimelineItem {
   photo_path?: string;
   image_path?: string;
   image_caption?: string;
+  featured?: boolean;
 }
 
 interface TimelineProps {
@@ -23,6 +25,7 @@ interface TimelineProps {
   resultLabel?: string;
   viewImageLabel?: string;
   closeImageLabel?: string;
+  featuredLabel?: string;
 }
 
 export function Timeline({
@@ -30,6 +33,7 @@ export function Timeline({
   resultLabel = "Resultat :",
   viewImageLabel = "Voir la photo",
   closeImageLabel = "Fermer la photo",
+  featuredLabel = "Featured",
 }: TimelineProps) {
   const [activeImage, setActiveImage] = useState<{
     src: string;
@@ -44,34 +48,56 @@ export function Timeline({
           const altText = item.company
             ? `${item.title} - ${item.company}`
             : item.title;
+          const isFeatured = Boolean(item.featured);
 
           return (
             <div key={index} className="relative">
               {/* Timeline line */}
               {index < items.length - 1 && (
-                <div className="absolute left-12 top-24 h-full w-0.5 bg-gray-200" />
+                <div className="absolute left-[4.5rem] top-24 h-full w-0.5 bg-gray-200 -z-10" />
               )}
 
-              <div className="flex items-start space-x-4">
-                {/* Timeline dot ou photo */}
-                {item.photo_path ? (
-                  <PhotoDisplay
-                    src={item.photo_path}
-                    alt={`Logo ${item.company || item.title}`}
-                    size="lg"
-                    className="flex-shrink-0"
-                  />
-                ) : (
-                  <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-blue-600 shadow-md">
-                    <Calendar className="h-8 w-8 text-white" />
-                  </div>
+              <div
+                className={clsx(
+                  "relative z-0 flex items-start space-x-4 rounded-2xl border bg-white p-6 shadow-sm transition-shadow",
+                  isFeatured
+                    ? "border-amber-300 bg-amber-50 shadow-lg ring-2 ring-amber-200/60"
+                    : "border-gray-100 hover:shadow-md"
                 )}
+              >
+                {/* Timeline dot ou photo */}
+                <div className="relative z-30 flex h-24 w-24 flex-shrink-0 items-center justify-center">
+                  <div className="absolute inset-0 z-40 rounded-full border-2 border-white" />
+                  {item.photo_path ? (
+                    <PhotoDisplay
+                      src={item.photo_path}
+                      alt={`Logo ${item.company || item.title}`}
+                      size="lg"
+                      className={clsx("relative z-50 ring-2 ring-white", isFeatured && "ring-amber-300")}
+                    />
+                  ) : (
+                    <div
+                      className={clsx(
+                        "relative z-50 flex h-full w-full items-center justify-center rounded-full border-2 border-white shadow-md",
+                        isFeatured ? "bg-amber-400" : "bg-blue-600"
+                      )}
+                    >
+                      <Calendar className="h-8 w-8 text-white" />
+                    </div>
+                  )}
+                </div>
 
                 {/* Content */}
                 <div className="min-w-0 flex-1">
                   <div className="mb-2 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <h3 className="text-lg font-semibold text-gray-900">
+                    <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                       {item.title}
+                      {isFeatured && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800">
+                          <Star className="h-3 w-3" />
+                          {featuredLabel}
+                        </span>
+                      )}
                     </h3>
                     <div className="flex flex-wrap items-center gap-3 sm:justify-end">
                       <span className="text-sm text-gray-500">{item.period}</span>

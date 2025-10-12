@@ -83,7 +83,8 @@
       "location": "UTC",
       "period": "2023",
       "photo_path": "/images/projects/placeholder.svg",
-      "report": "/projects/reports/hive-cpp-report.pdf"
+      "report": "/projects/reports/hive-cpp-report.pdf",
+      "featured": true
     },
     {
       "id": "adit-search",
@@ -148,7 +149,8 @@
       "video": "https://www.youtube.com/watch?v=example4",
       "location": "UTC",
       "period": "2024",
-      "photo_path": "/images/projects/placeholder.svg"
+      "photo_path": "/images/projects/placeholder.svg",
+      "featured": true
     },
     {
       "id": "driving-school",
@@ -190,7 +192,8 @@
         "PydanticAI",
         "Model Context Protocol (MCP)",
         "Entrepreneurship"
-      ]
+      ],
+      "featured": true
     },
     {
       "title": "Project Manager",
@@ -260,7 +263,8 @@
         "Major: Computer Science, specializing in AI & Data Science.",
         "Hands-on projects in machine learning, data visualization, and digital innovation."
       ],
-      "photo_path": "/images/utc.png"
+      "photo_path": "/images/utc.png",
+      "featured": true
     },
     {
       "title": "Preparatory Classes for Grandes Écoles (MP2I/MPI) (ranked 13/38)",

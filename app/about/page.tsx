@@ -36,6 +36,7 @@ export default function AboutPage() {
       resultLabel: "Résultat :",
       viewImage: "Voir la photo",
       closeImage: "Fermer la photo",
+      featured: "À la une",
       achievements: {
         leadershipTitle: "Leadership & Management",
         leadershipDescription:
@@ -92,6 +93,7 @@ export default function AboutPage() {
       resultLabel: "Result:",
       viewImage: "View photo",
       closeImage: "Close photo",
+      featured: "Featured",
       achievements: {
         leadershipTitle: "Leadership & Management",
         leadershipDescription:
@@ -249,6 +251,7 @@ export default function AboutPage() {
             resultLabel={texts.resultLabel}
             viewImageLabel={texts.viewImage}
             closeImageLabel={texts.closeImage}
+            featuredLabel={texts.featured}
           />
         </section>
 
@@ -260,6 +263,7 @@ export default function AboutPage() {
             resultLabel={texts.resultLabel}
             viewImageLabel={texts.viewImage}
             closeImageLabel={texts.closeImage}
+            featuredLabel={texts.featured}
           />
         </section>
 

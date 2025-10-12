@@ -42,12 +42,13 @@ export interface UserProfile {
     company?: string;
     location?: string;
     period: string;
-    description: string;
+    description: string | string[];
     technologies?: string[];
     result?: string;
     photo_path?: string;
     image_path?: string;
     image_caption?: string;
+    featured?: boolean;
   }[];
   education: {
     title: string;
@@ -57,6 +58,7 @@ export interface UserProfile {
     description: string | string[];
     technologies?: string[];
     photo_path?: string;
+    featured?: boolean;
   }[];
   certifications?: {
     id: string;
