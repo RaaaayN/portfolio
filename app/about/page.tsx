@@ -12,7 +12,23 @@ import { LanguagesList } from "@/components/LanguagesList";
 import { HobbiesList } from "@/components/HobbiesList";
 import { PhotoDisplay } from "@/components/PhotoDisplay";
 import { useLanguage } from "@/lib/LanguageContext";
-import { Code, Brain, Database, Globe, Award, Users, Briefcase, GraduationCap, Calendar, MapPin, Star, Target, Zap, Bot } from "lucide-react";
+import {
+  Code,
+  Brain,
+  Database,
+  Globe,
+  Award,
+  Users,
+  Briefcase,
+  GraduationCap,
+  Calendar,
+  MapPin,
+  Star,
+  Target,
+  Zap,
+  Bot,
+  Kanban,
+} from "lucide-react";
 
 export default function AboutPage() {
   const { language } = useLanguage();
@@ -277,7 +293,7 @@ export default function AboutPage() {
                   {index === 0 && <Code className="w-6 h-6 text-blue-600 mr-3" />}
                   {index === 1 && <Brain className="w-6 h-6 text-purple-600 mr-3" />}
                   {index === 2 && <Globe className="w-6 h-6 text-green-600 mr-3" />}
-                  {index === 3 && <Database className="w-6 h-6 text-orange-600 mr-3" />}
+                  {index === 3 && <Kanban className="w-6 h-6 text-orange-600 mr-3" />}
                   <h3 className="text-xl font-semibold text-gray-900">
                     {skill.category}
                   </h3>
