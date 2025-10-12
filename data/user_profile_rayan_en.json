@@ -31,39 +31,81 @@
         "Lisp",
         "OCaml"
       ],
-      "description": "Advanced proficiency in multiple languages for web development, data analysis, and artificial intelligence."
+      "description": "Mastery of major languages for web development, scientific programming, and data analysis. Strong algorithmic foundation and performance-oriented approach."
     },
     {
       "category": "Artificial Intelligence & Data Science",
       "technologies": [
+        "AI Agents",
+        "Model Context Protocol (MCP)",
         "Pandas",
         "NumPy",
         "scikit-learn",
         "TensorFlow",
-        "PowerBI",
+        "Power BI",
         "Azure",
         "AWS",
         "PostgreSQL",
         "Linux"
       ],
-      "description": "Expertise in machine learning, deep learning, data processing and visualization, cloud and data platforms."
+      "description": "Advanced skills in machine learning, data handling and visualization. Experienced with cloud environments and deploying AI/Data solutions."
+    },
+    {
+      "category": "Cloud, Tools & Infrastructure",
+      "technologies": [
+        "Docker",
+        "Git",
+        "Cursor",
+        "N8N",
+        "CI/CD",
+        "Notion"],
+      "description": "Use of modern tools for version control, automation and application deployment. Proficient in Linux environments and DevOps practices."
     },
     {
       "category": "Project Management",
       "technologies": [
-        "AGILE",
-        "SCRUM",
+        "Agile",
+        "Scrum",
         "PBS",
         "WBS",
         "PDP",
         "OBS",
-        "GANTT",
+        "Gantt",
         "Business Plan"
       ],
-      "description": "Leading complex projects: planning, monitoring, and managing multidisciplinary teams."
+      "description": "Managing complex technical projects with planning, monitoring, and team leadership. Implementation of Agile methods and planning tools (PBS, WBS, Gantt)."
     }
   ],
   "projects": [
+    {
+      "id": "portfolio-site",
+      "title": "This wonderful portfolio site",
+      "description": [
+        "Development of this wonderful portfolio site presenting my career, skills, experiences and projects, with an intuitive, responsive and elegant interface.",
+        "Modern stack (Next.js/React, static JSON) and automated deployment. Custom design and optimization for accessibility, ergonomics and SEO."
+      ],
+      "details": [
+        "Definition of a reusable data structure for all content (projects, experiences, training, languages, etc.).",
+        "Setting up an editing pipeline facilitating translation, update and customization of the site.",
+        "Adding soft animations, custom visual effects and a dark mode usable on all supports.",
+        "Reliable hosting and CI/CD for instant deployment.",
+        "SEO optimizations and mobile adaptability for maximum accessibility.",
+        "Transparency and open code for others to inspire or contribute."
+      ],
+      "technologies": [
+        "Next.js",
+        "React",
+        "JavaScript",
+        "JSON",
+        "CSS",
+        "Netlify"
+      ],
+      "photos": ["/images/projects/portfolio-cover.png"],
+      "video": "",
+      "location": "Compiègne",
+      "period": "2024",
+      "photo_path": "/images/projects/portfolio-cover.png"
+    },
     {
       "id": "hive-cpp",
       "title": "Hive board game in C++",
@@ -193,7 +235,8 @@
         "Model Context Protocol (MCP)",
         "Entrepreneurship"
       ],
-      "featured": true
+      "featured": true,
+      "photo_path": "/images/histia_app_logo.jpg"
     },
     {
       "title": "Project Manager",
@@ -282,18 +325,18 @@
       "id": "pspo1",
       "title": "Professional Scrum Product Owner 1",
       "issuer": "Scrum.org",
-      "pdf": "/certifications/pspo1.pdf"
+      "pdf": "/certifications/Professional Scrum Product Owner I.pdf"
     },
     {
       "id": "kaggle-contributor",
       "title": "Kaggle Contributor",
-      "issuer": "Kaggle",
-      "pdf": "/certifications/kaggle-contributor.pdf"
+      "issuer": "Kaggle"
     },
     {
       "id": "wharton-finance",
       "title": "Introduction to Corporate Finance",
-      "issuer": "The Wharton School, University of Pennsylvania"
+      "issuer": "The Wharton School, University of Pennsylvania",
+      "pdf": "/certifications/Introduction to Corporate Finance.pdf"
     }
   ],
   "languages": [

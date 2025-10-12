@@ -17,67 +17,97 @@
     "availability": "Disponible pour un stage de fin d'études dès septembre 2025."
   },
   "skills": [
-    {
-      "category": "Langages de programmation",
-      "technologies": [
-        "Python",
-        "C",
-        "C++",
-        "HTML",
-        "CSS",
-        "PHP",
-        "SQL",
-        "R",
-        "Lisp",
-        "OCaml"
-      ],
-      "description": "Maîtrise avancée de plusieurs langages pour le développement web, l'analyse de données et l'IA."
-    },
-    {
-      "category": "Intelligence Artificielle & Data Science",
-      "technologies": [
-        "Pandas",
-        "NumPy",
-        "scikit-learn",
-        "TensorFlow",
-        "PowerBI",
-        "Azure",
-        "AWS",
-        "PostgreSQL",
-        "Linux"
-      ],
-      "description": "Expertise en machine learning, deep learning, manipulation et visualisation de données, cloud et outils data."
-    },
-    {
-      "category": "Gestion de projets",
-      "technologies": [
-        "AGILE",
-        "SCRUM",
-        "PBS",
-        "WBS",
-        "PDP",
-        "OBS",
-        "GANTT",
-        "Business Plan"
-      ],
-      "description": "Gestion de projets complexes, planification, suivi et animation d'équipes pluridisciplinaires."
-    },
-    {
-      "category": "Management",
-      "technologies": [
-        "AGILE",
-        "SCRUM",
-        "PBS",
-        "WBS",
-        "PDP",
-        "OBS",
-        "GANTT",
-        "Business Plan"
-      ],
-      "description": "Gestion de projets complexes, planification, suivi et animation d'équipes pluridisciplinaires."
-    }
-  ],
+  {
+    "category": "Langages de programmation",
+    "technologies": [
+      "Python",
+      "C",
+      "C++",
+      "HTML",
+      "CSS",
+      "PHP",
+      "SQL",
+      "R",
+      "Lisp",
+      "OCaml"
+    ],
+    "description": "Maîtrise des principaux langages pour le développement web, la programmation scientifique et l’analyse de données. Solide base algorithmique et approche orientée performance."
+  },
+  {
+    "category": "Intelligence Artificielle & Data Science",
+    "technologies": [
+      "AI Agents",
+      "Model Context Protocol (MCP)",
+      "Pandas",
+      "NumPy",
+      "scikit-learn",
+      "TensorFlow",
+      "Power BI",
+      "Azure",
+      "AWS",
+      "PostgreSQL",
+      "Linux"
+    ],
+    "description": "Compétences avancées en machine learning, manipulation et visualisation de données. Expérience sur le cloud et la mise en production de solutions IA/Data."
+  },
+  {
+    "category": "Cloud, Outils & Infrastructure",
+    "technologies": [
+      "Docker",
+      "Git",
+      "Cursor",
+      "N8N",
+      "CI/CD",
+      "Notion"
+        ],
+    "description": "Utilisation d’outils modernes pour le versioning, l’automatisation et le déploiement d’applications. Connaissance des environnements Linux et des pratiques DevOps."
+  },
+  {
+    "category": "Gestion de projets",
+    "technologies": [
+      "Agile",
+      "Scrum",
+      "PBS",
+      "WBS",
+      "PDP",
+      "OBS",
+      "Gantt",
+      "Business Plan"
+    ],
+    "description": "Gestion de projets techniques complexes avec planification, suivi et pilotage d’équipe. Mise en œuvre de méthodes Agiles et d’outils de planification (PBS, WBS, Gantt)."
+  }
+],
+
   "projects": [
+    {
+      "id": "portfolio-site",
+      "title": "Ce merveilleux site portfolio",
+      "description": [
+        "Développement de ce merveilleux site portfolio de présentation de mon parcours, compétences, expériences et projets, avec une interface intuitive, responsive et élégante.",
+        "Stack moderne (Next.js/React, JSON statique) et déploiement automatisé. Design sur-mesure et optimisation pour l’accessibilité, l’ergonomie et le référencement."
+      ],
+      "details": [
+        "Définition d’une structure de données réutilisable pour l’ensemble du contenu (projets, expériences, formations, langues, etc.).",
+        "Mise en place d’un pipeline d’édition facilitant la traduction, la mise à jour et la personnalisation du site.",
+        "Ajout d’animations douces, d’effets visuels sur mesure et d’un dark mode utilisable sur tous supports.",
+        "Hébergement fiable et CI/CD pour des mises en ligne instantanées.",
+        "Optimisations SEO et adaptabilité mobile pour une accessibilité maximale.",
+        "Transparence et ouverture du code pour que d’autres puissent s’inspirer ou contribuer."
+      ],
+      "technologies": [
+        "Next.js",
+        "React",
+        "JavaScript",
+        "JSON",
+        "CSS",
+        "Netlify"
+      ],
+      "photos": ["/images/projects/portfolio-cover.png"],
+      "video": "",
+      "location": "Compiègne",
+      "period": "2024",
+      "photo_path": "/images/projects/portfolio-cover.png"
+    },
     {
       "id": "hive-cpp",
       "title": "Jeu de société HIVE en C++",
@@ -237,7 +267,8 @@
         "Model Context Protocol",
         "Entrepreneuriat"
       ],
-      "featured": true
+      "featured": true,
+      "photo_path": "/images/histia_app_logo.jpg"
     },
     {
       "title": "Chef de Projet",
@@ -326,18 +357,18 @@
       "id": "pspo1",
       "title": "Professional Scrum Product Owner 1",
       "issuer": "Scrum.org",
-      "pdf": "/certifications/pspo1.pdf"
+      "pdf": "/certifications/Professional Scrum Product Owner I.pdf"
     },
     {
       "id": "kaggle-contributor",
       "title": "Kaggle Contributor",
-      "issuer": "Kaggle",
-      "pdf": "/certifications/kaggle-contributor.pdf"
+      "issuer": "Kaggle"
     },
     {
       "id": "wharton-finance",
       "title": "Introduction à la finance d’entreprise",
-      "issuer": "The Wharton School, University of Pennsylvania"
+      "issuer": "The Wharton School, University of Pennsylvania",
+      "pdf": "/certifications/Introduction to Corporate Finance.pdf"
     }
   ],
   "languages": [
