@@ -102,11 +102,10 @@
         "CSS",
         "Netlify"
       ],
-      "photos": ["/images/projects/portfolio-cover.png"],
-      "video": "",
+      "photos": ["/images/projects/portfolio.png"],
       "location": "Compiègne",
       "period": "2024",
-      "photo_path": "/images/projects/portfolio-cover.png"
+      "photo_path": "/images/projects/portfolio.png"
     },
     {
       "id": "hive-cpp",

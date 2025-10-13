@@ -100,11 +100,11 @@
         "CSS",
         "Netlify"
       ],
-      "photos": ["/images/projects/portfolio-cover.png"],
+      "photos": ["/images/projects/portfolio.png"],
       "video": "",
       "location": "Compiègne",
       "period": "2024",
-      "photo_path": "/images/projects/portfolio-cover.png"
+      "photo_path": "/images/projects/portfolio.png"
     },
     {
       "id": "hive-cpp",
@@ -120,7 +120,7 @@
         "Object-oriented programming",
         "Design patterns"
       ],
-      "photos": [],
+      "photos": ["/images/projects/hive-cpp-cover.png"],
       "video": "https://www.youtube.com/watch?v=example1",
       "location": "UTC",
       "period": "2023",
