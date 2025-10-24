@@ -1,9 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ragSystem } from '@/lib/ragSystem';
+import { validateCaptcha } from '@/lib/captchaConfig';
 
 export async function POST(request: NextRequest) {
   try {
-    const { message } = await request.json();
+    const { message, captchaToken } = await request.json();
+
+    // Validation du captcha
+    const captchaValidation = await validateCaptcha(captchaToken);
+    if (!captchaValidation.valid) {
+      return NextResponse.json(
+        { error: captchaValidation.error || 'Vérification de sécurité échouée' },
+        { status: 403 }
+      );
+    }
 
     // Validation
     if (!message || typeof message !== 'string' || message.trim().length === 0) {

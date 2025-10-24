@@ -2,10 +2,20 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { emailConfig } from '@/lib/emailConfig';
 import { readProfile } from '@/lib/readProfile';
+import { validateCaptcha } from '@/lib/captchaConfig';
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, subject, message } = await request.json();
+    const { name, email, subject, message, captchaToken } = await request.json();
+
+    // Validation du captcha
+    const captchaValidation = await validateCaptcha(captchaToken);
+    if (!captchaValidation.valid) {
+      return NextResponse.json(
+        { error: captchaValidation.error || 'Vérification de sécurité échouée' },
+        { status: 403 }
+      );
+    }
 
     // Validation des données
     if (!name || !email || !subject || !message) {

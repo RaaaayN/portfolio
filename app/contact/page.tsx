@@ -7,6 +7,7 @@ import { Card } from "@/components/Card";
 import { CVDownload, CVBadge } from "@/components/CVDownload";
 import { readProfile } from "@/lib/readProfile";
 import { useLanguage } from "@/lib/LanguageContext";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import {
   Mail,
   Phone,
@@ -31,6 +32,7 @@ interface ContactFormData {
 
 export default function ContactPage() {
   const { language } = useLanguage();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const profile = readProfile(language);
   const texts = {
     fr: {
@@ -221,12 +223,21 @@ export default function ContactPage() {
     setSubmitStatus('idle');
 
     try {
+      // Obtenir le token reCAPTCHA
+      let captchaToken = '';
+      if (executeRecaptcha) {
+        captchaToken = await executeRecaptcha('contact');
+      }
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          captchaToken
+        }),
       });
 
       if (response.ok) {

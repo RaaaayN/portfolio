@@ -9,6 +9,7 @@ import { generateSmartButtons, cleanText } from "@/lib/smartButtons";
 import { Send, Bot, User, Loader2, Sparkles } from "lucide-react";
 import { readProfile } from "@/lib/readProfile";
 import { useLanguage } from "@/lib/LanguageContext";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 interface Message {
   id: string;
@@ -19,6 +20,7 @@ interface Message {
 
 export default function ChatPage() {
   const { language } = useLanguage();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const profile = readProfile(language);
   const firstName = profile.name.split(' ')[0];
   const texts = {
@@ -96,13 +98,22 @@ export default function ChatPage() {
     setIsLoading(true);
 
     try {
+      // Obtenir le token reCAPTCHA
+      let captchaToken = '';
+      if (executeRecaptcha) {
+        captchaToken = await executeRecaptcha('chat');
+      }
+
       // Appel à l'API RAG
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: input.trim() }),
+        body: JSON.stringify({ 
+          message: input.trim(),
+          captchaToken 
+        }),
       });
 
       if (!response.ok) {
