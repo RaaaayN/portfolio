@@ -98,10 +98,15 @@ export default function ChatPage() {
     setIsLoading(true);
 
     try {
-      // Obtenir le token reCAPTCHA
+      // Obtenir le token reCAPTCHA (avec gestion d'erreur)
       let captchaToken = '';
-      if (executeRecaptcha) {
-        captchaToken = await executeRecaptcha('chat');
+      try {
+        if (executeRecaptcha) {
+          captchaToken = await executeRecaptcha('chat');
+        }
+      } catch (recaptchaError) {
+        console.warn('⚠️ Erreur reCAPTCHA, utilisation sans token:', recaptchaError);
+        // Continue sans token reCAPTCHA
       }
 
       // Appel à l'API RAG

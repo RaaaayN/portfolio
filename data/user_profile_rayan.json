@@ -59,7 +59,7 @@
       "N8N",
       "CI/CD",
       "Notion"
-        ],
+    ],
     "description": "Utilisation d’outils modernes pour le versioning, l’automatisation et le déploiement d’applications. Connaissance des environnements Linux et des pratiques DevOps."
   },
   {
@@ -127,12 +127,11 @@
         "Programmation orientée objet",
         "Patrons de conception"
       ],
-      "photos": [],
-      "video": "https://www.youtube.com/watch?v=example1",
+      "photos": ["/images/projects/hive-photo.webp"],
       "location": "UTC",
       "period": "2023",
-      "photo_path": "/images/projects/placeholder.svg",
-      "report": "/projects/reports/hive-cpp-report.pdf",
+      "photo_path": "/images/projects/hive-photo.webp",
+      "report": "/projects/reports/hivereport.pdf",
       "featured": true
     },
     {
@@ -156,11 +155,11 @@
         "XML",
         "Dash"
       ],
-      "photos": [],
-      "video": "https://www.youtube.com/watch?v=example2",
+      "photos": ["/images/projects/ADIT.png"],
       "location": "UTC",
+      "report":"/projects/reports/DM1_LO17_BARREDDINE_JIAWEN.pdf",
       "period": "2023",
-      "photo_path": "/images/projects/placeholder.svg"
+      "photo_path": "/images/projects/ADIT.png"
     },
     {
       "id": "financial-prediction",

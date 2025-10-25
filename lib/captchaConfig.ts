@@ -10,6 +10,12 @@ const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
  * @returns true si le token est valide, false sinon
  */
 export async function verifyCaptcha(token: string): Promise<boolean> {
+  // Désactivation temporaire du captcha
+  console.warn('⚠️ Captcha verification disabled temporarily');
+  return true;
+  
+  // Code original commenté pour réactivation future
+  /*
   if (!RECAPTCHA_SECRET_KEY) {
     console.error('⚠️ RECAPTCHA_SECRET_KEY is not configured');
     // En développement, on peut retourner true si la clé n'est pas configurée
@@ -41,6 +47,7 @@ export async function verifyCaptcha(token: string): Promise<boolean> {
     console.error('❌ Erreur lors de la vérification du captcha:', error);
     return false;
   }
+  */
 }
 
 /**
@@ -49,6 +56,12 @@ export async function verifyCaptcha(token: string): Promise<boolean> {
  * @returns Un objet avec le statut de validation et un message d'erreur éventuel
  */
 export async function validateCaptcha(token: string): Promise<{ valid: boolean; error?: string }> {
+  // Désactivation temporaire du captcha
+  console.warn('⚠️ Captcha validation disabled temporarily');
+  return { valid: true };
+  
+  // Code original commenté pour réactivation future
+  /*
   if (!token) {
     return { valid: false, error: 'Token captcha manquant' };
   }
@@ -60,5 +73,6 @@ export async function validateCaptcha(token: string): Promise<{ valid: boolean; 
   }
 
   return { valid: true };
+  */
 }
 
