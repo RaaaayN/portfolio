@@ -62,6 +62,9 @@ export class RAGSystem {
       metadata: { type: 'profile', title: 'Profil principal' }
     });
 
+    // Documents enrichis avec le contexte personnel détaillé
+    this.addPersonalContextDocuments(documents);
+
     // Compétences
     profile.skills.forEach((skillGroup, index) => {
       documents.push({
@@ -158,6 +161,142 @@ export class RAGSystem {
     }
 
     return documents;
+  }
+
+  // Ajouter des documents enrichis avec le contexte personnel
+  private addPersonalContextDocuments(documents: Document[]): void {
+    // Document sur l'expérience académique et professionnelle
+    documents.push({
+      id: 'academic-professional',
+      content: `Rayan Barreddine est étudiant en 4e année à l'UTC (Université de Technologie de Compiègne) en spécialisation Intelligence Artificielle et Data. Il fait actuellement son stage d'assistant ingénieur à Station F, au sein de la startup Histia, où il travaille sur le développement de systèmes d'IA et de graphes de connaissance pour détecter et analyser les startups à fort potentiel.`,
+      metadata: { 
+        type: 'profile', 
+        title: 'Parcours académique et professionnel',
+        section: 'Expérience'
+      }
+    });
+
+    // Document sur les valeurs et ambitions
+    documents.push({
+      id: 'values-ambitions',
+      content: `Valeurs: Curiosité et apprentissage continu, Esprit d'initiative et autonomie, Impact concret et innovation utile. Ambitions: Devenir ingénieur IA/data avec une approche entrepreneuriale, construire des produits technologiques intelligents capables d'avoir un impact réel sur la société, que ce soit dans la recherche, la stratégie ou l'entrepreneuriat.`,
+      metadata: { 
+        type: 'profile', 
+        title: 'Valeurs et ambitions',
+        section: 'Personnalité'
+      }
+    });
+
+    // Document sur l'origine et la personnalité
+    documents.push({
+      id: 'origin-personality',
+      content: `Franco-marocain, Rayan a grandi entre deux cultures, ce qui lui a donné une ouverture d'esprit, une capacité d'adaptation et un goût pour les échanges humains. Personnalité: Curieux, persévérant et réfléchi. Il aime apprendre en profondeur, comprendre les systèmes complexes et transformer les idées en projets concrets.`,
+      metadata: { 
+        type: 'profile', 
+        title: 'Origine et personnalité',
+        section: 'Personnalité'
+      }
+    });
+
+    // Document sur les centres d'intérêt techniques
+    documents.push({
+      id: 'tech-interests',
+      content: `Centres d'intérêt techniques: IA & graphes de connaissance, Automatisation, Serveurs personnels, Open source. Il est passionné par les startups, les business models innovants et les projets à impact. Il aime comprendre comment une idée devient un produit et comment une vision peut se concrétiser.`,
+      metadata: { 
+        type: 'skill', 
+        title: 'Intérêts techniques',
+        section: 'Compétences'
+      }
+    });
+
+    // Document sur les activités sportives et créatives
+    documents.push({
+      id: 'sports-creative',
+      content: `Sports: Course à pied, Tennis, Trail, Fitness léger à la maison. Activités créatives: Musique, Design de projets, Création de contenu tech. Il trouve souvent ses meilleures idées de projet en courant.`,
+      metadata: { 
+        type: 'profile', 
+        title: 'Sports et créativité',
+        section: 'Loisirs'
+      }
+    });
+
+    // Document sur le mode de vie et les habitudes
+    documents.push({
+      id: 'lifestyle-habits',
+      content: `Mode de vie: Il vit à Paris pour son stage, s'organise entre travail, sport et temps perso. Il s'intéresse à la productivité, à la santé mentale et à l'équilibre entre performance et bien-être. Habitudes: Il court le soir pour décompresser après le travail, aime passer du temps à lire ou regarder des documentaires sur la tech, la société ou l'économie, planifie ses semaines pour garder un bon équilibre entre efficacité et détente.`,
+      metadata: { 
+        type: 'profile', 
+        title: 'Mode de vie et habitudes',
+        section: 'Personnalité'
+      }
+    });
+
+    // Document sur les voyages et l'ouverture culturelle
+    documents.push({
+      id: 'travel-culture',
+      content: `Voyages: Il aime découvrir de nouvelles villes, rencontrer des gens différents et comprendre les cultures locales. Les voyages sont pour lui une source d'inspiration et de remise en perspective. Il adore organiser ses projets, ses routines et ses outils pour être plus efficace.`,
+      metadata: { 
+        type: 'profile', 
+        title: 'Voyages et culture',
+        section: 'Loisirs'
+      }
+    });
+
+    // Document sur les objectifs personnels
+    documents.push({
+      id: 'personal-goals',
+      content: `Objectifs: Devenir expert en IA appliquée et data engineering, Monter un projet à fort impact social ou technologique, Continuer à développer ses compétences en management et leadership. Il aime les discussions profondes sur la tech, la société et l'avenir de l'IA.`,
+      metadata: { 
+        type: 'profile', 
+        title: 'Objectifs personnels',
+        section: 'Ambitions'
+      }
+    });
+
+    // Document sur les fun facts et particularités
+    documents.push({
+      id: 'fun-facts',
+      content: `Fun facts: Il trouve souvent ses meilleures idées de projet en courant. Il est un vrai passionné de graphes et de systèmes complexes. Il aime les discussions profondes sur la tech, la société et l'avenir de l'IA. Il adore organiser ses projets, ses routines et ses outils pour être plus efficace.`,
+      metadata: { 
+        type: 'profile', 
+        title: 'Fun facts et particularités',
+        section: 'Personnalité'
+      }
+    });
+
+   
+    // Document sur les habitudes de travail et productivité
+    documents.push({
+      id: 'work-productivity',
+      content: `Habitudes de travail: Il vit à Paris pour son stage et s'organise entre travail, sport et temps perso. Il s'intéresse à la productivité, à la santé mentale et à l'équilibre entre performance et bien-être. Il court le soir pour décompresser après le travail. Il aime passer du temps à lire ou regarder des documentaires sur la tech, la société ou l'économie. Il planifie ses semaines pour garder un bon équilibre entre efficacité et détente.`,
+      metadata: { 
+        type: 'profile', 
+        title: 'Habitudes de travail et productivité',
+        section: 'Lifestyle'
+      }
+    });
+
+    // Document sur les intérêts créatifs et culturels
+    documents.push({
+      id: 'creative-cultural',
+      content: `Intérêts créatifs et culturels: Musique, Design de projets, Création de contenu tech. Il aime découvrir de nouvelles villes, rencontrer des gens différents et comprendre les cultures locales. Les voyages sont pour lui une source d'inspiration et de remise en perspective.`,
+      metadata: { 
+        type: 'profile', 
+        title: 'Intérêts créatifs et culturels',
+        section: 'Loisirs'
+      }
+    });
+
+    // Document sur la passion pour les systèmes complexes
+    documents.push({
+      id: 'complex-systems',
+      content: `Passion pour les systèmes complexes: Il est un vrai passionné de graphes et de systèmes complexes. Il aime apprendre en profondeur, comprendre les systèmes complexes et transformer les idées en projets concrets. Il travaille sur le développement de systèmes d'IA et de graphes de connaissance pour détecter et analyser les startups à fort potentiel.`,
+      metadata: { 
+        type: 'skill', 
+        title: 'Passion pour les systèmes complexes',
+        section: 'Compétences'
+      }
+    });
   }
 
   // Recherche sémantique simple (basée sur la similarité de texte)
