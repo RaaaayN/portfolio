@@ -1,20 +1,20 @@
 {
   "name": "Rayan Barreddine",
-  "title": "Étudiant en 4e année à l'UTC, spécialité Intelligence Artificielle & Data",
-  "bio": "Étudiant en dernière année à l'UTC, passionné par l'IA, la data science, l'innovation technologique, la gestion de projets et le leadership.",
-  "about": "Je combine une solide formation en ingénierie informatique à l'UTC avec une forte implication dans des projets techniques et associatifs, couvrant la gestion de projets, le développement IA/data, la recherche et l'encadrement d'équipes.",
+  "title": "Étudiant en 4e année à l’UTC — Spécialisation IA & Data",
+  "bio": "Étudiant en ingénierie informatique passionné par l’intelligence artificielle, la data et l’entrepreneuriat. J’aime transformer les idées en projets concrets, alliant innovation technologique et impact réel.",
+  "about": "Actuellement en cycle de spécialisation à l’Université de Technologie de Compiègne, je m’intéresse à tout ce qui relie l’IA, la data et la stratégie produit. J’ai dirigé plusieurs projets à la Junior UTC, accompagné des startups à Station F et travaillé sur des systèmes intelligents de traitement et d’analyse de données. J’aime comprendre, construire, optimiser et transmettre.",
   "photo_path": "/images/1.png",
   "hero": {
-    "tagline": "IA & Data pour créer de la valeur",
-    "subtitle": "Chef de projet à Junior UTC & futur ingénieur IA",
+    "tagline": "L’IA au service de l’action et de la stratégie",
+    "subtitle": "Ex-Chef de projet à Junior UTC & futur ingénieur Data/IA",
     "highlights": [
-      "Pilotage d'équipes pluridisciplinaires",
-      "Construction de solutions data de bout en bout",
-      "Engagement associatif et transmission"
+      "Management de projets et d’équipes tech",
+      "Conception d’architectures IA et data end-to-end",
+      "Culture startup et approche orientée impact"
     ],
-    "quote": "Je suis convaincu que la technologie prend tout son sens lorsqu'elle sert l'humain et crée des opportunités concrètes.",
+    "quote": "Entreprendre dans l’IA, c’est accepter d’apprendre en permanence de la machine, du marché et de soi-même.",
     "signature": "Rayan",
-    "availability": "Disponible pour un stage de fin d'études dès septembre 2025."
+    "availability": "Disponible pour un stage de fin d’études à partir de Février 2027."
   },
   "skills": [
   {
@@ -102,6 +102,7 @@
         "CSS",
         "Netlify"
       ],
+      "github": "https://github.com/RaaaayN/portfolio",
       "photos": ["/images/projects/portfolio.png"],
       "location": "Compiègne",
       "period": "2024",
@@ -131,8 +132,7 @@
       "location": "UTC",
       "period": "2023",
       "photo_path": "/images/projects/hive-photo.webp",
-      "report": "/projects/reports/hivereport.pdf",
-      "featured": true
+      "report": "/projects/reports/hivereport.pdf"
     },
     {
       "id": "adit-search",
@@ -155,6 +155,7 @@
         "XML",
         "Dash"
       ],
+      "github": "https://github.com/RaaaayN/search-adit",
       "photos": ["/images/projects/ADIT.png"],
       "location": "UTC",
       "report":"/projects/reports/DM1_LO17_BARREDDINE_JIAWEN.pdf",
@@ -185,6 +186,7 @@
         "Dash"
       ],
       "featured": true,
+      "github": "https://github.com/RaaaayN/prediction-wallet",
       "photos": ["/images/projects/wallet1.png","/images/projects/wallet2.png","/images/projects/wallet3.png"],
       "location": "UTC",
       "period": "2024",
@@ -211,11 +213,12 @@
         "Google Gemini",
         "LLM"
       ],
+      "github": "https://github.com/RaaaayN/rag-lo17",
       "photos": [],
-      "video": "https://www.youtube.com/watch?v=example4",
       "location": "UTC",
       "period": "2024",
-      "photo_path": "/images/projects/placeholder.svg"    
+      "photo_path": "/images/projects/placeholder.svg",
+      "featured": true
     },
     {
       "id": "driving-school",
@@ -237,6 +240,7 @@
         "SQL",
         "MySQL"
       ],
+      "github": "https://github.com/RaaaayN/auto-ecole",
       "photos": ["/images/projects/auto1.png"],
       "location": "UTC",
       "period": "2023",

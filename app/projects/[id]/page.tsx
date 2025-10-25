@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { readProfile } from "@/lib/readProfile";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
 import { PhotoDisplay } from "@/components/PhotoDisplay";
 import { PdfViewer } from "@/components/PdfViewer";
+import { ImageModal } from "@/components/ImageModal";
 import { ArrowLeft, ExternalLink, Github, Calendar, MapPin, Play, Image as ImageIcon, Video, FileText } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -16,6 +18,10 @@ export default function ProjectDetailPage() {
   const { language } = useLanguage();
   const profile = readProfile(language);
   const project = profile.projects.find(p => p.id === params?.id);
+  
+  // État pour la modal d'images
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const texts = {
     fr: {
@@ -59,6 +65,40 @@ export default function ProjectDetailPage() {
 
   const videoId = project.video ? extractVideoId(project.video) : null;
 
+  // Fonctions pour gérer la modal d'images
+  const openImageModal = (index: number) => {
+    setSelectedImageIndex(index);
+    setIsImageModalOpen(true);
+  };
+
+  const closeImageModal = () => {
+    setIsImageModalOpen(false);
+  };
+
+  // Collecter toutes les images du projet (photo principale + galerie)
+  const getAllImages = () => {
+    const images: string[] = [];
+    
+    // Ajouter la photo principale si elle existe
+    if (project.photo_path || project.image) {
+      images.push(project.photo_path || project.image || "");
+    }
+    
+    // Ajouter les photos de la galerie
+    if (project.photos && project.photos.length > 0) {
+      project.photos.forEach(photo => {
+        // Éviter les doublons
+        if (!images.includes(photo)) {
+          images.push(photo);
+        }
+      });
+    }
+    
+    return images;
+  };
+
+  const allImages = getAllImages();
+
   return (
     <div className="min-h-screen bg-white">
       <Container className="py-16">
@@ -79,13 +119,27 @@ export default function ProjectDetailPage() {
             {/* Image principale */}
             <div className="lg:w-1/2">
               {(project.photo_path || project.image) && (
-                <PhotoDisplay
-                  src={project.photo_path || project.image || ""}
-                  alt={project.title}
-                  size="2xl"
-                  rounded={false}
-                  className="w-full h-80 object-cover"
-                />
+                <div 
+                  className="cursor-pointer hover:opacity-90 transition-opacity"
+                  onClick={() => openImageModal(0)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      openImageModal(0);
+                    }
+                  }}
+                  aria-label="Cliquer pour agrandir l'image"
+                >
+                  <PhotoDisplay
+                    src={project.photo_path || project.image || ""}
+                    alt={project.title}
+                    size="2xl"
+                    rounded={false}
+                    className="w-full h-80 object-cover"
+                  />
+                </div>
               )}
             </div>
 
@@ -225,17 +279,35 @@ export default function ProjectDetailPage() {
               Galerie de photos
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {project.photos.map((photo, index) => (
-                <Card key={index} hover className="overflow-hidden">
-                  <PhotoDisplay
-                    src={photo}
-                    alt={`${project.title} - Image ${index + 1}`}
-                    size="lg"
-                    rounded={false}
-                    className="w-full h-48 object-cover"
-                  />
-                </Card>
-              ))}
+              {project.photos.map((photo, index) => {
+                // Calculer l'index dans la collection complète d'images
+                const imageIndex = allImages.indexOf(photo);
+                return (
+                  <Card key={index} hover className="overflow-hidden">
+                    <div 
+                      className="cursor-pointer hover:opacity-90 transition-opacity"
+                      onClick={() => openImageModal(imageIndex)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          openImageModal(imageIndex);
+                        }
+                      }}
+                      aria-label="Cliquer pour agrandir l'image"
+                    >
+                      <PhotoDisplay
+                        src={photo}
+                        alt={`${project.title} - Image ${index + 1}`}
+                        size="lg"
+                        rounded={false}
+                        className="w-full h-48 object-cover"
+                      />
+                    </div>
+                  </Card>
+                );
+              })}
             </div>
           </section>
         )}
@@ -287,6 +359,17 @@ export default function ProjectDetailPage() {
           </Card>
         </section>
       </Container>
+
+      {/* Modal d'images */}
+      {allImages.length > 0 && (
+        <ImageModal
+          images={allImages}
+          currentIndex={selectedImageIndex}
+          isOpen={isImageModalOpen}
+          onClose={closeImageModal}
+          projectTitle={project.title}
+        />
+      )}
     </div>
   );
 }

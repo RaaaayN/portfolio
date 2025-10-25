@@ -1,20 +1,20 @@
 {
   "name": "Rayan Barreddine",
-  "title": "4th year student at UTC, specializing in Artificial Intelligence & Data",
-  "bio": "Final-year student at UTC, passionate about AI, data science, and technological innovation. Experienced in project management, intelligent solution development, and team leadership.",
-  "about": "I combine a strong background in computer engineering at UTC with active involvement in both technical and associative projects. My experiences cover project management, AI/data application development, research, and team supervision. Recognized for my ability to drive projects from conception to completion, adaptability, and team spirit.",
+  "title": "4th year student at UTC — Specializing in AI & Data",
+  "bio": "Computer engineering student passionate about artificial intelligence, data, and entrepreneurship. I enjoy turning ideas into concrete projects, combining technological innovation with real impact.",
+  "about": "Currently specializing at the Université de Technologie de Compiègne, I am interested in everything that connects AI, data, and product strategy. I have led several projects at Junior UTC, supported startups at Station F, and worked on intelligent systems for processing and analyzing data. I like to understand, build, optimize, and share.",
   "photo_path": "/images/1.png",
   "hero": {
-    "tagline": "AI & Data to create meaningful impact",
-    "subtitle": "Project leader at Junior UTC & soon-to-be AI engineer",
+    "tagline": "AI serving action and strategy",
+    "subtitle": "Former Project Leader at Junior UTC & future Data/AI Engineer",
     "highlights": [
-      "Leading multidisciplinary teams",
-      "Designing end-to-end data and AI solutions",
-      "Sharing knowledge as a mentor"
+      "Managing tech projects and teams",
+      "Designing end-to-end IA and data architectures",
+      "Startup culture and impact-driven mindset"
     ],
-    "quote": "Technology only matters when it serves people and transforms ideas into tangible opportunities.",
+    "quote": "Entrepreneurship in AI means learning continuously from the machine, the market, and oneself.",
     "signature": "Rayan",
-    "availability": "Open to a final-year internship starting September 2025."
+    "availability": "Available for a final-year internship from February 2027."
   },
   "skills": [
     {
@@ -100,6 +100,7 @@
         "CSS",
         "Netlify"
       ],
+      "github": "https://github.com/RaaaayN/portfolio",
       "photos": ["/images/projects/portfolio.png"],
       "video": "",
       "location": "Compiègne",
@@ -124,8 +125,7 @@
       "location": "UTC",
       "period": "2023",
       "photo_path": "/images/projects/hive-photo.webp",
-      "report": "/projects/reports/hivereport.pdf",
-      "featured": true
+      "report": "/projects/reports/hivereport.pdf"
     },
     {
       "id": "adit-search",
@@ -142,6 +142,7 @@
         "XML",
         "Dash"
       ],
+      "github": "https://github.com/RaaaayN/search-adit",
       "photos": ["/images/projects/ADIT.png"],
       "location": "UTC",
       "report":"/projects/reports/DM1_LO17_BARREDDINE_JIAWEN.pdf",
@@ -166,6 +167,7 @@
         "Dash"
       ],
       "featured": true,
+      "github": "https://github.com/RaaaayN/prediction-wallet",
       "photos": ["/images/projects/wallet1.png","/images/projects/wallet2.png","/images/projects/wallet3.png"],
       "location": "UTC",
       "period": "2024",
@@ -186,11 +188,12 @@
         "Google Gemini",
         "LLM"
       ],
+      "github": "https://github.com/RaaaayN/rag-lo17",
       "photos": [],
-      "video": "https://www.youtube.com/watch?v=example4",
       "location": "UTC",
       "period": "2024",
-      "photo_path": "/images/projects/placeholder.svg"
+      "photo_path": "/images/projects/placeholder.svg",
+      "featured": true
     },
     {
       "id": "driving-school",
@@ -206,6 +209,7 @@
         "SQL",
         "MySQL"
       ],
+      "github": "https://github.com/RaaaayN/auto-ecole",
      "photos": ["/images/projects/auto1.png"],
       "location": "UTC",
       "period": "2023",
