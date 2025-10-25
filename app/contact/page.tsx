@@ -223,11 +223,11 @@ export default function ContactPage() {
     setSubmitStatus('idle');
 
     try {
-      // Obtenir le token reCAPTCHA
-      let captchaToken = '';
-      if (executeRecaptcha) {
-        captchaToken = await executeRecaptcha('contact');
-      }
+      // Obtenir le token reCAPTCHA (désactivé temporairement)
+      let captchaToken = 'test-token';
+      // if (executeRecaptcha) {
+      //   captchaToken = await executeRecaptcha('contact');
+      // }
 
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -240,7 +240,9 @@ export default function ContactPage() {
         }),
       });
 
-      if (response.ok) {
+      const responseData = await response.json();
+
+      if (response.ok && responseData.message) {
         setSubmitStatus('success');
         setFormData({
           name: "",
@@ -252,7 +254,6 @@ export default function ContactPage() {
         setSubmitStatus('error');
       }
     } catch (error) {
-      console.error('Error sending message:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

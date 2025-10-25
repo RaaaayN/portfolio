@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import { Calendar, MapPin, X, Image as ImageIcon, Star } from "lucide-react";
+import { Calendar, MapPin, Image as ImageIcon, Star } from "lucide-react";
 import { clsx } from "clsx";
 import { PhotoDisplay } from "./PhotoDisplay";
+import { ImageModal } from "./ImageModal";
 
 interface TimelineItem {
   title: string;
@@ -35,11 +35,43 @@ export function Timeline({
   closeImageLabel = "Fermer la photo",
   featuredLabel = "Featured",
 }: TimelineProps) {
-  const [activeImage, setActiveImage] = useState<{
-    src: string;
-    alt: string;
-    caption?: string;
-  } | null>(null);
+  // État pour la modal d'images
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [selectedImageTitle, setSelectedImageTitle] = useState("");
+
+  // Fonctions pour gérer la modal d'images
+  const openImageModal = (item: TimelineItem, clickedImageSrc: string) => {
+    const altText = item.company ? `${item.title} - ${item.company}` : item.title;
+    
+    // Collecter les images de cette expérience spécifique
+    const itemImages: string[] = [];
+    
+    // Ajouter la photo principale si elle existe
+    if (item.photo_path && !itemImages.includes(item.photo_path)) {
+      itemImages.push(item.photo_path);
+    }
+    
+    // Ajouter l'image supplémentaire si elle existe
+    if (item.image_path && !itemImages.includes(item.image_path)) {
+      itemImages.push(item.image_path);
+    }
+    
+    // Trouver l'index de l'image cliquée
+    const index = itemImages.indexOf(clickedImageSrc);
+    
+    if (index !== -1 && itemImages.length > 0) {
+      setSelectedImages(itemImages);
+      setSelectedImageIndex(index);
+      setSelectedImageTitle(altText);
+      setIsImageModalOpen(true);
+    }
+  };
+
+  const closeImageModal = () => {
+    setIsImageModalOpen(false);
+  };
 
   return (
     <>
@@ -69,12 +101,26 @@ export function Timeline({
                 <div className="relative z-30 flex h-24 w-24 flex-shrink-0 items-center justify-center">
                   <div className="absolute inset-0 z-40 rounded-full border-2 border-white" />
                   {item.photo_path ? (
-                    <PhotoDisplay
-                      src={item.photo_path}
-                      alt={`Logo ${item.company || item.title}`}
-                      size="lg"
-                      className={clsx("relative z-50 ring-2 ring-white", isFeatured && "ring-amber-300")}
-                    />
+                    <div 
+                      className="cursor-pointer hover:opacity-90 transition-opacity"
+                      onClick={() => openImageModal(item, item.photo_path!)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          openImageModal(item, item.photo_path!);
+                        }
+                      }}
+                      aria-label="Cliquer pour agrandir l'image"
+                    >
+                      <PhotoDisplay
+                        src={item.photo_path}
+                        alt={`Logo ${item.company || item.title}`}
+                        size="lg"
+                        className={clsx("relative z-50 ring-2 ring-white", isFeatured && "ring-amber-300")}
+                      />
+                    </div>
                   ) : (
                     <div
                       className={clsx(
@@ -102,40 +148,14 @@ export function Timeline({
                     <div className="flex flex-wrap items-center gap-3 sm:justify-end">
                       <span className="text-sm text-gray-500">{item.period}</span>
                       {item.image_path && (
-                        <div className="group relative inline-block">
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setActiveImage({
-                                src: item.image_path!,
-                                alt: altText,
-                                caption: item.image_caption,
-                              })
-                            }
-                            className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-sm font-medium text-blue-700 shadow-sm transition-transform hover:scale-105 hover:bg-blue-50"
-                          >
-                            <ImageIcon className="h-4 w-4" />
-                            {viewImageLabel}
-                          </button>
-                          <div className="pointer-events-none absolute right-0 bottom-full mb-2 hidden w-48 overflow-hidden rounded-xl border border-blue-100 bg-white shadow-lg group-hover:block group-focus-within:block z-20">
-                            <div className="relative aspect-[4/3] w-full bg-gray-100">
-                              <Image
-                                src={item.image_path}
-                                alt={altText}
-                                fill
-                                className="object-cover"
-                                sizes="192px"
-                              />
-                            </div>
-                            {(item.image_caption || altText) && (
-                              <div className="border-t border-blue-50 bg-white px-3 py-2">
-                                <p className="text-xs font-medium text-gray-700">
-                                  {item.image_caption || altText}
-                                </p>
-                              </div>
-                            )}
-                          </div>
-                        </div>
+                        <button
+                          type="button"
+                          onClick={() => openImageModal(item, item.image_path!)}
+                          className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-sm font-medium text-blue-700 shadow-sm transition-transform hover:scale-105 hover:bg-blue-50"
+                        >
+                          <ImageIcon className="h-4 w-4" />
+                          {viewImageLabel}
+                        </button>
                       )}
                     </div>
                   </div>
@@ -201,42 +221,15 @@ export function Timeline({
         })}
       </div>
 
-      {activeImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setActiveImage(null)}
-        >
-          <div
-            className="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setActiveImage(null)}
-              className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white transition-transform hover:scale-105"
-              aria-label={closeImageLabel}
-            >
-              <X className="h-5 w-5" />
-            </button>
-            <div className="relative h-[60vh] min-h-[320px] w-full bg-gray-100">
-              <Image
-                src={activeImage.src}
-                alt={activeImage.alt}
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, 60vw"
-                priority
-              />
-            </div>
-            {(activeImage.caption || activeImage.alt) && (
-              <div className="border-t border-gray-100 bg-white p-6">
-                <p className="text-sm font-semibold text-gray-900">
-                  {activeImage.caption || activeImage.alt}
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
+      {/* Modal d'images */}
+      {selectedImages.length > 0 && (
+        <ImageModal
+          images={selectedImages}
+          currentIndex={selectedImageIndex}
+          isOpen={isImageModalOpen}
+          onClose={closeImageModal}
+          projectTitle={selectedImageTitle}
+        />
       )}
     </>
   );
