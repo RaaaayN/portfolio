@@ -184,11 +184,11 @@
         "TensorFlow",
         "Dash"
       ],
-      "photos": [],
-      "video": "https://www.youtube.com/watch?v=example3",
+      "featured": true,
+      "photos": ["/images/projects/wallet1.png","/images/projects/wallet2.png","/images/projects/wallet3.png"],
       "location": "UTC",
       "period": "2024",
-      "photo_path": "/images/projects/placeholder.svg"
+      "photo_path": "/images/projects/wallet1.png"
     },
     {
       "id": "pokemon-rag",
@@ -215,8 +215,7 @@
       "video": "https://www.youtube.com/watch?v=example4",
       "location": "UTC",
       "period": "2024",
-      "photo_path": "/images/projects/placeholder.svg",
-      "featured": true
+      "photo_path": "/images/projects/placeholder.svg"    
     },
     {
       "id": "driving-school",
@@ -238,11 +237,10 @@
         "SQL",
         "MySQL"
       ],
-      "photos": [],
-      "video": "https://www.youtube.com/watch?v=example5",
+      "photos": ["/images/projects/auto1.png"],
       "location": "UTC",
       "period": "2023",
-      "photo_path": "/images/projects/placeholder.svg"
+      "photo_path": "/images/projects/auto1.png"
     }
   ],
   "experience": [
