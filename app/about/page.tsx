@@ -53,6 +53,7 @@ export default function AboutPage() {
       viewImage: "Voir la photo",
       closeImage: "Fermer la photo",
       featured: "À la une",
+      remote: "À distance",
       achievements: {
         leadershipTitle: "Leadership & Management",
         leadershipDescription:
@@ -110,6 +111,7 @@ export default function AboutPage() {
       viewImage: "View photo",
       closeImage: "Close photo",
       featured: "Featured",
+      remote: "Remote",
       achievements: {
         leadershipTitle: "Leadership & Management",
         leadershipDescription:
@@ -268,6 +270,7 @@ export default function AboutPage() {
             viewImageLabel={texts.viewImage}
             closeImageLabel={texts.closeImage}
             featuredLabel={texts.featured}
+            remoteLabel={texts.remote}
           />
         </section>
 
@@ -280,6 +283,7 @@ export default function AboutPage() {
             viewImageLabel={texts.viewImage}
             closeImageLabel={texts.closeImage}
             featuredLabel={texts.featured}
+            remoteLabel={texts.remote}
           />
         </section>
 

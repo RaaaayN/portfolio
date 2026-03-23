@@ -6,11 +6,19 @@ import { Calendar, MapPin, X, Image as ImageIcon, Star } from "lucide-react";
 import { clsx } from "clsx";
 import { PhotoDisplay } from "./PhotoDisplay";
 
+interface SubRole {
+  title: string;
+  type: string;
+  period: string;
+  remote?: boolean;
+}
+
 interface TimelineItem {
   title: string;
   company?: string;
   location?: string;
   period: string;
+  subRoles?: SubRole[];
   description: string | string[];
   technologies?: string[];
   result?: string;
@@ -26,14 +34,16 @@ interface TimelineProps {
   viewImageLabel?: string;
   closeImageLabel?: string;
   featuredLabel?: string;
+  remoteLabel?: string;
 }
 
 export function Timeline({
   items,
-  resultLabel = "Resultat :",
+  resultLabel = "Résultat :",
   viewImageLabel = "Voir la photo",
   closeImageLabel = "Fermer la photo",
   featuredLabel = "Featured",
+  remoteLabel = "À distance",
 }: TimelineProps) {
   const [activeImage, setActiveImage] = useState<{
     src: string;
@@ -141,16 +151,32 @@ export function Timeline({
                   </div>
 
                   {item.company && (
-                    <div className="mb-2 flex items-center text-gray-600">
-                      <span className="font-medium">{item.company}</span>
-                      {item.location && (
-                        <>
-                          <span className="mx-2 text-gray-300">|</span>
-                          <div className="flex items-center">
-                            <MapPin className="mr-1 h-4 w-4" />
-                            <span>{item.location}</span>
-                          </div>
-                        </>
+                    <div className="mb-2 flex flex-col gap-1">
+                      <div className="flex items-center text-gray-600">
+                        <span className="font-medium">{item.company}</span>
+                        {item.location && (
+                          <>
+                            <span className="mx-2 text-gray-300">|</span>
+                            <div className="flex items-center">
+                              <MapPin className="mr-1 h-4 w-4" />
+                              <span>{item.location}</span>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                      {item.subRoles && item.subRoles.length > 0 && (
+                        <div className="flex flex-col gap-1 pl-1 border-l-2 border-gray-200 ml-0.5">
+                          {item.subRoles.map((role, roleIndex) => (
+                            <div key={roleIndex} className="flex flex-wrap items-center gap-2 text-sm text-gray-500">
+                              <span className="font-medium text-gray-700">{role.title}</span>
+                              <span className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700">{role.type}</span>
+                              {role.remote && (
+                                <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">{remoteLabel}</span>
+                              )}
+                              <span className="text-xs text-gray-400">{role.period}</span>
+                            </div>
+                          ))}
+                        </div>
                       )}
                     </div>
                   )}

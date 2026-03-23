@@ -217,23 +217,31 @@
   ],
   "experience": [
     {
-      "title": "Data & AI Engineer (Internship)",
+      "title": "AI Researcher",
       "company": "Histia",
       "location": "Station F, Paris, France",
-      "period": "September 2025 – Present",
+      "period": "Sept. 2025 – Present · 7 months",
+      "subRoles": [
+        { "title": "AI Researcher", "type": "Freelance", "period": "Feb. 2026 – Present · 2 months", "remote": true },
+        { "title": "AI Researcher", "type": "Internship", "period": "Sept. 2025 – Feb. 2026 · 6 months", "remote": false }
+      ],
       "description": [
-        "Developing AI agents capable of reasoning, learning, and solving complex problems.",
-        "Built advanced data pipelines for ingestion, structuring, and large-scale operations.",
-        "Used PydanticAI and MCP (Model Context Protocol) to design modular, interoperable agents.",
-        "Contributed to an entrepreneurial project incubated at Station F (HEC x CentraleSupélec), blending tech innovation and business.",
-        "Worked closely with company founders to convert prototypes into deployable AI solutions for financial markets."
+        "Developed AI agents for a startup/enterprise intelligence platform using Python, PydanticAI, MCP, TypeScript, Prisma, and LiteLLM.",
+        "Designed a knowledge graph system to structure heterogeneous data and generate long-form investment memos drawing on dozens of sources per startup.",
+        "Optimized AI memo generation with multiple levels of analysis.",
+        "Built AI data collection agents for dynamic websites and modules to extract data from INPI documents.",
+        "Created an internal automation tool centralizing multiple business processes, saving dozens of hours on repetitive low-value tasks."
       ],
       "technologies": [
-        "AI Agents",
-        "Data pipelines",
+        "Python",
         "PydanticAI",
         "Model Context Protocol (MCP)",
-        "Entrepreneurship"
+        "TypeScript",
+        "Prisma",
+        "LiteLLM",
+        "Knowledge Graph",
+        "Web Scraping",
+        "AI Agents"
       ],
       "featured": true,
       "photo_path": "/images/histia_app_logo.jpg"

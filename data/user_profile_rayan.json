@@ -248,23 +248,31 @@
   ],
   "experience": [
     {
-      "title": "Ingénieur Data & IA",
+      "title": "AI Researcher",
       "company": "Histia",
       "location": "Station F, Paris, France",
-      "period": "sept. 2025 - aujourd’hui",
+      "period": "sept. 2025 - aujourd’hui · 7 mois",
+      "subRoles": [
+        { "title": "AI Researcher", "type": "Freelance", "period": "févr. 2026 - aujourd’hui · 2 mois", "remote": true },
+        { "title": "AI Researcher", "type": "Stage", "period": "sept. 2025 - févr. 2026 · 6 mois", "remote": false }
+      ],
       "description": [
-        "Développement d’agents IA capables de raisonner, apprendre et assister sur des problématiques complexes.",
-        "Mise en place de pipelines dédiés au traitement complexe de la donnée : ingestion, structuration et exploitation à grande échelle.",
-        "Utilisation de PydanticAI et du protocole MCP (Model Context Protocol) pour concevoir des agents modulaires et interopérables.",
-        "Contribution à un projet entrepreneurial incubé à Station F (HEC x CentraleSupélec), mêlant innovation technologique et enjeux business.",
-        "Collaboration directe avec les fondateurs pour transformer des prototypes en solutions IA déployables dans le secteur financier."
+        "Développement d’agents IA pour une plateforme d’intelligence startup/entreprise, en m’appuyant sur Python, PydanticAI, MCP, TypeScript, Prisma et LiteLLM.",
+        "Conception d’un système de graphe de connaissances pour structurer des données hétérogènes et générer des mémos d’investissement longs exploitant des dizaines de sources pour une même startup.",
+        "Optimisation de la génération de mémos IA avec plusieurs niveaux d’analyse.",
+        "Développement d’agents IA de collecte de données sur des sites web dynamiques et de modules d’exploitation de documents INPI.",
+        "Création d’un outil interne d’automatisation centralisant plusieurs processus métier, permettant un gain de plusieurs dizaines d’heures sur des tâches répétitives à faible valeur ajoutée."
       ],
       "technologies": [
-        "Agents IA",
-        "Pipelines data",
+        "Python",
         "PydanticAI",
-        "Model Context Protocol",
-        "Entrepreneuriat"
+        "Model Context Protocol (MCP)",
+        "TypeScript",
+        "Prisma",
+        "LiteLLM",
+        "Knowledge Graph",
+        "Web Scraping",
+        "Agents IA"
       ],
       "featured": true,
       "photo_path": "/images/histia_app_logo.jpg"
