@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Download } from "lucide-react";
 import clsx from "clsx";
 
@@ -29,7 +28,7 @@ export function PdfViewer({
       />
       <div className="flex items-center justify-between px-4 py-3 border-t border-gray-200 bg-gray-50">
         <p className="text-sm text-gray-600">{title}</p>
-        <Link
+        <a
           href={src}
           target="_blank"
           rel="noopener noreferrer"
@@ -37,7 +36,7 @@ export function PdfViewer({
         >
           <Download className="w-4 h-4" />
           {downloadLabel}
-        </Link>
+        </a>
       </div>
     </div>
   );
