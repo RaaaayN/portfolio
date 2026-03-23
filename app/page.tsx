@@ -332,18 +332,6 @@ export default function Home() {
                   )}
 
                   <div className="space-y-6">
-                    <div>
-                      <p className="text-xs font-mono font-semibold uppercase tracking-[0.35em] text-accent-light">
-                        {texts.contactDirect}
-                      </p>
-                      <p className="mt-3 flex items-center gap-2 text-sm font-medium text-slate-300">
-                        <MapPin className="h-4 w-4" />
-                        <span>
-                          {texts.locationLabel} {profile.location}
-                        </span>
-                      </p>
-                    </div>
-
                     {heroContent.availability && (
                       <div className="rounded-2xl border border-accent/30 bg-accent/10 p-4">
                         <div className="flex items-center gap-2 text-accent-light">
