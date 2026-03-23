@@ -7,6 +7,7 @@ import { Card } from "@/components/Card";
 import { CVDownload, CVBadge } from "@/components/CVDownload";
 import { readProfile } from "@/lib/readProfile";
 import { useLanguage } from "@/lib/LanguageContext";
+import { motion } from "framer-motion";
 import {
   Mail,
   Phone,
@@ -198,6 +199,7 @@ export default function ContactPage() {
       },
     },
   }[language];
+
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -298,230 +300,269 @@ export default function ContactPage() {
     }
   ];
 
+  const inputClasses = "bg-surface-overlay border border-white/10 text-white placeholder:text-slate-500 rounded-xl px-4 py-3 w-full focus:ring-2 focus:ring-accent/50 focus:border-accent/50 focus:outline-none transition-all";
+  const labelClasses = "block text-slate-300 text-sm font-medium mb-2";
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-surface-base pt-20">
       <Container className="py-16 space-y-16">
         {/* Hero Section */}
-        <Card className="relative overflow-hidden border-none bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white">
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-          <div className="relative z-10 grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                {texts.heroTitle}
-              </h1>
-              <p className="text-lg md:text-xl text-white/80 whitespace-pre-line">
-                {texts.heroDescription}
-              </p>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Card variant="violet" className="relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-accent via-transparent to-transparent pointer-events-none"></div>
+            <div className="relative z-10 grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
+              <div>
+                <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+                  {texts.heroTitle}
+                </h1>
+                <p className="text-lg md:text-xl text-slate-400 whitespace-pre-line">
+                  {texts.heroDescription}
+                </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <CVBadge />
-                <div className="flex items-center text-sm font-medium text-white/80 bg-white/10 rounded-full px-4 py-2 backdrop-blur">
-                  <Clock className="w-4 h-4 mr-2" />
-                  {texts.responseTime}
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <CVBadge />
+                  <div className="flex items-center text-sm font-medium text-slate-300 bg-white/[0.08] rounded-full px-4 py-2 backdrop-blur">
+                    <Clock className="w-4 h-4 mr-2" />
+                    {texts.responseTime}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {heroHighlights.map((highlight, index) => {
-                const Icon = highlight.icon;
-                return (
-                  <div
-                    key={index}
-                    className="rounded-2xl bg-white/10 border border-white/10 p-4 text-left backdrop-blur"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center mb-3">
-                      <Icon className="w-5 h-5 text-white" />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {heroHighlights.map((highlight, index) => {
+                  const Icon = highlight.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="rounded-2xl bg-white/[0.05] border border-white/10 p-4 text-left backdrop-blur"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mb-3">
+                        <Icon className="w-5 h-5 text-accent-light" />
+                      </div>
+                      <p className="text-sm font-semibold text-white">
+                        {highlight.title}
+                      </p>
+                      <p className="text-sm text-slate-400 mt-1">
+                        {highlight.description}
+                      </p>
                     </div>
-                    <p className="text-sm font-semibold text-white">
-                      {highlight.title}
-                    </p>
-                    <p className="text-sm text-white/70 mt-1">
-                      {highlight.description}
-                    </p>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        </Card>
+          </Card>
+        </motion.div>
 
         <div className="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
           {/* Contact Information */}
           <div className="space-y-10">
-            <div className="space-y-4">
-              <SectionTitle title={texts.contactSectionTitle} />
-              <p className="text-gray-600 max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="space-y-4"
+            >
+              <SectionTitle title={texts.contactSectionTitle} align="left" />
+              <p className="text-slate-400 max-w-2xl">
                 {texts.contactIntro}
               </p>
-            </div>
+            </motion.div>
 
             {/* CV Download Section */}
-            <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
-              <div className="md:flex md:items-center md:justify-between md:space-x-8 space-y-6 md:space-y-0">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {texts.cvTitle}
-                  </h3>
-                  <p className="text-gray-600">
-                    {texts.cvDescription}
-                  </p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="glass">
+                <div className="md:flex md:items-center md:justify-between md:space-x-8 space-y-6 md:space-y-0">
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      {texts.cvTitle}
+                    </h3>
+                    <p className="text-slate-400">
+                      {texts.cvDescription}
+                    </p>
+                  </div>
+                  <CVDownload variant="default" size="lg" />
                 </div>
-                <CVDownload variant="default" size="lg" />
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
 
             {/* Contact Details */}
-            <Card>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0">
-                      {info.icon}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Card>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {contactInfo.map((info, index) => (
+                    <div key={index} className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-violet-500/20 rounded-lg flex items-center justify-center text-accent-light flex-shrink-0">
+                        {info.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-base font-semibold text-white">
+                          {info.title}
+                        </h3>
+                        <a
+                          href={info.href}
+                          className="text-accent-light hover:text-accent font-medium block transition-colors"
+                          target={info.href.startsWith('http') ? '_blank' : undefined}
+                          rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        >
+                          {info.value}
+                        </a>
+                        <p className="text-slate-500 text-sm mt-1">
+                          {info.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-base font-semibold text-gray-900">
-                        {info.title}
-                      </h3>
-                      <a
-                        href={info.href}
-                        className="text-blue-600 hover:text-blue-700 font-medium block"
-                        target={info.href.startsWith('http') ? '_blank' : undefined}
-                        rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      >
-                        {info.value}
-                      </a>
-                      <p className="text-gray-500 text-sm mt-1">
-                        {info.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Card>
-
-          
-
-            
+                  ))}
+                </div>
+              </Card>
+            </motion.div>
           </div>
 
           {/* Contact Form */}
           <div className="space-y-6">
-            <SectionTitle title={texts.formTitle} />
-            <Card className="sticky top-24">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <SectionTitle title={texts.formTitle} align="left" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Card className="sticky top-24">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className={labelClasses}>
+                        {texts.form.nameLabel}
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        className={inputClasses}
+                        placeholder={texts.form.namePlaceholder}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className={labelClasses}>
+                        {texts.form.emailLabel}
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className={inputClasses}
+                        placeholder={texts.form.emailPlaceholder}
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      {texts.form.nameLabel}
+                    <label htmlFor="subject" className={labelClasses}>
+                      {texts.form.subjectLabel}
                     </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder={texts.form.namePlaceholder}
+                      className={inputClasses}
+                      placeholder={texts.form.subjectPlaceholder}
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      {texts.form.emailLabel}
+                    <label htmlFor="message" className={labelClasses}>
+                      {texts.form.messageLabel}
                     </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder={texts.form.emailPlaceholder}
+                      rows={6}
+                      className={`${inputClasses} resize-none`}
+                      placeholder={texts.form.messagePlaceholder}
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    {texts.form.subjectLabel}
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder={texts.form.subjectPlaceholder}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    {texts.form.messageLabel}
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                    placeholder={texts.form.messagePlaceholder}
-                  />
-                </div>
-
-                {/* Honeypot — invisible pour les humains, rempli par les bots */}
-                <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }}>
-                  <label htmlFor="website">Ne pas remplir ce champ</label>
-                  <input
-                    type="text"
-                    id="website"
-                    name="website"
-                    value={formData.website}
-                    onChange={handleInputChange}
-                    tabIndex={-1}
-                    autoComplete="off"
-                  />
-                </div>
-
-                {/* Submit Status */}
-                {submitStatus === 'success' && (
-                  <div className="flex items-center space-x-2 text-green-600 bg-green-50 p-4 rounded-lg">
-                    <CheckCircle className="w-5 h-5" />
-                    <span>{texts.form.success}</span>
+                  {/* Honeypot — invisible pour les humains, rempli par les bots */}
+                  <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }}>
+                    <label htmlFor="website">Ne pas remplir ce champ</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleInputChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
                   </div>
-                )}
 
-                {submitStatus === 'error' && (
-                  <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-4 rounded-lg">
-                    <AlertCircle className="w-5 h-5" />
-                    <span>{texts.form.error}</span>
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      {texts.form.sending}
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      {texts.form.submit}
-                    </>
+                  {/* Submit Status */}
+                  {submitStatus === 'success' && (
+                    <div className="flex items-center space-x-2 text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 p-4 rounded-xl">
+                      <CheckCircle className="w-5 h-5" />
+                      <span>{texts.form.success}</span>
+                    </div>
                   )}
-                </button>
-              </form>
-            </Card>
+
+                  {submitStatus === 'error' && (
+                    <div className="flex items-center space-x-2 text-red-300 bg-red-500/10 border border-red-500/20 p-4 rounded-xl">
+                      <AlertCircle className="w-5 h-5" />
+                      <span>{texts.form.error}</span>
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-accent hover:bg-violet-500 text-white py-3 px-6 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center font-medium"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        {texts.form.sending}
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        {texts.form.submit}
+                      </>
+                    )}
+                  </button>
+                </form>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </Container>

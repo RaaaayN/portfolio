@@ -1,13 +1,13 @@
 "use client";
 
 import { SmartButton } from "@/lib/smartButtons";
-import { 
-  Mail, 
-  FolderOpen, 
-  User, 
-  Home, 
-  Github, 
-  Linkedin, 
+import {
+  Mail,
+  FolderOpen,
+  User,
+  Home,
+  Github,
+  Linkedin,
   ExternalLink,
   ArrowRight
 } from "lucide-react";
@@ -37,17 +37,17 @@ export function SmartButtons({ buttons, className = "" }: SmartButtonsProps) {
   };
 
   const getButtonStyles = (variant: string = 'primary') => {
-    const baseStyles = "inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 shadow-sm";
-    
+    const baseStyles = "inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105";
+
     switch (variant) {
       case 'primary':
-        return `${baseStyles} bg-gradient-to-r from-orange-500 to-red-500 text-white hover:from-orange-400 hover:to-red-400 hover:shadow-orange-500/25`;
+        return `${baseStyles} bg-accent hover:bg-violet-500 text-white shadow-sm`;
       case 'secondary':
-        return `${baseStyles} bg-blue-600 text-white hover:bg-blue-700 hover:shadow-blue-500/25`;
+        return `${baseStyles} border border-cyan-accent/40 text-cyan-accent hover:bg-cyan-accent/10`;
       case 'outline':
-        return `${baseStyles} border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50`;
+        return `${baseStyles} border border-white/20 text-slate-300 hover:border-white/30 hover:bg-white/[0.08]`;
       default:
-        return `${baseStyles} bg-gray-600 text-white hover:bg-gray-700`;
+        return `${baseStyles} bg-white/[0.08] text-slate-300 hover:bg-white/[0.12]`;
     }
   };
 

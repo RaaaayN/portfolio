@@ -9,6 +9,7 @@ import { Card } from "@/components/Card";
 import { PdfViewer } from "@/components/PdfViewer";
 import { readProfile } from "@/lib/readProfile";
 import { useLanguage } from "@/lib/LanguageContext";
+import { motion } from "framer-motion";
 
 export default function CertificationPage() {
   const params = useParams<{ id: string }>();
@@ -34,45 +35,51 @@ export default function CertificationPage() {
   }[language];
 
   if (!certification) {
-    return <div className="p-8 text-gray-700">{texts.notFound}</div>;
+    return <div className="min-h-screen bg-surface-base pt-24 p-8 text-slate-400">{texts.notFound}</div>;
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-surface-base pt-20">
       <Container className="py-16">
-        <div className="mb-8">
-          <Link
-            href="/about"
-            className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            {texts.back}
-          </Link>
-        </div>
-
-        <Card>
-          <div className="flex flex-col gap-6 p-6">
-            <div className="flex items-center gap-4">
-              <Award className="w-10 h-10 text-blue-600" />
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900">{certification.title}</h1>
-                {certification.issuer && (
-                  <p className="text-gray-600">{certification.issuer}</p>
-                )}
-              </div>
-            </div>
-
-            {certification.pdf ? (
-              <PdfViewer
-                src={certification.pdf}
-                title={`${certification.title} - ${texts.title}`}
-                downloadLabel={texts.download}
-              />
-            ) : (
-              <p className="text-gray-600">{texts.missing}</p>
-            )}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="mb-8">
+            <Link
+              href="/about"
+              className="inline-flex items-center text-slate-400 hover:text-white transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              {texts.back}
+            </Link>
           </div>
-        </Card>
+
+          <Card>
+            <div className="flex flex-col gap-6 p-6">
+              <div className="flex items-center gap-4">
+                <Award className="w-10 h-10 text-accent-light" />
+                <div>
+                  <h1 className="font-display text-3xl font-bold text-white">{certification.title}</h1>
+                  {certification.issuer && (
+                    <p className="text-slate-400">{certification.issuer}</p>
+                  )}
+                </div>
+              </div>
+
+              {certification.pdf ? (
+                <PdfViewer
+                  src={certification.pdf}
+                  title={`${certification.title} - ${texts.title}`}
+                  downloadLabel={texts.download}
+                />
+              ) : (
+                <p className="text-slate-400">{texts.missing}</p>
+              )}
+            </div>
+          </Card>
+        </motion.div>
       </Container>
     </div>
   );

@@ -58,14 +58,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Card
       hover
-      className={clsx(
-        "h-full",
-        project.featured && "bg-amber-50 border-amber-300 shadow-lg ring-2 ring-amber-200/60"
-      )}
+      variant={project.featured ? "featured" : "default"}
+      className="h-full"
     >
       <div className="flex flex-col h-full">
         {(project.image || project.photo_path) && (
-          <div className="mb-4 rounded-lg overflow-hidden">
+          <div className="mb-4 rounded-xl overflow-hidden relative">
             <PhotoDisplay
               src={project.photo_path || project.image || ""}
               alt={project.title}
@@ -73,17 +71,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
               rounded={false}
               className="w-full h-48"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface-base/60 to-transparent pointer-events-none" />
           </div>
         )}
-        
+
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h3
-              className={clsx(
-                "text-xl font-semibold text-gray-900",
-                project.featured && "text-amber-900"
-              )}
-            >
+            <h3 className="text-xl font-display font-semibold text-white">
               {project.title}
             </h3>
             {project.featured && (
@@ -92,9 +86,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </Badge>
             )}
           </div>
-          
+
           {(project.location || project.period) && (
-            <div className="flex items-center text-sm text-gray-500 mb-3">
+            <div className="flex items-center text-sm text-slate-500 mb-3">
               {project.location && (
                 <div className="flex items-center mr-4">
                   <MapPin className="w-4 h-4 mr-1" />
@@ -109,8 +103,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
               )}
             </div>
           )}
-          
-          <div className="text-gray-600 mb-4 flex-1">
+
+          <div className="text-slate-400 mb-4 flex-1">
             {Array.isArray(project.description) ? (
               <ul className="list-disc space-y-1 pl-5">
                 {project.description.map((line, index) => (
@@ -125,28 +119,31 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </p>
             )}
           </div>
-          
+
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.map((tech, index) => (
-              <Badge key={index} variant="secondary" size="sm">
+              <span
+                key={index}
+                className="bg-white/[0.08] text-slate-300 font-mono text-xs rounded-full px-2 py-0.5 border border-white/10"
+              >
                 {tech}
-              </Badge>
+              </span>
             ))}
           </div>
         </div>
-        
+
         <div className="flex flex-wrap gap-3 mt-auto">
           {/* Bouton Voir les détails */}
           <Link
             href={`/projects/${project.id}`}
-            className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 text-sm font-medium"
+            className="flex items-center gap-2 px-3 py-2 bg-accent hover:bg-violet-500 text-white rounded-xl transition-colors duration-200 text-sm font-medium"
           >
             <Eye size={16} />
             {texts.details}
           </Link>
 
           {/* Indicateurs de contenu */}
-          <div className="flex items-center gap-2 text-sm text-gray-500">
+          <div className="flex items-center gap-2 text-sm text-slate-500">
             {hasPhotos && (
               <div className="flex items-center gap-1">
                 <ImageIcon size={14} />
@@ -174,7 +171,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors"
+                className="flex items-center gap-1 text-slate-500 hover:text-white transition-colors"
                 title={texts.sourceTitle}
               >
                 <Github size={16} />
@@ -185,7 +182,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-blue-600 hover:text-blue-700 transition-colors"
+                className="flex items-center gap-1 text-slate-500 hover:text-cyan-accent transition-colors"
                 title={texts.viewTitle}
               >
                 <ExternalLink size={16} />

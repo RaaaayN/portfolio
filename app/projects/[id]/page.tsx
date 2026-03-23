@@ -10,6 +10,7 @@ import { ArrowLeft, ExternalLink, Github, Calendar, MapPin, Play, Image as Image
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLanguage } from "@/lib/LanguageContext";
+import { motion } from "framer-motion";
 
 export default function ProjectDetailPage() {
   const params = useParams<{ id: string }>();
@@ -49,7 +50,7 @@ export default function ProjectDetailPage() {
   }[language];
 
   if (!project) {
-    return <div className="p-8">{texts.notFound}</div>;
+    return <div className="min-h-screen bg-surface-base pt-24 p-8 text-slate-400">{texts.notFound}</div>;
   }
 
   const extractVideoId = (url: string) => {
@@ -60,42 +61,55 @@ export default function ProjectDetailPage() {
   const videoId = project.video ? extractVideoId(project.video) : null;
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-surface-base pt-20">
       <Container className="py-16">
         {/* Navigation */}
-        <div className="mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="mb-8"
+        >
           <Link
             href="/projects"
-            className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+            className="inline-flex items-center text-slate-400 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             {texts.back}
           </Link>
-        </div>
+        </motion.div>
 
         {/* Header du projet */}
-        <div className="mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12"
+        >
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Image principale */}
             <div className="lg:w-1/2">
               {(project.photo_path || project.image) && (
-                <PhotoDisplay
-                  src={project.photo_path || project.image || ""}
-                  alt={project.title}
-                  size="2xl"
-                  rounded={false}
-                  className="w-full h-80 object-cover"
-                />
+                <div className="relative rounded-2xl overflow-hidden">
+                  <PhotoDisplay
+                    src={project.photo_path || project.image || ""}
+                    alt={project.title}
+                    size="2xl"
+                    rounded={false}
+                    className="w-full h-80 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface-base/60 to-transparent pointer-events-none" />
+                </div>
               )}
             </div>
 
             {/* Informations du projet */}
             <div className="lg:w-1/2 space-y-6">
               <div>
-                <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                <h1 className="font-display text-4xl font-bold text-white mb-4">
                   {project.title}
                 </h1>
-                <div className="text-xl text-gray-600 leading-relaxed">
+                <div className="text-xl text-slate-400 leading-relaxed">
                   {Array.isArray(project.description) ? (
                     <ul className="list-disc space-y-2 pl-6 text-base">
                       {project.description.map((line, index) => (
@@ -111,7 +125,7 @@ export default function ProjectDetailPage() {
               </div>
 
               {/* Métadonnées */}
-              <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+              <div className="flex flex-wrap gap-4 text-sm text-slate-500">
                 {project.period && (
                   <div className="flex items-center">
                     <Calendar className="w-4 h-4 mr-2" />
@@ -128,14 +142,17 @@ export default function ProjectDetailPage() {
 
               {/* Technologies */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                <h3 className="text-lg font-semibold text-white mb-3">
                   {texts.technologies}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
-                    <Badge key={index} variant="secondary">
+                    <span
+                      key={index}
+                      className="bg-white/[0.08] text-slate-300 font-mono text-sm rounded-full px-3 py-1 border border-white/10"
+                    >
                       {tech}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -147,7 +164,7 @@ export default function ProjectDetailPage() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+                    className="inline-flex items-center px-4 py-2 glass border-white/20 text-white rounded-xl hover:bg-white/[0.08] transition-colors"
                   >
                     <Github className="w-4 h-4 mr-2" />
                     Code source
@@ -159,7 +176,7 @@ export default function ProjectDetailPage() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center px-4 py-2 bg-accent hover:bg-violet-500 text-white rounded-xl transition-colors"
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Voir le projet
@@ -168,39 +185,47 @@ export default function ProjectDetailPage() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Détails du projet */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <h2 className="font-display text-2xl font-bold text-white mb-6">
             {texts.details}
           </h2>
           <Card>
-            <div className="prose prose-lg max-w-none">
-              {/* 
-                Si details est un tableau (array of string), on l'affiche en bullets, ligne sautée
-                Sinon, on affiche en paragraphe (comme avant)
-              */}
+            <div className="prose prose-invert prose-lg max-w-none">
               {Array.isArray(project.details) ? (
-                <ul className="list-disc space-y-4 pl-6 text-gray-700">
+                <ul className="list-disc space-y-4 pl-6 text-slate-400">
                   {project.details.map((line: string, i: number) => (
                     <li key={i} className="leading-relaxed whitespace-pre-line">{line}</li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                <p className="text-slate-400 leading-relaxed whitespace-pre-line">
                   {project.details}
                 </p>
               )}
             </div>
           </Card>
-        </section>
+        </motion.section>
 
         {/* Vidéo YouTube */}
         {videoId && (
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-              <Video className="w-6 h-6 mr-3" />
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-12"
+          >
+            <h2 className="font-display text-2xl font-bold text-white mb-6 flex items-center">
+              <Video className="w-6 h-6 mr-3 text-accent-light" />
               {texts.video}
             </h2>
             <Card>
@@ -208,47 +233,62 @@ export default function ProjectDetailPage() {
                 <iframe
                   src={`https://www.youtube.com/embed/${videoId}`}
                   title={`Démonstration de ${project.title}`}
-                  className="w-full h-full rounded-lg"
+                  className="w-full h-full rounded-xl"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
               </div>
             </Card>
-          </section>
+          </motion.section>
         )}
 
         {/* Galerie de photos */}
         {project.photos && project.photos.length > 0 && (
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-              <ImageIcon className="w-6 h-6 mr-3" />
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-12"
+          >
+            <h2 className="font-display text-2xl font-bold text-white mb-6 flex items-center">
+              <ImageIcon className="w-6 h-6 mr-3 text-accent-light" />
               Galerie de photos
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {project.photos.map((photo, index) => (
-                <Card key={index} hover className="overflow-hidden">
-                  <PhotoDisplay
-                    src={photo}
-                    alt={`${project.title} - Image ${index + 1}`}
-                    size="lg"
-                    rounded={false}
-                    className="w-full h-48 object-cover"
-                  />
+                <Card key={index} hover className="overflow-hidden p-0">
+                  <div className="relative">
+                    <PhotoDisplay
+                      src={photo}
+                      alt={`${project.title} - Image ${index + 1}`}
+                      size="lg"
+                      rounded={false}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-surface-base/60 to-transparent pointer-events-none" />
+                  </div>
                 </Card>
               ))}
             </div>
-          </section>
+          </motion.section>
         )}
 
         {project.report && (
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-              <FileText className="w-6 h-6 mr-3" />
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-12"
+          >
+            <h2 className="font-display text-2xl font-bold text-white mb-6 flex items-center">
+              <FileText className="w-6 h-6 mr-3 text-accent-light" />
               {texts.pdfSection}
             </h2>
             <Card>
               <div className="space-y-4">
-                <p className="text-gray-600">{texts.pdfDescription}</p>
+                <p className="text-slate-400">{texts.pdfDescription}</p>
                 <PdfViewer
                   src={project.report}
                   title={`${project.title} - ${texts.pdfSection}`}
@@ -256,36 +296,42 @@ export default function ProjectDetailPage() {
                 />
               </div>
             </Card>
-          </section>
+          </motion.section>
         )}
 
         {/* CTA */}
-        <section className="text-center">
-          <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center"
+        >
+          <Card className="glass rounded-3xl border-accent/20 shadow-glow-violet">
             <div className="py-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="font-display text-2xl font-bold text-white mb-4">
                 {texts.contactTitle}
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-slate-400 mb-6">
                 {texts.contactDescription}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-400 hover:to-red-400 transition-all duration-200 shadow-lg hover:shadow-orange-500/25"
+                  className="inline-flex items-center px-6 py-3 bg-accent hover:bg-violet-500 text-white rounded-xl transition-colors"
                 >
                   {texts.contactCta}
                 </Link>
                 <Link
                   href="/projects"
-                  className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
+                  className="inline-flex items-center px-6 py-3 border border-white/20 text-slate-300 rounded-xl hover:bg-white/[0.08] transition-all duration-200"
                 >
                   {texts.allProjects}
                 </Link>
               </div>
             </div>
           </Card>
-        </section>
+        </motion.section>
       </Container>
     </div>
   );

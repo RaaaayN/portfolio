@@ -30,35 +30,36 @@ export function Footer() {
   }[language];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-surface-raised border-t border-white/[0.08]">
+      <div className="h-px bg-gradient-to-r from-transparent via-violet-500/60 to-transparent" />
       <div className="container py-12">
         <div className="flex justify-center">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
             <div>
-              <h3 className="text-xl font-semibold mb-4">{profile.name}</h3>
-              <p className="text-gray-300">{profile.bio}</p>
+              <h3 className="text-xl font-display font-bold text-white mb-4">{profile.name}<span className="text-accent">.</span></h3>
+              <p className="text-slate-400">{profile.bio}</p>
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4">{texts.quickLinks}</h4>
+              <h4 className="text-lg font-semibold text-white mb-4">{texts.quickLinks}</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#about" className="text-gray-300 hover:text-white transition-colors">
+                  <a href="/about" className="text-slate-400 hover:text-white transition-colors">
                     {texts.about}
                   </a>
                 </li>
                 <li>
-                  <a href="#projects" className="text-gray-300 hover:text-white transition-colors">
+                  <a href="/projects" className="text-slate-400 hover:text-white transition-colors">
                     {texts.projects}
                   </a>
                 </li>
                 <li>
-                  <a href="#experience" className="text-gray-300 hover:text-white transition-colors">
+                  <a href="/about#experience" className="text-slate-400 hover:text-white transition-colors">
                     {texts.experience}
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="text-gray-300 hover:text-white transition-colors">
+                  <a href="/contact" className="text-slate-400 hover:text-white transition-colors">
                     {texts.contact}
                   </a>
                 </li>
@@ -66,11 +67,11 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4">{texts.contactTitle}</h4>
+              <h4 className="text-lg font-semibold text-white mb-4">{texts.contactTitle}</h4>
               <div className="space-y-3">
                 <a
                   href={`mailto:${profile.contact.email}`}
-                  className="flex items-center text-gray-300 hover:text-white transition-colors"
+                  className="flex items-center text-slate-400 hover:text-white transition-colors"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   {profile.contact.email}
@@ -79,7 +80,7 @@ export function Footer() {
                   href={profile.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-gray-300 hover:text-white transition-colors"
+                  className="flex items-center text-slate-400 hover:text-white transition-colors"
                 >
                   <Linkedin className="w-4 h-4 mr-2" />
                   LinkedIn
@@ -88,7 +89,7 @@ export function Footer() {
                   href={profile.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-gray-300 hover:text-white transition-colors"
+                  className="flex items-center text-slate-400 hover:text-white transition-colors"
                 >
                   <Github className="w-4 h-4 mr-2" />
                   GitHub
@@ -98,8 +99,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
+        <div className="border-t border-white/[0.08] mt-8 pt-8 text-center">
+          <p className="text-slate-600">
             © {currentYear} {profile.name}. {texts.rights}
           </p>
         </div>

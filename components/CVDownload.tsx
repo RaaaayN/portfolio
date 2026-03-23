@@ -13,8 +13,8 @@ interface CVDownloadProps {
 }
 
 export function CVDownload({
-  variant = "default", 
-  size = "md", 
+  variant = "default",
+  size = "md",
   showIcon = true,
   className = ""
   }: CVDownloadProps) {
@@ -34,14 +34,14 @@ export function CVDownload({
     document.body.removeChild(link);
   };
 
-  const baseClasses = "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2";
-  
+  const baseClasses = "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-surface-base";
+
   const variantClasses = {
-    default: "bg-blue-600 text-white hover:bg-blue-700 shadow-sm",
-    outline: "border-2 border-blue-600 text-blue-600 hover:bg-blue-50",
-    ghost: "text-blue-600 hover:bg-blue-50"
+    default: "bg-accent hover:bg-violet-500 text-white shadow-glow-violet",
+    outline: "border border-accent/50 text-accent-light hover:bg-accent/10",
+    ghost: "text-accent-light hover:bg-accent/10"
   };
-  
+
   const sizeClasses = {
     sm: "px-4 py-2 text-sm",
     md: "px-6 py-3 text-base",

@@ -19,8 +19,8 @@ export function CertificationsList({ certifications }: CertificationsListProps) 
   return (
     <Card>
       <div className="flex items-center mb-4">
-        <Award className="w-6 h-6 text-blue-600 mr-3" />
-        <h3 className="text-xl font-semibold text-gray-900">Certifications</h3>
+        <Award className="w-6 h-6 text-accent-light mr-3" />
+        <h3 className="text-xl font-semibold text-white">Certifications</h3>
       </div>
 
       <div className="space-y-3">
@@ -30,23 +30,23 @@ export function CertificationsList({ certifications }: CertificationsListProps) 
             className="flex items-start justify-between gap-4"
           >
             <div className="flex items-start space-x-3">
-              <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+              <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-gray-700 font-medium">
+                <p className="text-white font-medium">
                   {certification.title}
                 </p>
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
                   {certification.issuer && (
-                    <p className="text-sm text-gray-500">{certification.issuer}</p>
+                    <p className="text-sm text-slate-400">{certification.issuer}</p>
                   )}
                   {certification.date && (
-                    <p className="text-sm text-gray-400">· {certification.date}</p>
+                    <p className="text-sm text-slate-500">· {certification.date}</p>
                   )}
                 </div>
                 {certification.skills && certification.skills.length > 0 && (
                   <div className="flex flex-wrap gap-1 mt-1">
                     {certification.skills.map((skill, i) => (
-                      <span key={i} className="rounded-full bg-blue-50 px-2 py-0.5 text-xs text-blue-700">
+                      <span key={i} className="rounded-full bg-violet-500/20 px-2 py-0.5 text-xs text-violet-300 border border-violet-500/20 font-mono">
                         {skill}
                       </span>
                     ))}
@@ -57,7 +57,7 @@ export function CertificationsList({ certifications }: CertificationsListProps) 
             {certification.pdf && (
               <Link
                 href={`/certifications/${certification.id}`}
-                className="flex items-center justify-center w-9 h-9 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900 transition-colors"
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/[0.08] text-slate-400 hover:bg-white/[0.15] hover:text-white transition-colors"
                 title="Voir le certificat"
               >
                 <Eye className="w-4 h-4" />

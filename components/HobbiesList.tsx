@@ -1,6 +1,5 @@
 import { Heart, Music, Gamepad2, Footprints, Activity, Zap } from "lucide-react";
 import { Card } from "./Card";
-import { Badge } from "./Badge";
 
 interface HobbiesListProps {
   hobbies: string[];
@@ -23,15 +22,15 @@ export function HobbiesList({ hobbies, title = "Centres d'intérêt" }: HobbiesL
   return (
     <Card>
       <div className="flex items-center mb-4">
-        <Heart className="w-6 h-6 text-red-600 mr-3" />
-        <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
+        <Heart className="w-6 h-6 text-red-400 mr-3" />
+        <h3 className="text-xl font-semibold text-white">{title}</h3>
       </div>
-      
+
       <div className="flex flex-wrap gap-3">
         {hobbies.map((hobby, index) => (
-          <div key={index} className="flex items-center space-x-2 px-3 py-2 bg-gray-50 rounded-lg">
+          <div key={index} className="flex items-center space-x-2 px-3 py-2 bg-white/[0.06] rounded-lg border border-white/10 text-slate-300 hover:border-white/20 transition-colors">
             {getHobbyIcon(hobby)}
-            <span className="text-gray-700">{hobby}</span>
+            <span>{hobby}</span>
           </div>
         ))}
       </div>

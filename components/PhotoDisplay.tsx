@@ -48,14 +48,14 @@ export function PhotoDisplay({
   // En cas d'erreur: icône claire, belle intégration
   if (hasError) {
     return (
-      <div className={`${sizeToTailwind[size]} ${rounded ? "rounded-full" : "rounded-lg"} bg-gray-200 flex items-center justify-center ${className}`}>
-        <span className="text-gray-400 text-2xl" aria-label="Aperçu manquant">📷</span>
+      <div className={`${sizeToTailwind[size]} ${rounded ? "rounded-full" : "rounded-lg"} bg-surface-overlay flex items-center justify-center ${className}`}>
+        <span className="text-slate-500 text-2xl" aria-label="Aperçu manquant">📷</span>
       </div>
     );
   }
 
   return (
-    <div className={`relative ${sizeToTailwind[size]} ${rounded ? "rounded-full" : "rounded-lg"} ${shadow ? "shadow-md" : ""} overflow-hidden bg-white ${className}`}>
+    <div className={`relative ${sizeToTailwind[size]} ${rounded ? "rounded-full" : "rounded-lg"} ${shadow ? "shadow-md" : ""} overflow-hidden bg-surface-raised ${className}`}>
       <Image
         src={src}
         alt={alt}
@@ -83,8 +83,8 @@ export function PhotoDisplay({
       />
       {/* Un vrai fond d'attente élégant, pour améliorer la prévisualisation */}
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-200 via-gray-100 to-gray-50 animate-pulse z-10">
-          <span className="text-gray-400 text-2xl">⏳</span>
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-surface-overlay via-surface-raised to-surface-overlay animate-pulse z-10">
+          <span className="text-slate-500 text-2xl">⏳</span>
         </div>
       )}
     </div>

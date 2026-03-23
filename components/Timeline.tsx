@@ -64,32 +64,32 @@ export function Timeline({
             <div key={index} className="relative">
               {/* Timeline line */}
               {index < items.length - 1 && (
-                <div className="absolute left-[4.5rem] top-24 h-full w-0.5 bg-gray-200 -z-10" />
+                <div className="absolute left-[4.5rem] top-24 h-full w-0.5 bg-gradient-to-b from-violet-500/50 via-violet-500/20 to-transparent -z-10" />
               )}
 
               <div
                 className={clsx(
-                  "relative z-0 flex items-start space-x-4 rounded-2xl border bg-white p-6 shadow-sm transition-shadow",
+                  "relative z-0 flex items-start space-x-4 rounded-2xl border p-6 transition-shadow glass shadow-card",
                   isFeatured
-                    ? "border-amber-300 bg-amber-50 shadow-lg ring-2 ring-amber-200/60"
-                    : "border-gray-100 hover:shadow-md"
+                    ? "border-amber-400/40 shadow-[0_0_40px_rgba(251,191,36,0.15)]"
+                    : "border-transparent hover:border-white/[0.15]"
                 )}
               >
                 {/* Timeline dot ou photo */}
                 <div className="relative z-30 flex h-24 w-24 flex-shrink-0 items-center justify-center">
-                  <div className="absolute inset-0 z-40 rounded-full border-2 border-white" />
+                  <div className="absolute inset-0 z-40 rounded-full border-2 border-white/10" />
                   {item.photo_path ? (
                     <PhotoDisplay
                       src={item.photo_path}
                       alt={`Logo ${item.company || item.title}`}
                       size="lg"
-                      className={clsx("relative z-50 ring-2 ring-white", isFeatured && "ring-amber-300")}
+                      className={clsx("relative z-50 ring-2 ring-white/10", isFeatured && "ring-amber-400/50")}
                     />
                   ) : (
                     <div
                       className={clsx(
-                        "relative z-50 flex h-full w-full items-center justify-center rounded-full border-2 border-white shadow-md",
-                        isFeatured ? "bg-amber-400" : "bg-blue-600"
+                        "relative z-50 flex h-full w-full items-center justify-center rounded-full border-2 border-white/10 shadow-md",
+                        isFeatured ? "bg-amber-400" : "bg-gradient-to-br from-violet-600 to-cyan-accent"
                       )}
                     >
                       <Calendar className="h-8 w-8 text-white" />
@@ -100,17 +100,17 @@ export function Timeline({
                 {/* Content */}
                 <div className="min-w-0 flex-1">
                   <div className="mb-2 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                    <h3 className="text-lg font-semibold text-white flex items-center gap-2">
                       {item.title}
                       {isFeatured && (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/20 px-2 py-0.5 text-xs font-medium text-amber-300">
                           <Star className="h-3 w-3" />
                           {featuredLabel}
                         </span>
                       )}
                     </h3>
                     <div className="flex flex-wrap items-center gap-3 sm:justify-end">
-                      <span className="text-sm text-gray-500">{item.period}</span>
+                      <span className="text-sm text-slate-500">{item.period}</span>
                       {item.image_path && (
                         <div className="group relative inline-block">
                           <button
@@ -122,13 +122,13 @@ export function Timeline({
                                 caption: item.image_caption,
                               })
                             }
-                            className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-sm font-medium text-blue-700 shadow-sm transition-transform hover:scale-105 hover:bg-blue-50"
+                            className="inline-flex items-center gap-2 rounded-full border border-white/[0.15] bg-transparent px-3 py-1.5 text-sm font-medium text-slate-400 shadow-sm transition-transform hover:scale-105 hover:bg-white/[0.08]"
                           >
                             <ImageIcon className="h-4 w-4" />
                             {viewImageLabel}
                           </button>
-                          <div className="pointer-events-none absolute right-0 bottom-full mb-2 hidden w-48 overflow-hidden rounded-xl border border-blue-100 bg-white shadow-lg group-hover:block group-focus-within:block z-20">
-                            <div className="relative aspect-[4/3] w-full bg-gray-100">
+                          <div className="pointer-events-none absolute right-0 bottom-full mb-2 hidden w-48 overflow-hidden rounded-xl border border-white/10 bg-surface-raised shadow-lg group-hover:block group-focus-within:block z-20">
+                            <div className="relative aspect-[4/3] w-full bg-surface-overlay">
                               <Image
                                 src={item.image_path}
                                 alt={altText}
@@ -138,8 +138,8 @@ export function Timeline({
                               />
                             </div>
                             {(item.image_caption || altText) && (
-                              <div className="border-t border-blue-50 bg-white px-3 py-2">
-                                <p className="text-xs font-medium text-gray-700">
+                              <div className="border-t border-white/[0.08] bg-surface-raised px-3 py-2">
+                                <p className="text-xs font-medium text-slate-400">
                                   {item.image_caption || altText}
                                 </p>
                               </div>
@@ -152,12 +152,12 @@ export function Timeline({
 
                   {item.company && (
                     <div className="mb-2 flex flex-col gap-1">
-                      <div className="flex items-center text-gray-600">
+                      <div className="flex items-center text-slate-400">
                         <span className="font-medium">{item.company}</span>
                         {item.location && (
                           <>
-                            <span className="mx-2 text-gray-300">|</span>
-                            <div className="flex items-center">
+                            <span className="mx-2 text-white/20">|</span>
+                            <div className="flex items-center text-slate-400">
                               <MapPin className="mr-1 h-4 w-4" />
                               <span>{item.location}</span>
                             </div>
@@ -165,15 +165,15 @@ export function Timeline({
                         )}
                       </div>
                       {item.subRoles && item.subRoles.length > 0 && (
-                        <div className="flex flex-col gap-1 pl-1 border-l-2 border-gray-200 ml-0.5">
+                        <div className="flex flex-col gap-1 pl-1 border-l-2 border-white/10 ml-0.5">
                           {item.subRoles.map((role, roleIndex) => (
-                            <div key={roleIndex} className="flex flex-wrap items-center gap-2 text-sm text-gray-500">
-                              <span className="font-medium text-gray-700">{role.title}</span>
-                              <span className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700">{role.type}</span>
+                            <div key={roleIndex} className="flex flex-wrap items-center gap-2 text-sm text-slate-400">
+                              <span className="font-medium text-slate-300">{role.title}</span>
+                              <span className="rounded-full bg-violet-500/20 px-2 py-0.5 text-xs font-medium text-violet-300">{role.type}</span>
                               {role.remote && (
-                                <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">{remoteLabel}</span>
+                                <span className="rounded-full bg-white/[0.08] px-2 py-0.5 text-xs text-slate-400">{remoteLabel}</span>
                               )}
-                              <span className="text-xs text-gray-400">{role.period}</span>
+                              <span className="text-xs text-slate-500">{role.period}</span>
                             </div>
                           ))}
                         </div>
@@ -183,7 +183,7 @@ export function Timeline({
 
                   <div className="mb-3">
                     {Array.isArray(item.description) ? (
-                      <ul className="list-disc space-y-1 pl-5 text-gray-600">
+                      <ul className="list-disc space-y-1 pl-5 text-slate-400">
                         {item.description.map((line, lineIndex) => (
                           <li key={lineIndex} className="leading-relaxed">
                             {line}
@@ -191,18 +191,18 @@ export function Timeline({
                         ))}
                       </ul>
                     ) : (
-                      <p className="whitespace-pre-line text-gray-600 leading-relaxed">
+                      <p className="whitespace-pre-line text-slate-400 leading-relaxed">
                         {item.description}
                       </p>
                     )}
                   </div>
 
                   {item.result && (
-                    <div className="mb-3 rounded-r border-l-4 border-green-400 bg-green-50 p-3">
-                      <p className="mb-1 text-sm font-medium text-green-800">
+                    <div className="mb-3 rounded-r border-l-4 border-emerald-400 bg-emerald-500/10 p-3">
+                      <p className="mb-1 text-sm font-medium text-emerald-300">
                         {resultLabel}
                       </p>
-                      <p className="text-sm text-green-700 whitespace-pre-line">
+                      <p className="text-sm text-emerald-300 whitespace-pre-line">
                         {item.result}
                       </p>
                     </div>
@@ -213,7 +213,7 @@ export function Timeline({
                       {item.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-700"
+                          className="rounded-full bg-white/[0.08] px-2 py-1 text-xs text-slate-300 font-mono"
                         >
                           {tech}
                         </span>
@@ -233,7 +233,7 @@ export function Timeline({
           onClick={() => setActiveImage(null)}
         >
           <div
-            className="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+            className="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-surface-raised shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -244,7 +244,7 @@ export function Timeline({
             >
               <X className="h-5 w-5" />
             </button>
-            <div className="relative h-[60vh] min-h-[320px] w-full bg-gray-100">
+            <div className="relative h-[60vh] min-h-[320px] w-full bg-surface-overlay">
               <Image
                 src={activeImage.src}
                 alt={activeImage.alt}
@@ -255,8 +255,8 @@ export function Timeline({
               />
             </div>
             {(activeImage.caption || activeImage.alt) && (
-              <div className="border-t border-gray-100 bg-white p-6">
-                <p className="text-sm font-semibold text-gray-900">
+              <div className="border-t border-white/[0.08] bg-surface-raised p-6">
+                <p className="text-sm font-semibold text-white">
                   {activeImage.caption || activeImage.alt}
                 </p>
               </div>
