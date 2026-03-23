@@ -10,7 +10,6 @@ import { useLanguage } from "@/lib/LanguageContext";
 import {
   Mail,
   Phone,
-  MapPin,
   Linkedin,
   Github,
   Send,
@@ -267,13 +266,6 @@ export default function ContactPage() {
       value: profile.contact.phone,
       href: `tel:${profile.contact.phone.replace(/\s+/g, '')}`,
       description: texts.contactInfo.phoneDescription
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: texts.contactInfoTitles.location,
-      value: profile.location,
-      href: "#",
-      description: texts.contactInfo.locationDescription
     },
     {
       icon: <Linkedin className="w-6 h-6" />,

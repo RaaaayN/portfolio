@@ -21,8 +21,8 @@ const securityHeaders = [
       "img-src 'self' data: blob: https:",
       "font-src 'self' https://fonts.gstatic.com",
       "connect-src 'self' https://generativelanguage.googleapis.com",
-      "frame-src 'none'",
-      "object-src 'none'",
+      "frame-src 'self'",   // iframes PDF servis localement
+      "object-src 'self'",  // <object>/<embed> PDF
       "base-uri 'self'",
       "form-action 'self'",
       "frame-ancestors 'none'",
