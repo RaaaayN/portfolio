@@ -336,6 +336,21 @@
       "pdf": "/certifications/Professional Scrum Product Owner I.pdf"
     },
     {
+      "id": "ibm-ai-fundamentals",
+      "title": "Artificial Intelligence Fundamentals",
+      "issuer": "IBM",
+      "date": "Dec. 2025",
+      "skills": ["Artificial Intelligence", "Machine Learning", "Data Science"]
+    },
+    {
+      "id": "google-gcp-data-lakes",
+      "title": "Build Data Lakes and Data Warehouses on Google Cloud",
+      "issuer": "Google",
+      "date": "Dec. 2025",
+      "skills": ["Data Warehouse Architecture", "Data Lake", "Google Cloud Platform", "BigQuery"],
+      "pdf": "/certifications/BARREDDINE Rayan GCP Data Lakes Warehouses.pdf"
+    },
+    {
       "id": "kaggle-contributor",
       "title": "Kaggle Contributor",
       "issuer": "Kaggle"
@@ -376,7 +391,6 @@
     "phone": "+33 7 82 59 80 57"
   },
   "cv_path": "/cv/CV_Rayan_Barreddine.pdf",
-  "location": "Erquery, France",
   "stats": {
     "experience_years": 3,
     "people_led": 15,

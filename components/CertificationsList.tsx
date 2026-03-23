@@ -7,6 +7,8 @@ interface CertificationsListProps {
     id: string;
     title: string;
     issuer?: string;
+    date?: string;
+    skills?: string[];
     pdf?: string;
   }[];
 }
@@ -33,10 +35,22 @@ export function CertificationsList({ certifications }: CertificationsListProps) 
                 <p className="text-gray-700 font-medium">
                   {certification.title}
                 </p>
-                {certification.issuer && (
-                  <p className="text-sm text-gray-500">
-                    {certification.issuer}
-                  </p>
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                  {certification.issuer && (
+                    <p className="text-sm text-gray-500">{certification.issuer}</p>
+                  )}
+                  {certification.date && (
+                    <p className="text-sm text-gray-400">· {certification.date}</p>
+                  )}
+                </div>
+                {certification.skills && certification.skills.length > 0 && (
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {certification.skills.map((skill, i) => (
+                      <span key={i} className="rounded-full bg-blue-50 px-2 py-0.5 text-xs text-blue-700">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 )}
               </div>
             </div>
