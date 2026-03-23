@@ -3,14 +3,69 @@ import nodemailer from 'nodemailer';
 import { emailConfig } from '@/lib/emailConfig';
 import { readProfile } from '@/lib/readProfile';
 
+// Rate limiting : max 3 soumissions par IP toutes les 10 minutes
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_MAX = 3;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+
+function getClientIp(req: NextRequest): string {
+  return (
+    req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+    req.headers.get('x-real-ip') ||
+    'unknown'
+  );
+}
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+  if (entry.count >= RATE_LIMIT_MAX) return true;
+  entry.count++;
+  return false;
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, subject, message } = await request.json();
+    const ip = getClientIp(request);
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: 'Trop de tentatives. Réessayez dans 10 minutes.' },
+        { status: 429 }
+      );
+    }
+
+    const { name, email, subject, message, website } = await request.json();
+
+    // Honeypot : les bots remplissent ce champ, les humains non
+    if (website) {
+      return NextResponse.json({ message: 'OK' }, { status: 200 });
+    }
 
     // Validation des données
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { error: 'Tous les champs sont requis' },
+        { status: 400 }
+      );
+    }
+
+    // Validation basique de l'email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Adresse email invalide' },
+        { status: 400 }
+      );
+    }
+
+    // Longueur maximale pour éviter le flooding
+    if (name.length > 100 || subject.length > 200 || message.length > 5000) {
+      return NextResponse.json(
+        { error: 'Contenu trop long' },
         { status: 400 }
       );
     }

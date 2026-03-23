@@ -31,8 +31,8 @@ const sizeToPixel = {
   "3xl": 768,
 };
 
-// Lien blur ultra léger généré statiquement (peut être personnalisé par projet)
-const DEFAULT_BLUR_URL = "/images/placeholder-blur.webp";
+// Placeholder blur inline (data URI 1x1 gris) — évite le 404 sur fichier externe
+const DEFAULT_BLUR_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==";
 
 export function PhotoDisplay({
   src,

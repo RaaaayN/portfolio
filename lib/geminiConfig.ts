@@ -2,9 +2,11 @@
 export const geminiConfig = {
   // Clé API Gemini (à configurer dans .env.local)
   apiKey: process.env.GEMINI_API_KEY || 'your_gemini_api_key_here',
-  
-  // Modèle Gemini à utiliser
-  model: 'gemini-2.0-flash',
+
+  // Modèle principal (avec fallback automatique si quota dépassé)
+  model: 'gemini-2.5-flash-lite',
+  // Modèles de secours essayés dans l'ordre si le principal est en 429
+  fallbackModels: ['gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-1.5-flash-8b'],
   
   // Configuration de génération
   generationConfig: {

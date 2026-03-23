@@ -27,6 +27,7 @@ interface ContactFormData {
   email: string;
   subject: string;
   message: string;
+  website: string; // honeypot — doit rester vide
 }
 
 export default function ContactPage() {
@@ -202,7 +203,8 @@ export default function ContactPage() {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
+    website: "", // honeypot
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -217,6 +219,8 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Honeypot : si rempli, c'est un bot — on abandonne silencieusement
+    if (formData.website) return;
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -235,7 +239,8 @@ export default function ContactPage() {
           name: "",
           email: "",
           subject: "",
-          message: ""
+          message: "",
+          website: "",
         });
       } else {
         setSubmitStatus('error');
@@ -474,6 +479,20 @@ export default function ContactPage() {
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                     placeholder={texts.form.messagePlaceholder}
+                  />
+                </div>
+
+                {/* Honeypot — invisible pour les humains, rempli par les bots */}
+                <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }}>
+                  <label htmlFor="website">Ne pas remplir ce champ</label>
+                  <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    value={formData.website}
+                    onChange={handleInputChange}
+                    tabIndex={-1}
+                    autoComplete="off"
                   />
                 </div>
 

@@ -7,7 +7,7 @@ export interface Document {
   id: string;
   content: string;
   metadata: {
-    type: 'profile' | 'project' | 'experience' | 'education' | 'skill';
+    type: 'profile' | 'project' | 'experience' | 'education' | 'skill' | 'certification' | 'language' | 'hobby';
     title?: string;
     section?: string;
   };
@@ -219,10 +219,9 @@ export class RAGSystem {
         return this.generateFallbackResponse(query, searchResults);
       }
 
-      // Essayer Gemini avec timeout
-      try {
-        const profile = this.profile || readProfile();
-        const prompt = `Tu es l'assistant IA de ${profile.name}, ${profile.title}.
+      // Essayer Gemini avec cascade de modèles
+      const profile = this.profile || readProfile();
+      const prompt = `Tu es l'assistant IA de ${profile.name}, ${profile.title}.
 Tu dois répondre uniquement aux questions concernant ${profile.name}, en te basant sur les informations suivantes :
 
 INFORMATIONS SUR ${profile.name.toUpperCase()} :
@@ -253,29 +252,42 @@ Exemple : [REDIRECT:contact]
 
 RÉPONSE :`;
 
-        const model = this.genAI.getGenerativeModel({ 
-          model: geminiConfig.model,
-          generationConfig: geminiConfig.generationConfig,
-          safetySettings: geminiConfig.safetySettings,
-        });
+      const modelsToTry = [geminiConfig.model, ...geminiConfig.fallbackModels];
+      for (const modelName of modelsToTry) {
+        try {
+          const model = this.genAI.getGenerativeModel({
+            model: modelName,
+            generationConfig: geminiConfig.generationConfig,
+            safetySettings: geminiConfig.safetySettings,
+          });
 
-        // Timeout de 10 secondes
-        const timeoutPromise = new Promise((_, reject) => 
-          setTimeout(() => reject(new Error('Timeout')), 10000)
-        );
+          const timeoutPromise = new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('Timeout')), 10000)
+          );
 
-        const result = await Promise.race([
-          model.generateContent(prompt),
-          timeoutPromise
-        ]) as any;
+          const result = await Promise.race([
+            model.generateContent(prompt),
+            timeoutPromise,
+          ]) as any;
 
-        const response = await result.response;
-        return response.text();
+          const response = await result.response;
+          return response.text();
 
-      } catch (geminiError) {
-        console.warn('⚠️ Erreur Gemini, utilisation du fallback:', geminiError);
-        return this.generateFallbackResponse(query, searchResults);
+        } catch (modelError: any) {
+          const is429 = modelError?.status === 429 || modelError?.message?.includes('429');
+          const isTimeout = modelError?.message === 'Timeout';
+          if (is429 || isTimeout) {
+            console.warn(`⚠️ Modèle ${modelName} indisponible (${is429 ? '429' : 'timeout'}), essai suivant...`);
+            continue;
+          }
+          // Autre erreur non récupérable
+          throw modelError;
+        }
       }
+
+      // Tous les modèles ont échoué
+      console.warn('⚠️ Tous les modèles Gemini indisponibles, utilisation du fallback');
+      return this.generateFallbackResponse(query, searchResults);
 
     } catch (error) {
       console.error('❌ Erreur lors de la génération de la réponse:', error);
