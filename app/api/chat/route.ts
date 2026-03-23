@@ -1,28 +1,54 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ragSystem } from '@/lib/ragSystem';
+import {
+  chatRateLimiter,
+  getClientIp,
+  sanitizeInput,
+  detectPromptInjection,
+} from '@/lib/security';
 
 export async function POST(request: NextRequest) {
   try {
-    const { message } = await request.json();
-
-    // Validation
-    if (!message || typeof message !== 'string' || message.trim().length === 0) {
+    // 1. Rate limiting — 10 messages/min par IP
+    const ip = getClientIp(request);
+    const rl = chatRateLimiter.check(ip);
+    if (rl.limited) {
       return NextResponse.json(
-        { error: 'Le message est requis' },
-        { status: 400 }
+        { error: 'Trop de messages. Veuillez patienter quelques secondes.' },
+        {
+          status: 429,
+          headers: { 'Retry-After': String(Math.ceil(rl.resetInMs / 1000)) },
+        }
       );
     }
 
-    // Limiter la longueur du message
-    if (message.length > 500) {
+    // 2. Validation basique
+    const body = await request.json().catch(() => null);
+    if (!body || typeof body.message !== 'string' || body.message.trim().length === 0) {
+      return NextResponse.json({ error: 'Le message est requis' }, { status: 400 });
+    }
+
+    // 3. Sanitisation de l'input
+    const rawMessage = sanitizeInput(body.message);
+
+    // 4. Limite de longueur (500 caractères)
+    if (rawMessage.length > 500) {
       return NextResponse.json(
         { error: 'Le message est trop long (max 500 caractères)' },
         { status: 400 }
       );
     }
 
-    // Générer la réponse avec le RAG
-    const response = await ragSystem.generateResponse(message.trim());
+    // 5. Détection de prompt injection
+    if (detectPromptInjection(rawMessage)) {
+      return NextResponse.json(
+        { message: "Je suis ici uniquement pour répondre aux questions sur le profil de Rayan. Je ne peux pas traiter cette demande.", timestamp: new Date().toISOString() },
+        { status: 200 }
+      );
+    }
+
+    // 6. Génération de la réponse
+    const response = await ragSystem.generateResponse(rawMessage);
 
     return NextResponse.json({
       message: response,
@@ -38,7 +64,6 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Endpoint pour obtenir les questions suggérées
 export async function GET() {
   try {
     const suggestions = ragSystem.getSuggestedQuestions();
