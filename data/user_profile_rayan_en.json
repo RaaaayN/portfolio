@@ -1,79 +1,80 @@
 {
   "name": "Rayan Barreddine",
-  "title": "4th year student at UTC, specializing in Artificial Intelligence & Data",
-  "bio": "Final-year student at UTC, passionate about AI, data science, and technological innovation. Experienced in project management, intelligent solution development, and team leadership.",
-  "about": "I combine a strong background in computer engineering at UTC with active involvement in both technical and associative projects. My experiences cover project management, AI/data application development, research, and team supervision. Recognized for my ability to drive projects from conception to completion, adaptability, and team spirit.",
+  "title": "AI & Data Engineer · Final-year internship · February 2027",
+  "bio": "Computer Engineering student at UTC, specializing in Data/AI, with experience in AI agents, data pipelines, and knowledge graphs. Used to shipping production-ready systems and measuring impact through business and technical metrics.",
+  "about": "Computer Engineering student at UTC, specializing in Data/AI, with hands-on experience shipping production-ready AI agents, data pipelines, and knowledge graph systems. I measure impact through both business and technical metrics. Seeking a final-year internship as an ML/LLM Engineer (or Product Engineer) starting in February 2027 (24 to 26 weeks).",
   "photo_path": "/images/1.png",
   "hero": {
     "tagline": "AI & Data to create meaningful impact",
-    "subtitle": "Project leader at Junior UTC & soon-to-be AI engineer",
+    "subtitle": "AI Researcher at Histia · Aspiring ML/LLM Engineer",
     "highlights": [
-      "Leading multidisciplinary teams",
-      "Designing end-to-end data and AI solutions",
-      "Sharing knowledge as a mentor"
+      "AI agents, data pipelines & knowledge graphs",
+      "Production-ready LLM/RAG systems",
+      "Measurable impact through business & technical metrics"
     ],
     "quote": "Technology only matters when it serves people and transforms ideas into tangible opportunities.",
     "signature": "Rayan",
-    "availability": "Open to a final-year internship starting September 2025."
+    "availability": "Seeking a final-year internship as ML/LLM Engineer starting February 2027 (24–26 weeks)."
   },
   "skills": [
     {
-      "category": "Programming Languages",
+      "category": "Data / ML",
       "technologies": [
-        "Python",
-        "C",
-        "C++",
-        "HTML",
-        "CSS",
-        "PHP",
-        "SQL",
-        "R",
-        "Lisp",
-        "OCaml"
-      ],
-      "description": "Mastery of major languages for web development, scientific programming, and data analysis. Strong algorithmic foundation and performance-oriented approach."
-    },
-    {
-      "category": "Artificial Intelligence & Data Science",
-      "technologies": [
-        "AI Agents",
-        "Model Context Protocol (MCP)",
         "Pandas",
         "NumPy",
         "scikit-learn",
         "TensorFlow",
-        "Power BI",
-        "Azure",
-        "AWS",
-        "PostgreSQL",
-        "Linux"
+        "Time series",
+        "Feature engineering",
+        "MLflow",
+        "Model evaluation"
       ],
-      "description": "Advanced skills in machine learning, data handling and visualization. Experienced with cloud environments and deploying AI/Data solutions."
+      "description": "Advanced skills in machine learning, data manipulation and visualization. Experienced in feature engineering, time series analysis, and model deployment with MLflow."
     },
     {
-      "category": "Cloud, Tools & Infrastructure",
+      "category": "Software / Infra",
       "technologies": [
+        "Python",
+        "SQL",
+        "PostgreSQL",
         "Docker",
-        "Git",
-        "Cursor",
-        "N8N",
-        "CI/CD",
-        "Notion"],
-      "description": "Use of modern tools for version control, automation and application deployment. Proficient in Linux environments and DevOps practices."
+        "Linux",
+        "ETL",
+        "Claude Code",
+        "Cursor"
+      ],
+      "description": "Mastery of development and infrastructure tools to deliver robust, scalable production systems."
+    },
+    {
+      "category": "LLM / RAG",
+      "technologies": [
+        "LangChain",
+        "LangGraph",
+        "ChromaDB",
+        "Knowledge Graphs (FalkorDB)",
+        "PydanticAI",
+        "MCP",
+        "Hybrid retrieval",
+        "Reranking",
+        "Citation checking",
+        "Guardrails"
+      ],
+      "description": "Expertise in LLM/RAG systems: modular AI agents, knowledge graphs, hybrid retrieval, and evaluation (faithfulness, context precision, answer relevancy)."
     },
     {
       "category": "Project Management",
       "technologies": [
         "Agile",
         "Scrum",
+        "Risk analysis",
+        "Planning",
+        "Reporting",
+        "Client communication",
         "PBS",
         "WBS",
-        "PDP",
-        "OBS",
-        "Gantt",
-        "Business Plan"
+        "Gantt"
       ],
-      "description": "Managing complex technical projects with planning, monitoring, and team leadership. Implementation of Agile methods and planning tools (PBS, WBS, Gantt)."
+      "description": "Managing complex technical projects with planning, monitoring, and team leadership. Implementation of Agile methods and planning tools."
     }
   ],
   "projects": [
@@ -173,24 +174,55 @@
       "photo_path": "/images/projects/placeholder.svg"
     },
     {
-      "id": "pokemon-rag",
-      "title": "Pokémon RAG system",
+      "id": "prediction-wallet",
+      "title": "Prediction Wallet — AI Portfolio Rebalancing Agent",
       "description": [
-        "Developed a Retrieval-Augmented Generation (RAG) system specializing in Pokémon, merging structured data from PokéAPI and unstructured articles from Poképedia with an interactive Streamlit interface."
+        "Autonomous AI portfolio rebalancing agent using LangGraph and Claude/Gemini, able to monitor allocation drift, analyze market conditions, and trigger rebalancing actions."
       ],
-      "details": "1. Merged textual and structured data with cleaning/filtering and document indexing for optimal performance.\n2. Full object-oriented design: system encapsulated in a dedicated RAGSystem class, applying SOLID.\n3. Vector database via ChromaDB for passage indexing, multi-mode response, and auto-cleanup.\n4. Streamlit interface allowing temperature parameter adjustment, passage highlighting, hallucination detection, and integrated evaluator.\n5. Fine-grained evaluation: RAGAS, faithfulness/context relevance/internal metrics, mode comparisons, and improvements (hybrid search, dataset enrichment, prompt tuning).",
+      "details": [
+        "Implemented threshold and calendar-based strategies, execution simulation with slippage, risk controls (drawdown-based kill switch), and local persistence for market and portfolio data (SQLite/JSON).",
+        "LangGraph-based agent architecture: decision flow orchestration, state management, and multi-step analysis chains."
+      ],
       "technologies": [
         "Python",
-        "Retrieval-Augmented Generation (RAG)",
-        "ChromaDB",
+        "LangGraph",
+        "Claude",
+        "Gemini",
+        "yfinance",
+        "SQLite",
         "Streamlit",
-        "Google Gemini",
-        "LLM"
+        "ReportLab"
       ],
       "photos": [],
-      "video": "https://www.youtube.com/watch?v=example4",
+      "location": "Personal",
+      "period": "Since January 2025",
+      "photo_path": "/images/projects/placeholder.svg",
+      "featured": true
+    },
+    {
+      "id": "pokemon-rag",
+      "title": "RAG Pokémon — Question-Answering with Enriched Retrieval",
+      "description": [
+        "RAG-based question-answering system on the Pokémon universe, combining PokeAPI, Poképédia, Gemini, and ChromaDB to handle factual, descriptive, and comparative queries."
+      ],
+      "details": [
+        "Improved retrieval by enriching documents with domain-specific metadata (types, legendary/mythical status, habitat, color).",
+        "Set up an evaluation pipeline using faithfulness, answer relevancy, context precision, and context recall (RAGAS).",
+        "Interactive Streamlit interface with temperature control, source passage display, and hallucination detection."
+      ],
+      "technologies": [
+        "Python",
+        "LangChain",
+        "Gemini 2.0 Flash",
+        "Google Embeddings",
+        "ChromaDB",
+        "Streamlit",
+        "Web Scraping",
+        "RAG Evaluation"
+      ],
+      "photos": [],
       "location": "UTC",
-      "period": "2024",
+      "period": "April – June 2025",
       "photo_path": "/images/projects/placeholder.svg",
       "featured": true
     },
@@ -226,64 +258,40 @@
         { "title": "AI Researcher", "type": "Internship", "period": "Sept. 2025 – Feb. 2026 · 6 months", "remote": false }
       ],
       "description": [
-        "Developed AI agents for a startup/enterprise intelligence platform using Python, PydanticAI, MCP, TypeScript, Prisma, and LiteLLM.",
-        "Designed a knowledge graph system to structure heterogeneous data and generate long-form investment memos drawing on dozens of sources per startup.",
-        "Optimized AI memo generation with multiple levels of analysis.",
-        "Built AI data collection agents for dynamic websites and modules to extract data from INPI documents.",
-        "Created an internal automation tool centralizing multiple business processes, saving dozens of hours on repetitive low-value tasks."
+        "Accelerated case qualification by developing modular AI agents (PydanticAI + MCP) to structure hundreds of documents into a FalkorDB knowledge graph.",
+        "Built an end-to-end INPI pipeline (ingestion, structuring, exploitation) with monitoring and retry mechanisms, robust handling of incomplete records — internal tool adopted by all team members, +90% extraction accuracy.",
+        "Drove product impact by speeding up memo production and reducing time spent per case for analyst and operations teams."
       ],
       "technologies": [
         "Python",
         "PydanticAI",
-        "Model Context Protocol (MCP)",
-        "TypeScript",
-        "Prisma",
-        "LiteLLM",
-        "Knowledge Graph",
-        "Web Scraping",
-        "AI Agents"
+        "MCP",
+        "FalkorDB",
+        "ETL",
+        "Gemini",
+        "Docker",
+        "TypeScript"
       ],
       "featured": true,
       "photo_path": "/images/histia_app_logo.jpg"
     },
     {
-      "title": "Project Manager",
+      "title": "Business Manager and Human Resources Officer",
       "company": "Junior UTC",
       "location": "Compiègne, France",
-      "period": "January 2025 – September 2025",
+      "period": "June 2024 – September 2025",
       "description": [
-        "Supervised projects from initial client contact to delivery.",
-        "Oversaw client projects, coordinated teams, and handled contracts/documentation."
+        "Led 4 client projects end-to-end, from scoping to delivery, with 100% on-time delivery and 100% client satisfaction.",
+        "Structured governance and contracting through 18 contractual documents, ensuring process compliance and 0 disputes; contributed to staffing through 22 interviews."
       ],
       "technologies": [
         "Project management",
-        "Management",
-        "Team coordination",
-        "Contract drafting"
+        "Risk analysis",
+        "Planning",
+        "Reporting",
+        "Client communication"
       ],
-      "photo_path": "/images/jutc_logo.jpg",
-      "image_path": "/images/experience/junior-utc-chef-projet.svg",
-      "image_caption": "Leading the project team and facilitating client workshops at Junior UTC."
-    },
-    {
-      "title": "Human Resources Officer",
-      "company": "Junior UTC",
-      "location": "Compiègne, France",
-      "period": "June 2024 – January 2025",
-      "description": [
-        "Managed recruitment and onboarding of new members.",
-        "Organized training and monitored development for 32 members.",
-        "Led team-building and cohesion through 11 events."
-      ],
-      "technologies": [
-        "Recruitment",
-        "Training",
-        "Internal communication",
-        "Event organization"
-      ],
-      "photo_path": "/images/jutc_logo.jpg",
-      "image_path": "/images/experience/junior-utc-rh.svg",
-      "image_caption": "Training session for new members of the Junior-Enterprise."
+      "photo_path": "/images/jutc_logo.jpg"
     },
     {
       "title": "Packaging Operator (Worker internship)",
@@ -311,7 +319,8 @@
       "location": "Compiègne",
       "period": "Since February 2023",
       "description": [
-        "Major: Computer Science, specializing in AI & Data Science.",
+        "Computer Science major, with planned specialization in Artificial Intelligence and Data Science.",
+        "Relevant coursework: Statistics, Artificial Intelligence, Algorithms, Data Structures, Databases.",
         "Hands-on projects in machine learning, data visualization, and digital innovation."
       ],
       "photo_path": "/images/utc.png",
@@ -378,17 +387,17 @@
   ],
   "hobbies": [
     "Running",
-    "Trail",
+    "Trail Running",
     "Tennis",
     "Football",
-    "Music",
-    "Video games"
+    "Music"
   ],
   "contact": {
     "email": "rayan.barre@icloud.com",
     "linkedin": "https://www.linkedin.com/in/rayan-barreddine/",
     "github": "https://github.com/RaaaayN",
-    "phone": "+33 7 82 59 80 57"
+    "phone": "+33 7 82 59 80 57",
+    "location": "Paris, France"
   },
   "cv_path": "/cv/CV_Rayan_Barreddine.pdf",
   "stats": {

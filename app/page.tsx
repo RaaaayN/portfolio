@@ -385,6 +385,17 @@ export default function Home() {
                           </div>
                         </a>
                       )}
+                      {profile.contact.location && (
+                        <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-3">
+                          <MapPin className="h-5 w-5 text-accent-light" />
+                          <div>
+                            <p className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-accent-light">
+                              Location
+                            </p>
+                            <p className="text-sm font-medium text-slate-300">{profile.contact.location}</p>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
                     {profile.contact.linkedin && (

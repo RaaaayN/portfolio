@@ -13,6 +13,7 @@ import {
   Phone,
   Linkedin,
   Github,
+  MapPin,
   Send,
   CheckCircle,
   AlertCircle,
@@ -270,6 +271,13 @@ export default function ContactPage() {
       description: texts.contactInfo.phoneDescription
     },
     {
+      icon: <MapPin className="w-6 h-6" />,
+      title: texts.contactInfoTitles.location,
+      value: profile.contact.location,
+      href: null,
+      description: texts.contactInfo.locationDescription
+    },
+    {
       icon: <Linkedin className="w-6 h-6" />,
       title: texts.contactInfoTitles.linkedin,
       value: profile.name,
@@ -412,14 +420,20 @@ export default function ContactPage() {
                         <h3 className="text-base font-semibold text-white">
                           {info.title}
                         </h3>
-                        <a
-                          href={info.href}
-                          className="text-accent-light hover:text-accent font-medium block transition-colors"
-                          target={info.href.startsWith('http') ? '_blank' : undefined}
-                          rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        >
-                          {info.value}
-                        </a>
+                        {info.href ? (
+                          <a
+                            href={info.href}
+                            className="text-accent-light hover:text-accent font-medium block transition-colors"
+                            target={info.href.startsWith('http') ? '_blank' : undefined}
+                            rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          >
+                            {info.value}
+                          </a>
+                        ) : (
+                          <span className="text-accent-light font-medium block">
+                            {info.value}
+                          </span>
+                        )}
                         <p className="text-slate-500 text-sm mt-1">
                           {info.description}
                         </p>

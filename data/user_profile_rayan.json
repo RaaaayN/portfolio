@@ -1,80 +1,80 @@
 {
   "name": "Rayan Barreddine",
-  "title": "Étudiant en 4e année à l'UTC, spécialité Intelligence Artificielle & Data",
-  "bio": "Étudiant en dernière année à l'UTC, passionné par l'IA, la data science, l'innovation technologique, la gestion de projets et le leadership.",
-  "about": "Je combine une solide formation en ingénierie informatique à l'UTC avec une forte implication dans des projets techniques et associatifs, couvrant la gestion de projets, le développement IA/data, la recherche et l'encadrement d'équipes.",
+  "title": "Ingénieur IA & Data · Stage de fin d'études · Février 2027",
+  "bio": "Étudiant ingénieur en informatique (UTC), orienté Data/IA, avec expérience en agents IA, pipelines data et graphes de connaissances. Habitué à livrer en production et à mesurer l'impact via des métriques métier et techniques.",
+  "about": "Étudiant ingénieur en informatique à l'UTC, orienté Data/IA, avec une expérience concrète en agents IA, pipelines data et graphes de connaissances. Habitué à livrer des systèmes prêts pour la production et à mesurer l'impact via des métriques métier et techniques. Je recherche un stage de fin d'études en ingénierie ML/LLM (ou ingénierie produit) à partir de février 2027.",
   "photo_path": "/images/1.png",
   "hero": {
     "tagline": "IA & Data pour créer de la valeur",
-    "subtitle": "Chef de projet à Junior UTC & futur ingénieur IA",
+    "subtitle": "AI Researcher chez Histia · Futur ingénieur ML/LLM",
     "highlights": [
-      "Pilotage d'équipes pluridisciplinaires",
-      "Construction de solutions data de bout en bout",
-      "Engagement associatif et transmission"
+      "Agents IA, pipelines data et graphes de connaissances",
+      "Systèmes LLM/RAG prêts pour la production",
+      "Impact mesurable via métriques métier et techniques"
     ],
     "quote": "Je suis convaincu que la technologie prend tout son sens lorsqu'elle sert l'humain et crée des opportunités concrètes.",
     "signature": "Rayan",
-    "availability": "Disponible pour un stage de fin d'études dès septembre 2025."
+    "availability": "Recherche un stage de fin d'études en ingénierie ML/LLM à partir de février 2027 (24 à 26 semaines)."
   },
   "skills": [
   {
-    "category": "Langages de programmation",
+    "category": "Data / ML",
     "technologies": [
-      "Python",
-      "C",
-      "C++",
-      "HTML",
-      "CSS",
-      "PHP",
-      "SQL",
-      "R",
-      "Lisp",
-      "OCaml"
-    ],
-    "description": "Maîtrise des principaux langages pour le développement web, la programmation scientifique et l’analyse de données. Solide base algorithmique et approche orientée performance."
-  },
-  {
-    "category": "Intelligence Artificielle & Data Science",
-    "technologies": [
-      "AI Agents",
-      "Model Context Protocol (MCP)",
       "Pandas",
       "NumPy",
       "scikit-learn",
       "TensorFlow",
-      "Power BI",
-      "Azure",
-      "AWS",
-      "PostgreSQL",
-      "Linux"
+      "Séries temporelles",
+      "Ingénierie de variables",
+      "MLflow",
+      "Évaluation de modèles"
     ],
-    "description": "Compétences avancées en machine learning, manipulation et visualisation de données. Expérience sur le cloud et la mise en production de solutions IA/Data."
+    "description": "Compétences avancées en machine learning, manipulation et visualisation de données. Expérience en feature engineering, time series et mise en production de modèles avec MLflow."
   },
   {
-    "category": "Cloud, Outils & Infrastructure",
+    "category": "Software / Infra",
     "technologies": [
+      "Python",
+      "SQL",
+      "PostgreSQL",
       "Docker",
-      "Git",
-      "Cursor",
-      "N8N",
-      "CI/CD",
-      "Notion"
-        ],
-    "description": "Utilisation d’outils modernes pour le versioning, l’automatisation et le déploiement d’applications. Connaissance des environnements Linux et des pratiques DevOps."
+      "Linux",
+      "ETL",
+      "Claude Code",
+      "Cursor"
+    ],
+    "description": "Maîtrise des outils de développement et d’infrastructure pour livrer des systèmes robustes et scalables en production."
+  },
+  {
+    "category": "LLM / RAG",
+    "technologies": [
+      "LangChain",
+      "LangGraph",
+      "ChromaDB",
+      "Knowledge Graphs (FalkorDB)",
+      "PydanticAI",
+      "MCP",
+      "Récupération hybride",
+      "Reranking",
+      "Vérification de citations",
+      "Garde-fous"
+    ],
+    "description": "Expertise en systèmes LLM/RAG : agents IA modulaires, graphes de connaissances, récupération hybride et évaluation (faithfulness, context precision, answer relevancy)."
   },
   {
     "category": "Gestion de projets",
     "technologies": [
       "Agile",
       "Scrum",
+      "Analyse de risques",
+      "Planification",
+      "Reporting",
+      "Communication client",
       "PBS",
       "WBS",
-      "PDP",
-      "OBS",
-      "Gantt",
-      "Business Plan"
+      "Gantt"
     ],
-    "description": "Gestion de projets techniques complexes avec planification, suivi et pilotage d’équipe. Mise en œuvre de méthodes Agiles et d’outils de planification (PBS, WBS, Gantt)."
+    "description": "Gestion de projets techniques complexes avec planification, suivi et pilotage d’équipe. Mise en œuvre de méthodes Agiles et d’outils de planification."
   }
 ],
 
@@ -192,30 +192,55 @@
       "photo_path": "/images/projects/placeholder.svg"
     },
     {
-      "id": "pokemon-rag",
-      "title": "RAG sur Pokémon",
+      "id": "prediction-wallet",
+      "title": "Prediction Wallet — Agent IA de rebalancing de portefeuille",
       "description": [
-        "Système de RAG spécialisé sur l'univers Pokémon, combinant données structurées issues de PokéAPI et contenus textuels de Poképédia, avec une interface Streamlit interactive."
+        "Agent IA autonome de rebalancing de portefeuille utilisant LangGraph et Claude/Gemini, capable de surveiller les écarts d'allocation, d'analyser l'état du marché et de déclencher des actions de rééquilibrage."
       ],
       "details": [
-        "Collecte hybride : fusion de données textuelles et structurées, avec nettoyage, filtrage et indexation pour optimiser la pertinence et la performance.",
-        "Architecture orientée objet : encapsulation complète du système dans une classe RAGSystem, respectant les principes SOLID.",
-        "Base vectorielle avec ChromaDB : vectorisation des documents, gestion des modes de réponse (normal vs engagé) et nettoyage automatique des ressources.",
-        "Interface Streamlit : système interactif avec réglage de la température, affichage des passages utilisés, détection des hallucinations et outil d'évaluation intégré.",
-        "Évaluation fine : mesures RAGAS et internes (faithfulness, context precision, relevancy...), comparaison des modes, et pistes d'amélioration identifiées (hybrid search, enrichissement du corpus, tuning des prompts)."
+        "Implémentation de stratégies threshold et calendar, simulation d'exécution avec slippage, contrôles de risque (kill switch sur drawdown) et persistance locale des données de marché et du portefeuille (SQLite/JSON).",
+        "Architecture orientée agents avec LangGraph : orchestration des flux de décision, gestion de l'état et chaînes d'analyse multi-étapes."
       ],
       "technologies": [
         "Python",
-        "Retrieval-Augmented Generation (RAG)",
-        "ChromaDB",
+        "LangGraph",
+        "Claude",
+        "Gemini",
+        "yfinance",
+        "SQLite",
         "Streamlit",
-        "Google Gemini",
-        "LLM"
+        "ReportLab"
       ],
       "photos": [],
-      "video": "https://www.youtube.com/watch?v=example4",
+      "location": "Personnel",
+      "period": "Depuis janvier 2025",
+      "photo_path": "/images/projects/placeholder.svg",
+      "featured": true
+    },
+    {
+      "id": "pokemon-rag",
+      "title": "RAG Pokémon — Système de QA avec récupération enrichie",
+      "description": [
+        "Système de questions-réponses RAG sur l'univers Pokémon, combinant PokeAPI, Poképédia, Gemini et ChromaDB pour traiter des requêtes factuelles, descriptives et comparatives."
+      ],
+      "details": [
+        "Enrichissement des documents avec des métadonnées métier (types, statut légendaire/mythique, habitat, couleur) pour améliorer la précision de la récupération.",
+        "Pipeline d'évaluation avec faithfulness, answer relevancy, context precision et context recall (RAGAS).",
+        "Interface Streamlit interactive avec réglage de température, affichage des passages sources et détection des hallucinations."
+      ],
+      "technologies": [
+        "Python",
+        "LangChain",
+        "Gemini 2.0 Flash",
+        "Google Embeddings",
+        "ChromaDB",
+        "Streamlit",
+        "Web Scraping",
+        "Évaluation RAG"
+      ],
+      "photos": [],
       "location": "UTC",
-      "period": "2024",
+      "period": "Avril – Juin 2025",
       "photo_path": "/images/projects/placeholder.svg",
       "featured": true
     },
@@ -257,64 +282,40 @@
         { "title": "AI Researcher", "type": "Stage", "period": "sept. 2025 - févr. 2026 · 6 mois", "remote": false }
       ],
       "description": [
-        "Développement d’agents IA pour une plateforme d’intelligence startup/entreprise, en m’appuyant sur Python, PydanticAI, MCP, TypeScript, Prisma et LiteLLM.",
-        "Conception d’un système de graphe de connaissances pour structurer des données hétérogènes et générer des mémos d’investissement longs exploitant des dizaines de sources pour une même startup.",
-        "Optimisation de la génération de mémos IA avec plusieurs niveaux d’analyse.",
-        "Développement d’agents IA de collecte de données sur des sites web dynamiques et de modules d’exploitation de documents INPI.",
-        "Création d’un outil interne d’automatisation centralisant plusieurs processus métier, permettant un gain de plusieurs dizaines d’heures sur des tâches répétitives à faible valeur ajoutée."
+        "Accélération de la qualification de dossiers : développement d’agents IA modulaires (PydanticAI + MCP) pour structurer des centaines de documents dans un graphe de connaissances FalkorDB.",
+        "Construction d’un pipeline INPI de bout en bout (ingestion, structuration, exploitation) avec monitoring, mécanismes de retry et gestion robuste des enregistrements incomplets — outil interne adopté par tous les collaborateurs, +90% de précision d’extraction.",
+        "Impact produit : accélération de la production de mémos d’analyse et réduction du temps passé par dossier pour les équipes d’analystes et opérations."
       ],
       "technologies": [
         "Python",
         "PydanticAI",
-        "Model Context Protocol (MCP)",
-        "TypeScript",
-        "Prisma",
-        "LiteLLM",
-        "Knowledge Graph",
-        "Web Scraping",
-        "Agents IA"
+        "MCP",
+        "FalkorDB",
+        "ETL",
+        "Gemini",
+        "Docker",
+        "TypeScript"
       ],
       "featured": true,
       "photo_path": "/images/histia_app_logo.jpg"
     },
     {
-      "title": "Chef de Projet",
+      "title": "Chargé d'affaires et Chargé des Ressources Humaines",
       "company": "Junior UTC",
       "location": "Compiègne, France",
-      "period": "Janvier 2025 - Septembre 2025",
+      "period": "Juin 2024 – Septembre 2025",
       "description": [
-        "Encadrement du projet du premier contact client au rendu du livrable final.",
-        "Supervision des projets clients, coordination des équipes et rédaction des documents contractuels."
+        "Piloté 4 projets clients de bout en bout (cadrage, planning, gestion des risques, suivi d'exécution), avec 100% de livraisons à l'heure et 100% de satisfaction client.",
+        "Structuré la gouvernance et la contractualisation via 18 documents contractuels, assurant la conformité des procédures et 0 litige ; contribution RH via 22 entretiens pour le staffing des missions."
       ],
       "technologies": [
         "Gestion de projet",
-        "Management",
-        "Coordination d'équipe",
-        "Rédaction contractuelle"
+        "Analyse de risques",
+        "Planification",
+        "Reporting",
+        "Communication client"
       ],
-      "photo_path": "/images/jutc_logo.jpg",
-      "image_path": "/images/experience/junior-utc-chef-projet.svg",
-      "image_caption": "Encadrement de l'équipe projet et animation des ateliers clients chez Junior UTC."
-    },
-    {
-      "title": "Chargé des Ressources Humaines",
-      "company": "Junior UTC",
-      "location": "Compiègne, France",
-      "period": "Juin 2024 – Janvier 2025",
-      "description": [
-        "Gestion du recrutement et de l'intégration des nouveaux membres.",
-        "Organisation des formations et suivi du développement de 32 membres.",
-        "Animation de la cohésion interne via 11 événements."
-      ],
-      "technologies": [
-        "Recrutement",
-        "Formation",
-        "Communication interne",
-        "Organisation d'événements"
-      ],
-      "photo_path": "/images/jutc_logo.jpg",
-      "image_path": "/images/experience/junior-utc-rh.svg",
-      "image_caption": "Séance de formation des nouveaux membres de la Junior-Entreprise."
+      "photo_path": "/images/jutc_logo.jpg"
     },
     {
       "title": "Opérateur de Conditionnement (stage ouvrier)",
@@ -342,8 +343,9 @@
       "location": "Compiègne",
       "period": "Depuis Février 2023",
       "description": [
-        "Branche Informatique (filière Intelligence Artificielle et sciences des données).",
-        "Projets menés en apprentissage automatique, visualisation de données et innovation numérique."
+        "Branche Informatique, filière prévue Intelligence Artificielle et sciences des données.",
+        "Cours pertinents : Statistiques, Intelligence Artificielle, Algorithmique, Structures de données, Bases de données.",
+        "Projets en apprentissage automatique, visualisation de données et innovation numérique."
       ],
       "photo_path": "/images/utc.png",
       "featured": true
@@ -412,14 +414,14 @@
     "Trail",
     "Tennis",
     "Football",
-    "Musique",
-    "Jeux vidéo"
+    "Musique"
   ],
   "contact": {
     "email": "rayan.barre@icloud.com",
     "linkedin": "https://www.linkedin.com/in/rayan-barreddine/",
     "github": "https://github.com/RaaaayN",
-    "phone": "+33 7 82 59 80 57"
+    "phone": "+33 7 82 59 80 57",
+    "location": "Paris, France"
   },
   "cv_path": "/cv/CV_Rayan_Barreddine.pdf",
   "stats": {

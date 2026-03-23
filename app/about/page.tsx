@@ -18,15 +18,6 @@ import {
   Brain,
   Database,
   Globe,
-  Award,
-  Users,
-  Briefcase,
-  GraduationCap,
-  Calendar,
-  MapPin,
-  Star,
-  Target,
-  Zap,
   Bot,
   Kanban,
 } from "lucide-react";
@@ -49,7 +40,6 @@ export default function AboutPage() {
         web: "Développement Web",
       },
       aboutTitle: "À propos de moi",
-      experienceTitle: "Mon expérience en chiffres",
       educationTitle: "Ma formation",
       careerTitle: "Mon parcours professionnel",
       skillsTitle: "Mes compétences techniques",
@@ -77,28 +67,6 @@ export default function AboutPage() {
         email: "Envoyer un email",
         chat: "Chat IA",
       },
-      stats: {
-        experience: {
-          title: "Années d'expérience",
-          value: "3+",
-          description: "En gestion d'équipe et projets",
-        },
-        team: {
-          title: "Équipe dirigée",
-          value: "15",
-          description: "Personnes en Junior-Entreprise",
-        },
-        projects: {
-          title: "Projets clients",
-          value: "10+",
-          description: "Réalisés avec succès",
-        },
-        trainings: {
-          title: "Formations données",
-          value: "20+",
-          description: "Sessions d'encadrement",
-        },
-      },
     },
     en: {
       badges: {
@@ -107,7 +75,6 @@ export default function AboutPage() {
         web: "Web development",
       },
       aboutTitle: "About me",
-      experienceTitle: "Experience in numbers",
       educationTitle: "Education",
       careerTitle: "Professional journey",
       skillsTitle: "Technical skills",
@@ -135,49 +102,8 @@ export default function AboutPage() {
         email: "Send an email",
         chat: "AI Chat",
       },
-      stats: {
-        experience: {
-          title: "Years of experience",
-          value: "3+",
-          description: "In team and project management",
-        },
-        team: {
-          title: "Team led",
-          value: "15",
-          description: "People at the Junior-Enterprise",
-        },
-        projects: {
-          title: "Client projects",
-          value: "10+",
-          description: "Successfully delivered",
-        },
-        trainings: {
-          title: "Training sessions",
-          value: "20+",
-          description: "Coaching and mentoring",
-        },
-      },
     },
   }[language];
-
-  const experienceStats = [
-    {
-      ...texts.stats.experience,
-      icon: <Calendar className="w-6 h-6" />,
-    },
-    {
-      ...texts.stats.team,
-      icon: <Users className="w-6 h-6" />,
-    },
-    {
-      ...texts.stats.projects,
-      icon: <Briefcase className="w-6 h-6" />,
-    },
-    {
-      ...texts.stats.trainings,
-      icon: <Award className="w-6 h-6" />,
-    },
-  ];
 
   const heroBadges = [
     {
@@ -250,36 +176,7 @@ export default function AboutPage() {
           </motion.div>
         </section>
 
-        {/* 2. Expérience en chiffres */}
-        <section className="mb-16">
-          <motion.div {...fadeUp}>
-            <SectionTitle title={texts.experienceTitle} />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {experienceStats.map((stat, index) => (
-                <Card key={index} hover className="text-center">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="w-12 h-12 bg-violet-500/20 rounded-full flex items-center justify-center">
-                      <div className="text-accent-light">
-                        {stat.icon}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-3xl font-display font-bold text-white mb-2 font-mono">
-                    {stat.value}
-                  </div>
-                  <div className="text-lg font-semibold text-slate-300 mb-1">
-                    {stat.title}
-                  </div>
-                  <div className="text-slate-500 text-sm">
-                    {stat.description}
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </motion.div>
-        </section>
-
-        {/* 3. Formation */}
+        {/* 2. Formation */}
         <section className="mb-16">
           <motion.div {...fadeUp}>
             <SectionTitle title={texts.educationTitle} />

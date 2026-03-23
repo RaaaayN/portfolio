@@ -76,6 +76,7 @@ export interface UserProfile {
     linkedin: string;
     github: string;
     phone: string;
+    location?: string;
   };
   cv_path: string;
   location: string;
