@@ -6,9 +6,9 @@ export const geminiConfig = {
   apiKey: process.env.GEMINI_API_KEY || 'your_gemini_api_key_here',
 
   // Modèle principal (avec fallback automatique si quota dépassé)
-  model: 'gemini-2.5-flash-lite',
+  model: 'gemini-3.1-flash-lite',
   // Modèles de secours essayés dans l'ordre si le principal est en 429
-  fallbackModels: ['gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-1.5-flash-8b'],
+  fallbackModels: ['gemini-2.5-flash-lite', 'gemini-2.0-flash'],
   
   // Configuration de génération
   generationConfig: {

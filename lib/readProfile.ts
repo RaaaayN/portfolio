@@ -79,7 +79,7 @@ export interface UserProfile {
     location?: string;
   };
   cv_path: string;
-  location: string;
+  location?: string;
   stats: {
     experience_years: number;
     people_led: number;
